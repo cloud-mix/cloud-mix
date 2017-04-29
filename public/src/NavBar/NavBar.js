@@ -4,13 +4,21 @@ import LoggedoutView from './LoggedoutView.js';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import UsersSongsList from '../UsersSongsList/UsersSongsList';
 
-const NavBar = (props) => (
-  <div>
-    <div>Rendered</div>
-    <p>Main NavBar component</p>
-    <LoggedinView />
-    <LoggedoutView />
-  </div>
-);
+
+const NavBar = (props) => {
+  console.log(props.isLoggedIn);
+  return props.isLoggedIn === false ?
+    (
+      <div>
+        <LoggedoutView />
+      </div>
+    ) :
+    (
+      <div>
+        <LoggedinView />
+      </div>
+    )
+  }
+}
 
 export default NavBar;

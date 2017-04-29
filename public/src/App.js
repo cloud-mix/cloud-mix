@@ -21,7 +21,7 @@ class App extends Component {
         <Grid>
           <Row xs={12} md={0} mdPull={0}>
             <Col>
-              <NavBar />
+              <NavBar isLoggedIn={this.state.isLoggedIn}/>
             </Col>
           </Row>
           <Row xs={8} md={2} mdPull={2}>
