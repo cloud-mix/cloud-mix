@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Smooth Breeze",
+    "genre": "jazz",
+    "contributorLimit": 4,
+    "contributorCount": 1,
+    "contributorsData": [
+                          {
+                            "username": "Alex Carver",
+                            "facebookId": "1e3Fkgna5"
+                          }
+                        ],
+    "song": "https://s3-us-west-1.amazonaws.com/hr-mytunes/data/04+One+In+A+Million.mp3",
+    "userId": "1e3Fkgna5"
+  },
+  {
+    "title": "pain?",
+    "genre": "metal",
+    "contributorLimit": 6,
+    "contributorCount": 2,
+    "contributorsData": [
+                          {
+                            "username": "Alex Carver",
+                            "facebookId": "1e3Fkgna5"
+                          },
+                          {
+                            "username": "David de Sousa",
+                            "facebookId": "1w3Dkgna4"
+                          }
+                        ],
+    "song": "https://s3-us-west-1.amazonaws.com/hr-mytunes/data/04+One+In+A+Million.mp3",
+    "userId": "1w3Dkgna4"
+  }
+]
