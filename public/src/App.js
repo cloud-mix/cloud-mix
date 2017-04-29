@@ -8,7 +8,7 @@ class App extends Component {
     super();
 
     this.state = {
-
+      isLoggedIn: false
     };
   }
 
@@ -17,7 +17,7 @@ class App extends Component {
   render(){
     return(
       <div>
-        <NavBar />
+        <NavBar isLoggedIn={this.state.isLoggedIn} />
         <p>In The App Component</p>
         <SongList />
         <JamView />
