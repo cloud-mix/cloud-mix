@@ -10,15 +10,14 @@ const NavBar = (props) => {
   return props.isLoggedIn === false ?
     (
       <div>
-        <LoggedoutView />
+        <LoggedoutView handleOauthLogin={props.handleOauthLogin}/>
       </div>
     ) :
     (
       <div>
-        <LoggedinView />
+        <LoggedinView handleOauthLogout={props.handleOauthLogout}/>
       </div>
-    )
-  }
-}
+    );
+};
 
 export default NavBar;

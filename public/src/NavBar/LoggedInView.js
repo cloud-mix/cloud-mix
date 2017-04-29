@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown, MenuItem, NavItem } from "react-bootstrap";
 
-const LoggedinView = () => (
+const LoggedinView = (props) => (
   <div>
     <Navbar collapseOnSelect>
       <Navbar.Header>
@@ -12,7 +12,7 @@ const LoggedinView = () => (
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav pullRight>
-          <div className="oauthbtn"><a href="/">Logout</a></div>
+          <div className="oauthbtn"><a href="/" onClick={(e) => props.handleOauthLogout()}>Logout</a></div>
         </Nav>
       </Navbar.Collapse>
     </Navbar>;
