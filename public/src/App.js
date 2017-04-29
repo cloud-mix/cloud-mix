@@ -17,8 +17,8 @@ class App extends Component {
   render(){
     return(
       <div>
-        <p>In The App Component</p>
         <NavBar />
+        <p>In The App Component</p>
         <SongList />
         <JamView />
       </div>

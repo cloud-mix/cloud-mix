@@ -4,10 +4,8 @@ import LoggedoutView from './LoggedoutView.js';
 
 const NavBar = () => (
   <div>
-    <div>Rendered</div>
-    <p>Main NavBar component</p>
     <LoggedinView />
-    <LoggedoutView />
+    {/*<LoggedoutView />*/}
   </div>
 );
 
