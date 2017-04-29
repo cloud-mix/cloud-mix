@@ -2,4 +2,8 @@ node_modules
 
 .env
 
+<<<<<<< HEAD
 public/bundle
+=======
+public/bundle
+>>>>>>> e61f669e2c5e21a3a1312edf8e98448c9244e7a6
