@@ -5,64 +5,125 @@ import JamView from './Jam/JamView';
 import { Grid, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 
-class App extends Component {
-  constructor(){
-    super();
 
+class App extends Component {
+  constructor(props){
+    super(props);
     this.state = {
       isLoggedIn: false,
       currentUser: '',
+      loginUrl: '',
+      signupUsernameInput: '',
+      signupUserCredentials: '',
+      loginUsernameInput: '',
+      loginUserCredentials: ''
     };
 
-    this.handleOAuthLogin = this.handleOAuthLogin.bind(this);
-    this.handleOauthLogout = this.handleOAuthLogout.bind(this);
+    this.signupUser = this.signupUser.bind(this);
+    this.loginUser = this.loginUser.bind(this);
   }
 
-
-
-
-
-  handleOAuthLogin(){
-    axios.get('/auth/facebook')
-      .then((user) => {
-        console.log(user);
-        debugger;
-        this.setState({
-          currentUser: user.username,
-          isLoggedIn: true
-        });
-      })
-      .catch((error) => {
-        console.log("Error logging in with Facebook Oauth: ", error);
+  loginUser(){
+    axios.get('/users/' + this.state.loginUsernameInput + '/' +  this.state.loginUserCredentials)
+    .then((user) => {
+      console.log(user);
+      this.setState({
+        currentUser: user.data.username,
+        isLoggedIn: true,
+        loginUserCredentials: ''
       });
+    })
+    .catch((error) => {
+      console.log("Error logging in: ", error);
+    });
   }
 
-
-  handleOAuthLogout(){
-    axios.get('/logout')
-      .then((status) => {
-        this.setState({
-          currentUser: '',
-          isLoggedIn: false
-        });
-        console.log("User Logged Out");
-      })
-      .catch((err) => {
-        console.log("Error logging user out, try again.", err);
+  signupUser(){
+    axios.post('/signup', {
+      username: this.state.signupUsernameInput,
+      password: this.state.signupUserCredentials
+    })
+    .then((user) => {
+      console.log(user, ' succesfully signed up!');
+      this.setState({
+        currentUser: user.data.username,
+        isLoggedIn: true,
+        signupUsernameInput: '',
+        signupUserCredentials: ''
       });
+    })
+    .catch((err) => {
+      console.log("Error signing up user because: ", err);
+    })
+  }
+
+  handleLoginClick(){
+    this.loginUser();
+  }
+
+  handleSignupClick(){
+    console.log(this.state.signupUserCredentials);
+    console.log(this.state.signupUsernameInput);
+    this.signupUser();
+  }
+
+  handleLogout(){
+    this.setState({
+      currentUser: '',
+      loginUsernameInput: '',
+      loginUserCredentials: '',
+      signupUsernameInput: '',
+      signupUserCredentials: '',
+      isLoggedIn: !this.state.isLoggedIn
+    });
+  }
+
+  loginUrl(){
+    this.setState({
+      loginUrl: 'users/' + this.state.loginUsernameInput + '/' + this.state.loginUserCredentials
+    })
+  }
+
+  handleUsernameInputLogin(loginUsername){
+    this.setState({
+      loginUsernameInput: loginUsername
+    });
+  }
+
+  handleUserCredentialsLogin(loginCredentials){
+    this.setState({
+      loginUserCredentials: loginCredentials
+    });
+  }
+
+  handleUsernameInputSignup(signupUsername){
+    this.setState({
+      signupUsernameInput: signupUsername
+    });
+  }
+
+  handleUserCredentialsSignup(signupCredentials){
+    this.setState({
+      signupUserCredentials: signupCredentials
+    });
   }
 
   render(){
-    console.log(this.state.isLoggedIn);
     return(
       <div>
         <Grid>
           <Row xs={12} md={0} mdPull={0}>
             <Col>
               <NavBar
-              handleOauthLogin={this.handleOAuthLogin}
-              handleOauthLogout={this.handleOAuthLogout}
               isLoggedIn={this.state.isLoggedIn}
+              logInUrl={this.state.logInUrl}
+              handleUsernameInputLogin={this.handleUsernameInputLogin.bind(this)}
+              handleUserCredentialsLogin={this.handleUserCredentialsLogin.bind(this)}
+              handleLoginClick={this.handleLoginClick.bind(this)}
+              handleUsernameInputSignup={this.handleUsernameInputSignup.bind(this)}
+              handleUserCredentialsSignup={this.handleUserCredentialsSignup.bind(this)}
+              handleSignupClick={this.handleSignupClick.bind(this)}
+              handleLogout={this.handleLogout.bind(this)}
               />
             </Col>
           </Row>

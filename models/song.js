@@ -1,28 +1,15 @@
-var mongoose = require('mongoose');
-var debug = require('debug')('app:models');
-var findOrCreate = require('mongoose-findorcreate');
-var User = require('./user');
+var Sequelize = require('sequelize');
+var db = require('../config/database');
+var Users = require('./user');
 
-var contributorSchema = new mongoose.Schema({
-  username: String,
-  facebookId: String,
-  googleId: String,
-  userId: String
+var Song = db.define('song', {
+  id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
+  title: Sequelize.TEXT,
+  genre: Sequelize.TEXT,
+  contributorLimit: Sequelize.TEXT,
+  contributorCount: Sequelize.TEXT,
+  songUrl: Sequelize.TEXT,
 });
-
-var songSchema = new mongoose.Schema({
-  title: String,
-  genre: String,
-  contributorLimit: Number,
-  contributorCount: Number,
-  contributorsData: [contributorSchema],
-  song: String,
-  userId: String,
-  created: { type: Date, default: Date.now()}
-});
-
-songSchema.plugin(findOrCreate);
-
-var Song = mongoose.model('Songs', songSchema);
 
 module.exports = Song;
+
