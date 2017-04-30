@@ -2,11 +2,13 @@
   
 <b>This app is a platform for online musicians, songwriters, and producers to come together and mash up a quick jam session to create a song communaly.</b>
 
-<div>Lead Developer: <a href="https://www.github.com/dsousadev">David Desousa</a>
+
+Lead Developer: <a href="https://www.github.com/dsousadev">David Desousa</a>
 
 Product Owner: <a href="https://www.github.com/Hugodol">Hugo Dolemieux</a>
 
-Scrum Master: <a href="alex1100.software">Alex Raffe Aleksanyan</a></div>
+Scrum Master: <a href="alex1100.software">Alex Raffe Aleksanyan</a>
+
 
 <b>Technologies</b>
 - Node.js
