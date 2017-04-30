@@ -15,17 +15,18 @@ class App extends Component {
     };
 
     this.handleOAuthLogin = this.handleOAuthLogin.bind(this);
-    this.handleOauthLogout = this.handleOauthLogout.bind(this);
+    this.handleOauthLogout = this.handleOAuthLogout.bind(this);
   }
 
 
 
 
 
-  handleOAuthLogin(e){
-    e.preventDefault();
-    axios.get('/auth/facebook/callback')
+  handleOAuthLogin(){
+    axios.get('/auth/facebook')
       .then((user) => {
+        console.log(user);
+        debugger;
         this.setState({
           currentUser: user.username,
           isLoggedIn: true
@@ -37,8 +38,7 @@ class App extends Component {
   }
 
 
-  handleOauthLogout(e){
-    e.preventDefault();
+  handleOAuthLogout(){
     axios.get('/logout')
       .then((status) => {
         this.setState({
@@ -60,8 +60,8 @@ class App extends Component {
           <Row xs={12} md={0} mdPull={0}>
             <Col>
               <NavBar
-              handleOauthLogin={this.handleOauthLogin}
-              handleOauthLogout={this.handleOauthLogout}
+              handleOauthLogin={this.handleOAuthLogin}
+              handleOauthLogout={this.handleOAuthLogout}
               isLoggedIn={this.state.isLoggedIn}
               />
             </Col>

@@ -14,7 +14,10 @@ const LoggedoutView = (props) => (
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav pullRight>
-          <div className="oauthbtn"><a href="/auth/facebook" target="_blank" onClick={(e) => props.handleOauthLogin()}>Login</a></div>
+          <div className="oauthbtn"><a href="/auth/facebook" onClick={() => {
+            console.log('props in click handler', props)
+            return props.handleOauthLogin()
+          }}>Login 2</a></div>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
