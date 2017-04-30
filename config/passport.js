@@ -48,6 +48,9 @@ passport.use(new FacebookStrategy({
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate({ facebookId: profile.id, username: profile.name.givenName + ' ' + profile.name.familyName, email: profile.emails[0].value }, function (err, user) {
       console.log(profile);
+      console.log('SUCCESSFULLY REACHED CALLBACK with user of: ', user);
+      console.log('SUCCESSFULLY REACHED CALLBACK with error of: ', err);
+
       return cb(err, user);
     });
   }

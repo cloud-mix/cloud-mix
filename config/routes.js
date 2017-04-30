@@ -27,10 +27,10 @@ function authenticate(req, res, next) {
 // FACEBOOK PASSPORT AUTHENTICATION
 function authenticate(req, res, next) {
   if(req.user) {
-    console.log(req);
+    // console.log(req);
     next();
   } else {
-    console.log(req);
+    // console.log(req);
     res.redirect('/auth/facebook');
   }
 };
@@ -48,9 +48,10 @@ router.get('/auth/facebook',
   passport.authenticate('facebook', { scope: ['public_profile', 'email', 'user_likes', 'publish_actions'] }));
 
 router.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/' }),
+  passport.authenticate('facebook', { failureRedirect: '/' }),
   function(req, res) {
     // Successful authentication, redirect home.
+    console.log('SUCESSSSSSSSS GO BACK HOME')
     res.redirect('/');
   });
 
