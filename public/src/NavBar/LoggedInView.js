@@ -12,10 +12,10 @@ const LoggedinView = (props) => (
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav pullRight>
-          <div className="oauthbtn"><a href="/logout" onClick={() => props.handleOauthLogout()}>Logout</a></div>
+          <div className="oauthbtn"><a href="/" onClick={() => props.handleLogout()}>Logout</a></div>
         </Nav>
       </Navbar.Collapse>
-    </Navbar>;
+    </Navbar>
   </div>
 );
 

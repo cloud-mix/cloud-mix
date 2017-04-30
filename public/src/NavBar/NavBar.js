@@ -6,16 +6,25 @@ import UsersSongsList from '../UsersSongsList/UsersSongsList';
 
 
 const NavBar = (props) => {
-  console.log(props.isLoggedIn);
   return props.isLoggedIn === false ?
     (
       <div>
-        <LoggedoutView handleOauthLogin={props.handleOauthLogin}/>
+        <LoggedoutView
+        handleLoginClick={props.handleLoginClick}
+        handleSignupClick={props.handleSignupClick}
+        handleUsernameInputLogin={props.handleUsernameInputLogin}
+        handleUserCredentialsLogin={props.handleUserCredentialsLogin}
+        handleUsernameInputSignup={props.handleUsernameInputSignup}
+        handleUserCredentialsSignup={props.handleUserCredentialsSignup}
+        logInUrl={props.logInUrl}
+        />
       </div>
     ) :
     (
       <div>
-        <LoggedinView handleOauthLogout={props.handleOauthLogout}/>
+        <LoggedinView
+        handleLogout={props.handleLogout}
+        />
       </div>
     );
 };
