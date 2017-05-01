@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import SongList from './SongList/SongList';
-import NavBar from './NavBar/NavBar';
-import JamView from './Jam/JamView';
-import { Grid, Row, Col } from 'react-bootstrap';
-import axios from 'axios';
-
+import React, { Component } from "react";
+import SongList from "./SongList/SongList";
+import NavBar from "./NavBar/NavBar";
+import JamView from "./Jam/JamView";
+import { Grid, Row, Col, Modal } from "react-bootstrap";
+import axios from "axios";
+import ModalView from "./ModalView";
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       isLoggedIn: false,
@@ -43,29 +43,26 @@ class App extends Component {
         isLoggedIn: true,
         loginUserCredentials: ''
       });
-    })
-    .catch((error) => {
-      console.log("Error logging in: ", error);
-    });
   }
 
-  signupUser(){
-    axios.post('/signup', {
-      username: this.state.signupUsernameInput,
-      password: this.state.signupUserCredentials
-    })
-    .then((user) => {
-      console.log(user, ' succesfully signed up!');
-      this.setState({
-        currentUser: user.data.username,
-        isLoggedIn: true,
-        signupUsernameInput: '',
-        signupUserCredentials: ''
+  signupUser() {
+    axios
+      .post("/signup", {
+        username: this.state.signupUsernameInput,
+        password: this.state.signupUserCredentials
+      })
+      .then(user => {
+        console.log(user, " succesfully signed up!");
+        this.setState({
+          currentUser: user.data.username,
+          isLoggedIn: true,
+          signupUsernameInput: "",
+          signupUserCredentials: ""
+        });
+      })
+      .catch(err => {
+        console.log("Error signing up user because: ", err);
       });
-    })
-    .catch((err) => {
-      console.log("Error signing up user because: ", err);
-    })
   }
 
   handleLoginClick(){
@@ -82,47 +79,50 @@ class App extends Component {
     }
   }
 
-  handleLogout(){
+  handleLogout() {
     this.setState({
-      currentUser: '',
-      loginUsernameInput: '',
-      loginUserCredentials: '',
-      signupUsernameInput: '',
-      signupUserCredentials: '',
+      currentUser: "",
+      loginUsernameInput: "",
+      loginUserCredentials: "",
+      signupUsernameInput: "",
+      signupUserCredentials: "",
       isLoggedIn: !this.state.isLoggedIn
     });
   }
 
-  loginUrl(){
+  loginUrl() {
     this.setState({
-      loginUrl: 'users/' + this.state.loginUsernameInput + '/' + this.state.loginUserCredentials
-    })
+      loginUrl: "users/" +
+        this.state.loginUsernameInput +
+        "/" +
+        this.state.loginUserCredentials
+    });
   }
 
-  handleUsernameInputLogin(loginUsername){
+  handleUsernameInputLogin(loginUsername) {
     this.setState({
       loginUsernameInput: loginUsername
     });
   }
 
-  handleUserCredentialsLogin(loginCredentials){
+  handleUserCredentialsLogin(loginCredentials) {
     this.setState({
       loginUserCredentials: loginCredentials
     });
+    console.log(this.state.loginUserCredentials);
   }
 
-  handleUsernameInputSignup(signupUsername){
+  handleUsernameInputSignup(signupUsername) {
     this.setState({
       signupUsernameInput: signupUsername
     });
   }
 
-  handleUserCredentialsSignup(signupCredentials){
+  handleUserCredentialsSignup(signupCredentials) {
     this.setState({
       signupUserCredentials: signupCredentials
     });
   }
-
 
   handleSongCreateTitleInput(title){
     this.setState({
@@ -200,6 +200,5 @@ class App extends Component {
     );
   }
 };
-
 
 export default App;
