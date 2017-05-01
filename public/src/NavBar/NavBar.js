@@ -8,7 +8,6 @@ import UsersSongsList from '../UsersSongsList/UsersSongsList';
 const NavBar = (props) => {
   return props.isLoggedIn === false ?
     (
-      <div>
         <LoggedoutView
         handleLoginClick={props.handleLoginClick}
         handleSignupClick={props.handleSignupClick}
@@ -18,14 +17,12 @@ const NavBar = (props) => {
         handleUserCredentialsSignup={props.handleUserCredentialsSignup}
         logInUrl={props.logInUrl}
         />
-      </div>
+
     ) :
     (
-      <div>
         <LoggedinView
         handleLogout={props.handleLogout}
         />
-      </div>
     );
 };
 

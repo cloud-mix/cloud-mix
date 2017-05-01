@@ -1,6 +1,6 @@
 // var mongoose = require('mongoose');
-// require('dotenv').config();
-// require('dotenv').load();
+require('dotenv').config();
+require('dotenv').load();
 // var env = require('./environment');
 
 // // Use different database URIs based on whether an env var exists.
@@ -25,6 +25,7 @@
 // module.exports = mongoose;
 
 
+
 var Sequelize = require('sequelize');
 let db = null;
 
@@ -32,7 +33,7 @@ if(process.env.DATABASE_URL){
   db = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres'
   });
-  console.log('Connected to db');
+  console.log('Connected to remote db');
 } else {
   db = new Sequelize('cloud_mix', 'root', '', {
     host: 'localhost',
