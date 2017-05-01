@@ -11,35 +11,37 @@ class App extends Component {
     super(props);
     this.state = {
       isLoggedIn: false,
-      currentUser: "",
-      loginUrl: "",
-      signupUsernameInput: "",
-      signupUserCredentials: "",
-      loginUsernameInput: "",
-      loginUserCredentials: ""
+      currentUser: '',
+      loginUrl: '',
+      signupUsernameInput: '',
+      signupUserCredentials: '',
+      loginUsernameInput: '',
+      loginUserCredentials: '',
+      allSongs: [],
+      songCreateTitle: '',
+      songCreateGenre: '',
+      songCreateContributorLimit: '',
+      userWouldLikeToCreateSong: false
     };
 
     this.signupUser = this.signupUser.bind(this);
     this.loginUser = this.loginUser.bind(this);
+    // this.createSong = this.createSong.bind(this);
   }
-  loginUser() {
-    axios
-      .get(
-        "/users/" +
-          this.state.loginUsernameInput +
-          "/" +
-          this.state.loginUserCredentials
-      )
-      .then(user => {
-        console.log(user);
-        this.setState({
-          currentUser: user.data.username,
-          isLoggedIn: true,
-          loginUserCredentials: ""
-        });
-      })
-      .catch(error => {
-        console.log("Error logging in: ", error);
+
+
+  // createSong(){
+
+  // }
+
+  loginUser(){
+    axios.get('/users/' + this.state.loginUsernameInput + '/' +  this.state.loginUserCredentials)
+    .then((user) => {
+      console.log(user);
+      this.setState({
+        currentUser: user.data.username,
+        isLoggedIn: true,
+        loginUserCredentials: ''
       });
   }
 
@@ -63,14 +65,18 @@ class App extends Component {
       });
   }
 
-  handleLoginClick() {
-    this.loginUser();
+  handleLoginClick(){
+    if(this.state.loginUsernameInput.length > 6 && this.state.loginUserCredentials.length > 6){
+      this.loginUser();
+    }
   }
 
-  handleSignupClick() {
-    console.log(this.state.signupUserCredentials);
-    console.log(this.state.signupUsernameInput);
-    this.signupUser();
+  handleSignupClick(){
+    if(this.state.signupUsernameInput.length > 6 && this.state.signupUserCredentials.length > 6){
+      console.log(this.state.signupUserCredentials);
+      console.log(this.state.signupUsernameInput);
+      this.signupUser();
+    }
   }
 
   handleLogout() {
@@ -118,44 +124,81 @@ class App extends Component {
     });
   }
 
-  render() {
-      return (
-        <div>
-          <Grid>
-            <Row xs={12} md={0} mdPull={0}>
-              <Col>
-                <NavBar
-                  isLoggedIn={this.state.isLoggedIn}
-                  logInUrl={this.state.logInUrl}
-                  handleUsernameInputLogin={this.handleUsernameInputLogin.bind(
-                    this
-                  )}
-                  handleUserCredentialsLogin={this.handleUserCredentialsLogin.bind(
-                    this
-                  )}
-                  handleLoginClick={this.handleLoginClick.bind(this)}
-                  handleUsernameInputSignup={this.handleUsernameInputSignup.bind(
-                    this
-                  )}
-                  handleUserCredentialsSignup={this.handleUserCredentialsSignup.bind(
-                    this
-                  )}
-                  handleSignupClick={this.handleSignupClick.bind(this)}
-                  handleLogout={this.handleLogout.bind(this)}
-                  handleModalOpen={this.handleModalOpen.bind(this)}
-                />
-              </Col>
-            </Row>
-            <Row xs={8} md={2} mdPull={2}>
-              <Col>
-                <SongList />
-                <JamView />
-              </Col>
-            </Row>
-          </Grid>
-        </div>
-      );
-    }
-}
+  handleSongCreateTitleInput(title){
+    this.setState({
+      songCreateTitle: title
+    });
+  }
+
+  handleSongCreateGenreInput(genre){
+    this.setState({
+      songCreateGenre: genre
+    });
+  }
+
+  handleSongCreateContributorLimit(limit){
+    this.setState({
+      songCreateContributorLimit: limit
+    });
+  }
+
+  handleSongCreateClick(e){
+    e.preventDefault();
+    this.setState({
+      userWouldLikeToCreateSong: true
+    })
+  }
+
+  handleCancelSongCreateClick(){
+    console.log(this.state.userWouldLikeToCreateSong);
+    this.setState({
+      userWouldLikeToCreateSong: false
+    });
+    console.log(this.state.userWouldLikeToCreateSong);
+  }
+
+  handleSongSubmitClick(){
+    this.createSong();
+  }
+
+  render(){
+    console.log(this.state.songCreateGenre);
+    console.log(this.state.songCreateTitle);
+    console.log(this.state.songCreateContributorLimit);
+    return(
+      <div>
+        <Grid>
+          <Row xs={12} md={0} mdPull={0}>
+            <Col>
+              <NavBar
+              isLoggedIn={this.state.isLoggedIn}
+              logInUrl={this.state.logInUrl}
+              handleUsernameInputLogin={this.handleUsernameInputLogin.bind(this)}
+              handleUserCredentialsLogin={this.handleUserCredentialsLogin.bind(this)}
+              handleLoginClick={this.handleLoginClick.bind(this)}
+              handleUsernameInputSignup={this.handleUsernameInputSignup.bind(this)}
+              handleUserCredentialsSignup={this.handleUserCredentialsSignup.bind(this)}
+              handleSignupClick={this.handleSignupClick.bind(this)}
+              handleLogout={this.handleLogout.bind(this)}
+              handleSongCreateClick={this.handleSongCreateClick.bind(this)}
+              />
+            </Col>
+          </Row>
+          <Row xs={8} md={2} mdPull={2}>
+            <Col>
+              <SongList />
+              <JamView
+              userWouldLikeToCreateSong={this.state.userWouldLikeToCreateSong}
+              handleSongCreateTitleInput={this.handleSongCreateTitleInput.bind(this)}
+              handleSongCreateGenreInput={this.handleSongCreateGenreInput.bind(this)}
+              handleSongCreateContributorLimit={this.handleSongCreateContributorLimit.bind(this)}
+              />
+            </Col>
+          </Row>
+        </Grid>
+      </div>
+    );
+  }
+};
 
 export default App;

@@ -5,8 +5,8 @@ var Contributors = require('./contributor');
 
 var User = db.define('user', {
   id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
-  username: Sequelize.STRING,
-  password: Sequelize.STRING
+  username: {type:Sequelize.STRING, allowNull: false},
+  password: {type:Sequelize.STRING, allowNull: false}
 });
 
 User.hasMany(Songs);
