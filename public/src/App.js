@@ -58,13 +58,17 @@ class App extends Component {
   }
 
   handleLoginClick(){
-    this.loginUser();
+    if(this.state.loginUsernameInput.length > 6 && this.state.loginUserCredentials.length > 6){
+      this.loginUser();
+    }
   }
 
   handleSignupClick(){
-    console.log(this.state.signupUserCredentials);
-    console.log(this.state.signupUsernameInput);
-    this.signupUser();
+    if(this.state.signupUsernameInput.length > 6 && this.state.signupUserCredentials.length > 6){
+      console.log(this.state.signupUserCredentials);
+      console.log(this.state.signupUsernameInput);
+      this.signupUser();
+    }
   }
 
   handleLogout(){

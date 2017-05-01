@@ -11,14 +11,10 @@ require('dotenv').config();
 require('dotenv').load();
 
 // Load local libraries.
-var env      = require('./config/environment');
 var routes   = require('./config/routes');
 
 // Instantiate a server application.
 var app = express();
-
-app.set('title', env.TITLE);
-app.set('safe-title', env.SAFE_TITLE);
 
 // Helper layer (parses the requests, and adds further data).
 app.use(bodyParser.json());
@@ -55,17 +51,6 @@ app.use(function(req, res, next) {
  var err = new Error('Not Found');
  err.status = 404;
  next(err);
-});
-
-// Error-handling layer.
-app.use(function(err, req, res, next) {
- // In development, the error handler will print stacktrace.
- err = (app.get('env') === 'development') ? err : {};
- res.status(err.status || 500);
- res.render('error', {
-   message: err.message,
-   error: err
- });
 });
 
 function debugReq(req, res, next) {
