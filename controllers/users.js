@@ -29,24 +29,23 @@ var signUp = function(req, res){
 
 
 var login = function(req, res){
-  console.log("Checking the password from params from react: ", req.params.password);
-  console.log("Checking the username from the params from react", req.params.username);
-  bcrypt.genSalt(saltRounds, function(err, salt){
-    bcrypt.hash(req.params.password, salt, function(err, hash){
-      User.findOne({where: {username: req.params.username }}).then((user) => {
-        if(user){
-          bcrypt.compare(req.params.password, hash, function(err, data){
-            console.log("User Logged In");
-            res.status(200).send(user);
-          });
+  User.findOne({where: {username: req.params.username }}).then((user) => {
+    if(user){
+      bcrypt.compare(req.params.password, user.password, function(err, data){
+        if(data){
+          console.log("User Logged In");
+          res.status(200).send(user);
         } else {
           console.log('Invalid Login Credentials');
           res.status(404).send(err);
         }
       });
-    });
+    } else {
+      console.log('Invalid Login Credentials');
+      res.status(404).send(err);
+    }
   });
-};
+}
 
 
 module.exports = {
