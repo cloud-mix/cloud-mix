@@ -16,12 +16,23 @@ class App extends Component {
       signupUsernameInput: '',
       signupUserCredentials: '',
       loginUsernameInput: '',
-      loginUserCredentials: ''
+      loginUserCredentials: '',
+      allSongs: [],
+      songCreateTitle: '',
+      songCreateGenre: '',
+      songCreateContributorLimit: '',
+      userWouldLikeToCreateSong: false
     };
 
     this.signupUser = this.signupUser.bind(this);
     this.loginUser = this.loginUser.bind(this);
+    // this.createSong = this.createSong.bind(this);
   }
+
+
+  // createSong(){
+
+  // }
 
   loginUser(){
     axios.get('/users/' + this.state.loginUsernameInput + '/' +  this.state.loginUserCredentials)
@@ -112,7 +123,48 @@ class App extends Component {
     });
   }
 
+
+  handleSongCreateTitleInput(title){
+    this.setState({
+      songCreateTitle: title
+    });
+  }
+
+  handleSongCreateGenreInput(genre){
+    this.setState({
+      songCreateGenre: genre
+    });
+  }
+
+  handleSongCreateContributorLimit(limit){
+    this.setState({
+      songCreateContributorLimit: limit
+    });
+  }
+
+  handleSongCreateClick(e){
+    e.preventDefault();
+    this.setState({
+      userWouldLikeToCreateSong: true
+    })
+  }
+
+  handleCancelSongCreateClick(){
+    console.log(this.state.userWouldLikeToCreateSong);
+    this.setState({
+      userWouldLikeToCreateSong: false
+    });
+    console.log(this.state.userWouldLikeToCreateSong);
+  }
+
+  handleSongSubmitClick(){
+    this.createSong();
+  }
+
   render(){
+    console.log(this.state.songCreateGenre);
+    console.log(this.state.songCreateTitle);
+    console.log(this.state.songCreateContributorLimit);
     return(
       <div>
         <Grid>
@@ -128,13 +180,19 @@ class App extends Component {
               handleUserCredentialsSignup={this.handleUserCredentialsSignup.bind(this)}
               handleSignupClick={this.handleSignupClick.bind(this)}
               handleLogout={this.handleLogout.bind(this)}
+              handleSongCreateClick={this.handleSongCreateClick.bind(this)}
               />
             </Col>
           </Row>
           <Row xs={8} md={2} mdPull={2}>
             <Col>
               <SongList />
-              <JamView />
+              <JamView
+              userWouldLikeToCreateSong={this.state.userWouldLikeToCreateSong}
+              handleSongCreateTitleInput={this.handleSongCreateTitleInput.bind(this)}
+              handleSongCreateGenreInput={this.handleSongCreateGenreInput.bind(this)}
+              handleSongCreateContributorLimit={this.handleSongCreateContributorLimit.bind(this)}
+              />
             </Col>
           </Row>
         </Grid>

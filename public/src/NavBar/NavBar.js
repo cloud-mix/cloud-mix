@@ -24,6 +24,7 @@ const NavBar = (props) => {
       <div>
         <LoggedinView
         handleLogout={props.handleLogout}
+        showSongCreatePage={props.handleSongCreateClick}
         />
       </div>
     );

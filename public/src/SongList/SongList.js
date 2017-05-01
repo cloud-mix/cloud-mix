@@ -1,22 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SongListEntry from './SongListEntry';
 
-class SongList extends Component {
-  constructor(){
-    super();
-
-    this.state = {};
-  }
-
-
-  render(){
-    return(
-      <div>
-        <p>In the SongList Component</p>
-        <SongListEntry />
-      </div>
-      );
-  }
+var SongList = function(props){
+  return(
+    <div>
+      <p>In the SongList Component</p>
+      <SongListEntry songs={props.allSongs}/>
+    </div>
+  );
 };
 
 

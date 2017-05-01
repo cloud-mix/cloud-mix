@@ -11,6 +11,11 @@ const LoggedinView = (props) => (
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
+        <Nav pullLeft>
+          <div className="openSongCreateModalBtn">
+            <button onClick={(e) => props.showSongCreatePage(e)}>Create Song</button>
+          </div>
+        </Nav>
         <Nav pullRight>
           <div className="oauthbtn"><a href="/" onClick={() => props.handleLogout()}>Logout</a></div>
         </Nav>
