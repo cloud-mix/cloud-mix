@@ -6,14 +6,14 @@ const ModalView = (props) => (
   header='Login'
   fixedFooter
   trigger={
-    <Button>Login</Button>
+    <Button><p>Login</p></Button>
   }>
             <input type="text" placeholder="Username" onChange={(e) => props.handleUsernameInputLogin(e.target.value)} />
             <br/>
             <input type="text" placeholder="Password" onChange={(e) => props.handleUserCredentialsLogin(e.target.value)} />
 
             <Button waves='light'>Register</Button>
-            <Button waves='light'>Login</Button>
+            <Button waves='light' onClick={(e) => props.handleLoginClick(e)}>Login</Button>
 </Modal>
 )
 

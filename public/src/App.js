@@ -30,9 +30,6 @@ class App extends Component {
   }
 
 
-  // createSong(){
-
-  // }
 
   loginUser(){
     axios.get('/users/' + this.state.loginUsernameInput + '/' +  this.state.loginUserCredentials)
@@ -43,9 +40,11 @@ class App extends Component {
         isLoggedIn: true,
         loginUserCredentials: ''
       });
+   });
   }
+  
 
-  signupUser() {
+  signupUser(){
     axios
       .post("/signup", {
         username: this.state.signupUsernameInput,
@@ -65,10 +64,12 @@ class App extends Component {
       });
   }
 
-  handleLoginClick(){
+  handleLoginClick(e){
+    e.preventDefault();
     if(this.state.loginUsernameInput.length > 6 && this.state.loginUserCredentials.length > 6){
       this.loginUser();
     }
+    console.log('IN HANDLE LOGIN CLICK')
   }
 
   handleSignupClick(){
