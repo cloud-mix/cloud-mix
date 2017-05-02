@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import SongList from "./SongList/SongList";
 import NavBar from "./NavBar/NavBar";
 import JamView from "./Jam/JamView";
@@ -153,33 +154,32 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <NavBar
-          isLoggedIn={this.state.isLoggedIn}
-          logInUrl={this.state.logInUrl}
-          handleUsernameInputLogin={this.handleUsernameInputLogin.bind(this)}
-          handleUserCredentialsLogin={this.handleUserCredentialsLogin.bind(
-            this
-          )}
-          handleLoginClick={this.handleLoginClick.bind(this)}
-          handleSignupClick={this.handleSignupClick.bind(this)}
-          handleLogout={this.handleLogout.bind(this)}
-          handleSongCreateClick={this.handleSongCreateClick.bind(this)}
-        />
-        <SongList />
-        <JamView
-          userWouldLikeToCreateSong={this.state.userWouldLikeToCreateSong}
-          handleSongCreateTitleInput={this.handleSongCreateTitleInput.bind(
-            this
-          )}
-          handleSongCreateGenreInput={this.handleSongCreateGenreInput.bind(
-            this
-          )}
-          handleSongCreateContributorLimit={this.handleSongCreateContributorLimit.bind(
-            this
-          )}
-        />
-      </div>
+      <Router>
+        <div>
+          <NavBar
+            isLoggedIn={this.state.isLoggedIn}
+            logInUrl={this.state.logInUrl}
+            handleUsernameInputLogin={this.handleUsernameInputLogin.bind(this)}
+            handleUserCredentialsLogin={this.handleUserCredentialsLogin.bind(this)}
+            handleLoginClick={this.handleLoginClick.bind(this)}
+            handleSignupClick={this.handleSignupClick.bind(this)}
+            handleLogout={this.handleLogout.bind(this)}
+
+            handleSongCreateTitleInput={this.handleSongCreateTitleInput.bind(this)}
+            handleSongCreateGenreInput={this.handleSongCreateGenreInput.bind(this)}
+            handleSongCreateContributorLimit={this.handleSongCreateContributorLimit.bind(this)}
+            handleSongCreateClick={this.handleSongCreateClick.bind(this)}
+          />
+
+          <Route exact path="/" render={() => (
+            <SongList />
+          )}/>
+
+          <Route path="/jam" render={() => (
+            <JamView />
+          )}/>
+        </div>
+      </Router>
     );
   }
 }

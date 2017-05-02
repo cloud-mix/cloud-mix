@@ -10,9 +10,9 @@ var User = db.define('user', {
 });
 
 User.hasMany(Songs);
-Songs.belongsTo(User);
+Songs.belongsTo(User, {foreignKey: 'userId'});
 Songs.hasMany(Contributors);
-Contributors.belongsTo(Songs);
+Contributors.belongsTo(Songs, {foreignKey: 'songId'});
 
 User.sync();
 Songs.sync();

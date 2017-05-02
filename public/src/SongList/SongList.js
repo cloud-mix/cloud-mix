@@ -1,6 +1,5 @@
 import React from "react";
 import SongListEntry from "./SongListEntry";
-import axios from "axios";
 import { Row, Col, Grid } from "react-materialize";
 // import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 

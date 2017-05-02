@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal, NavItem } from "react-materialize";
+import { Button, Modal, NavItem, DropDown } from "react-materialize";
 
 const CreateSongModal = props => (
   <Modal

@@ -7,13 +7,15 @@ import CreateSongModal from '../CreateSongModal';
 const LoggedinView = props => (
   <div>
     <Navbar brand='Cloudmix' className='navBar' right>
-       <CreateSongModal />
-       <NavItem>
-        <div href="/" onClick={() => props.handleLogout()}>Logout</div>
-       </NavItem>
-       
-       
-
+      <CreateSongModal
+        handleSongCreateTitleInput={props.handleSongCreateTitleInput}
+        handleSongCreateGenreInput={props.handleSongCreateGenreInput}
+        handleSongCreateContributorLimit={props.handleSongCreateContributorLimit}
+        handleSongCreateClick={props.handleSongCreateClick}
+      />
+      <NavItem>
+       <div href="/" onClick={() => props.handleLogout()}>Logout</div>
+      </NavItem>
     </Navbar>
   </div>
 );
