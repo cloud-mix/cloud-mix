@@ -1,8 +1,8 @@
 import React from "react";
-import { SideNav, Button, Modal, NavItem } from "react-materialize";
+import { Button, Modal, NavItem } from "react-materialize";
 
 const LoginModal = props => (
-  <Modal header="Login" fixedFooter trigger={<NavItem>Login</NavItem>} >
+  <Modal header="Login" fixedFooter trigger={<NavItem>Login</NavItem>}>
     <input
       type="text"
       placeholder="Username"
@@ -14,8 +14,23 @@ const LoginModal = props => (
       placeholder="Password"
       onChange={e => props.handleUserCredentialsLogin(e.target.value)}
     />
-    <Button waves="light" onClick={e => {props.handleLoginClick(e); }}>Login</Button> <br /><br />
-    <Button waves="light" onClick={e => {props.handleSignupClick(e); }}>Register</Button>
+    <Button
+      waves="light"
+      modal="close"
+      onClick={e => {
+        props.handleLoginClick(e);
+      }}
+    >
+      Login
+    </Button> <br /><br />
+    <Button
+      waves="light"
+      onClick={e => {
+        props.handleSignupClick(e);
+      }}
+    >
+      Register
+    </Button>
   </Modal>
 );
 

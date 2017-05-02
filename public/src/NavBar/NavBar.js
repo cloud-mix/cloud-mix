@@ -13,10 +13,7 @@ const NavBar = props => {
         handleUserCredentialsLogin={props.handleUserCredentialsLogin}
         logInUrl={props.logInUrl}
       />
-    : <LoggedinView
-        handleLogout={props.handleLogout}
-
-      />;
+    : <LoggedinView handleLogout={props.handleLogout} />;
 };
 
 export default NavBar;

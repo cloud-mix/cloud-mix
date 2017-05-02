@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import SongList from "./SongList/SongList";
 import NavBar from "./NavBar/NavBar";
 import JamView from "./Jam/JamView";
-import { Grid, Row, Col, Modal } from "react-bootstrap";
 import axios from "axios";
 import LoginModal from "./LoginModal";
+import { Footer } from "react-materialize";
 
 class App extends Component {
   constructor(props) {
@@ -81,8 +81,6 @@ class App extends Component {
       this.state.loginUsernameInput.length > 6 &&
       this.state.loginUserCredentials.length > 6
     ) {
-      console.log(this.state.loginUserCredentials);
-      console.log(this.state.loginUsernameInput);
       this.signupUser();
     }
   }
@@ -148,7 +146,6 @@ class App extends Component {
     this.setState({
       userWouldLikeToCreateSong: false
     });
-    console.log(this.state.userWouldLikeToCreateSong);
   }
 
   handleSongSubmitClick() {
@@ -158,7 +155,6 @@ class App extends Component {
   render() {
     return (
       <div>
-
         <NavBar
           isLoggedIn={this.state.isLoggedIn}
           logInUrl={this.state.logInUrl}
@@ -171,7 +167,6 @@ class App extends Component {
           handleLogout={this.handleLogout.bind(this)}
           handleSongCreateClick={this.handleSongCreateClick.bind(this)}
         />
-
         <SongList />
         <JamView
           userWouldLikeToCreateSong={this.state.userWouldLikeToCreateSong}
@@ -185,7 +180,6 @@ class App extends Component {
             this
           )}
         />
-
       </div>
     );
   }
