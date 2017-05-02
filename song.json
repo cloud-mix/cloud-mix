@@ -2,37 +2,37 @@
   {
     "title": "Electric Avenue",
     "genre": "Reggae",
-    "contributorLimit": "6",
-    "contributorCount": 6,
-    "songCompletion": 100.0,
-    "songUrl": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_ElectricAvenue_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/wesleysnipes_ElectricAvenue_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/georgelopez_ElectricAvenue_3", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/bobmarley_ElectricAvenue_4", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine_ElectricAvenue_5", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/questlove_ElectricAvenue_6"],
+    "contriblimit": 6,
+    "contribcount": 6,
+    "completion": 1.0,
+    "url": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_ElectricAvenue_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/wesleysnipes_ElectricAvenue_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/georgelopez_ElectricAvenue_3", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/bobmarley_ElectricAvenue_4", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine_ElectricAvenue_5", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/questlove_ElectricAvenue_6"],
     "userId": 1
   },
   {
     "title": "Pain?",
     "genre": "Metal",
-    "contributorLimit": "8",
-    "contributorCount": 8,
-    "songCompletion": 100.0,
-    "songUrl": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_Pain?_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine11_Pain?_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine6_Pain?_3", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine5_Pain?_4", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine4_Pain?_5", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine3_Pain?_6", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine2_Pain?_7", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine1_Pain?_8"],
+    "contriblimit": 8,
+    "contribcount": 8,
+    "completion": 1.0,
+    "url": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_Pain?_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine11_Pain?_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine6_Pain?_3", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine5_Pain?_4", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine4_Pain?_5", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine3_Pain?_6", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine2_Pain?_7", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine1_Pain?_8"],
     "userId": 1
   },
   {
     "title": "Bling Bling",
     "genre": "Hip Hop",
-    "contributorLimit": "3",
-    "contributorCount": 3,
-    "songCompletion": 100.0,
-    "songUrl": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_BlingBling_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander12345_BlingBling_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine1_BlingBling_3"],
+    "contriblimit": 3,
+    "contribcount": 3,
+    "completion": 1.0,
+    "url": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_BlingBling_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander12345_BlingBling_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine1_BlingBling_3"],
     "userId": 1
   },
   {
     "title": "Apple Pie",
     "genre": "Folk",
-    "contributorLimit": "9",
-    "contributorCount": 9,
-    "songCompletion": 100.0,
-    "songUrl": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_ApplePie_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander1234_ApplePie_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander12345_ApplePie_3", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander1_ApplePie_4", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander1234567_ApplePie_5", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander12_ApplePie_6", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander12398_ApplePie_7", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander098_ApplePie_8", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/bobsmith1_ApplePie_9"],
+    "contriblimit": "9",
+    "contribcount": 9,
+    "completion": 1.0,
+    "url": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_ApplePie_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander1234_ApplePie_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander12345_ApplePie_3", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander1_ApplePie_4", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander1234567_ApplePie_5", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander12_ApplePie_6", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander12398_ApplePie_7", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander098_ApplePie_8", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/bobsmith1_ApplePie_9"],
     "userId": 1
   },
   {
