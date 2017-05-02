@@ -1,13 +1,9 @@
 import React from "react";
 import SongListEntry from "./SongListEntry";
+import axios from "axios";
 
 var SongList = function(props) {
-  return (
-    <div>
-      <p>In the SongList Component</p>
-      <SongListEntry songs={props.allSongs} />
-    </div>
-  );
+  return <div />;
 };
 
 export default SongList;
