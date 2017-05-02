@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown, MenuItem, NavItem } from "react-bootstrap";
 
-const LoggedinView = (props) => (
+const LoggedinView = props => (
   <div>
     <Navbar collapseOnSelect>
       <Navbar.Header>
@@ -13,11 +13,15 @@ const LoggedinView = (props) => (
       <Navbar.Collapse>
         <Nav pullLeft>
           <div className="openSongCreateModalBtn">
-            <button onClick={(e) => props.showSongCreatePage(e)}>Create Song</button>
+            <button onClick={e => props.showSongCreatePage(e)}>
+              Create Song
+            </button>
           </div>
         </Nav>
         <Nav pullRight>
-          <div className="oauthbtn"><a href="/" onClick={() => props.handleLogout()}>Logout</a></div>
+          <div className="oauthbtn">
+            <a href="/" onClick={() => props.handleLogout()}>Logout</a>
+          </div>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
