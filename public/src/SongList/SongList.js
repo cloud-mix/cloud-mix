@@ -1,8 +1,7 @@
 import React from "react";
 import SongListEntry from "./SongListEntry";
-import axios from "axios";
-// import { Row, Col } from "react-materialize";
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Row, Col, Grid } from "react-materialize";
+// import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 
 class SongList extends React.Component {
   constructor(props) {
@@ -21,25 +20,25 @@ class SongList extends React.Component {
   // }
   render() {
     return (
-      <Grid>
+      <div>
         <Row className="show-grid">
-          <Col md={6} lg={6}><SongListEntry song={this.state.completed[0]} /></Col>
-          <Col md={6} lg={6}><SongListEntry song={this.state.soon[0]} /></Col>
+         <Col s={6}><SongListEntry song={this.state.completed[0]} /></Col>
+         <Col s={6}><SongListEntry song={this.state.soon[0]} /></Col>
+        </Row>
+        
+        <Row className="show-grid">
+          <Col s={6}><SongListEntry song={this.state.completed[1]} /></Col>
+          <Col s={6}><SongListEntry song={this.state.soon[1]} /></Col>
         </Row>
         <Row className="show-grid">
-          <Col md={6} lg={6}><SongListEntry song={this.state.completed[1]} /></Col>
-          <Col md={6} lg={6}><SongListEntry song={this.state.soon[1]} /></Col>
+          <Col s={6}><SongListEntry song={this.state.completed[2]} /></Col>
+          <Col s={6}><SongListEntry song={this.state.soon[2]} /></Col>
         </Row>
         <Row className="show-grid">
-          <Col md={6} lg={6}><SongListEntry song={this.state.completed[2]} /></Col>
-          <Col md={6} lg={6}><SongListEntry song={this.state.soon[2]} /></Col>
+          <Col s={6}><SongListEntry song={this.state.completed[3]} /></Col>
+          <Col s={6}><SongListEntry song={this.state.soon[3]} /></Col>
         </Row>
-        <Row className="show-grid">
-          <Col md={6} lg={6}><SongListEntry song={this.state.completed[3]} /></Col>
-          <Col md={6} lg={6}><SongListEntry song={this.state.soon[3]} /></Col>
-        </Row>
-
-      </Grid>
+        </div>
     );
   }
 }
