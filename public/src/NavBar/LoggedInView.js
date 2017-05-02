@@ -9,7 +9,7 @@ const LoggedinView = props => (
     <Navbar brand='Cloudmix' className='navBar' right>
        <CreateSongModal />
        <NavItem>
-        <a href="/" onClick={() => props.handleLogout()}>Logout</a>
+        <div href="/" onClick={() => props.handleLogout()}>Logout</div>
        </NavItem>
        
        
