@@ -38,7 +38,6 @@ class App extends Component {
           this.state.loginUserCredentials
       )
       .then(user => {
-        console.log(user);
         this.setState({
           currentUser: user.data.username,
           isLoggedIn: true,
@@ -75,7 +74,6 @@ class App extends Component {
     ) {
       this.loginUser();
     }
-    console.log("IN HANDLE LOGIN CLICK");
   }
 
   handleSignupClick() {
