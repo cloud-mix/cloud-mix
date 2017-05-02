@@ -4,7 +4,7 @@ import NavBar from "./NavBar/NavBar";
 import JamView from "./Jam/JamView";
 import { Grid, Row, Col, Modal } from "react-bootstrap";
 import axios from "axios";
-import ModalView from "./ModalView";
+import LoginModal from "./LoginModal";
 
 class App extends Component {
   constructor(props) {
@@ -158,9 +158,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.songCreateGenre);
-    console.log(this.state.songCreateTitle);
-    console.log(this.state.songCreateContributorLimit);
     return (
       <div>
         <Grid>

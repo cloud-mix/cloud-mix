@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown, MenuItem, NavItem } from "react-bootstrap";
-import ModalView from "../ModalView";
+import LoginModal from "../LoginModal";
 
 const LoggedoutView = props => {
   return (
@@ -15,7 +15,7 @@ const LoggedoutView = props => {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
-            <ModalView
+            <LoginModal
               handleLoginClick={props.handleLoginClick}
               handleSignupClick={props.handleSignupClick}
               handleUsernameInputLogin={props.handleUsernameInputLogin}
