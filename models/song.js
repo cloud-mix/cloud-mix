@@ -8,7 +8,8 @@ var Song = db.define('song', {
   genre: {type: Sequelize.TEXT, allowNull: false},
   contributorLimit: {type: Sequelize.TEXT, allowNull: false},
   contributorCount: {type: Sequelize.TEXT, allowNull: false},
-  songUrl: {type: Sequelize.TEXT, allowNull: false}
+  songCompletion: {type: Sequelize.FLOAT, allowNull: false},
+  songUrl: {type: Sequelize.ARRAY(Sequelize.TEXT), allowNull: false}
 });
 
 module.exports = Song;
