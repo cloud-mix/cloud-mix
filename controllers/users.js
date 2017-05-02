@@ -9,10 +9,8 @@ var signUp = function(req, res){
     bcrypt.hash(req.body.password, salt, function(err, hash){
       User.findOne({where: {username: req.body.username }}).then((person) => {
         if(person){
-          bcrypt.compare(req.body.password, hash, function(err, data){
-            console.log("User already exists");
-            res.status(201).send(person);
-          });
+          console.log('That username is taken. Please try another username.');
+          res.status(404).send(err);
         } else {
           User.create({
             username: req.body.username,
@@ -20,7 +18,7 @@ var signUp = function(req, res){
           })
           .then((newUser) => {
             res.status(201).send(newUser);
-          });
+          })
         }
       });
     });

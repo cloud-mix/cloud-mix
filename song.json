@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Electric Avenue",
+    "genre": "Reggae",
+    "contributorLimit": "6",
+    "contributorCount": 6,
+    "songCompletion": 100.0,
+    "songUrl": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_ElectricAvenue_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/wesleysnipes_ElectricAvenue_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/georgelopez_ElectricAvenue_3", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/bobmarley_ElectricAvenue_4", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine_ElectricAvenue_5", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/questlove_ElectricAvenue_6"],
+    "userId": 1
+  },
+  {
+    "title": "Pain?",
+    "genre": "Metal",
+    "contributorLimit": "8",
+    "contributorCount": 8,
+    "songCompletion": 100.0,
+    "songUrl": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_Pain?_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine11_Pain?_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine6_Pain?_3", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine5_Pain?_4", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine4_Pain?_5", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine3_Pain?_6", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine2_Pain?_7", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine1_Pain?_8"],
+    "userId": 1
+  },
+  {
+    "title": "Bling Bling",
+    "genre": "Hip Hop",
+    "contributorLimit": "3",
+    "contributorCount": 3,
+    "songCompletion": 100.0,
+    "songUrl": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_BlingBling_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander12345_BlingBling_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine1_BlingBling_3"],
+    "userId": 1
+  },
+  {
+    "title": "Apple Pie",
+    "genre": "Folk",
+    "contributorLimit": "9",
+    "contributorCount": 9,
+    "songCompletion": 100.0,
+    "songUrl": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_ApplePie_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander1234_ApplePie_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander12345_ApplePie_3", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander1_ApplePie_4", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander1234567_ApplePie_5", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander12_ApplePie_6", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander12398_ApplePie_7", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander098_ApplePie_8", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/bobsmith1_ApplePie_9"],
+    "userId": 1
+  },
+  {
+    "title": "Cyanide Sisters",
+    "genre": "Rock",
+    "contributorLimit": "9",
+    "contributorCount": 5,
+    "songCompletion": 0.55,
+    "songUrl": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_CyanideSisters_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander12345_CyanideSisters_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander0009_CyanideSisters_3", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander13445_CyanideSisters_4", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine778_CyanideSisters_5"],
+    "userId": 1
+  },
+  {
+    "title": "All My Love",
+    "genre": "R & B",
+    "contributorLimit": "6",
+    "contributorCount": 2,
+    "songCompletion": 0.33,
+    "songUrl": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_AllMyLove_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander0987_AllMyLove_2"],
+    "userId": 1
+  },
+  {
+    "title": "Could It Be Food?",
+    "genre": "Reggae",
+    "contributorLimit": "8",
+    "contributorCount": 4,
+    "songCompletion": 0.50,
+    "songUrl": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_CouldItBeFood_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander00_CouldItBeFood_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123876_CouldItBeFood_3", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander1238765_CouldItBeFood_4"],
+    "userId": 1
+  },
+  {
+    "title": "Ugggggh",
+    "genre": "Metal",
+    "contributorLimit": "2",
+    "contributorCount": 1,
+    "songCompletion": 0.50,
+    "songUrl": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_Ugggggh_1"],
+    "userId": 1
+  }
+]
