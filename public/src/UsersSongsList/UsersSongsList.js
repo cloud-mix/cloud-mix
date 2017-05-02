@@ -1,29 +1,21 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-import UsersSongsListEntry from './UsersSongsListEntry';
-
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import UsersSongsListEntry from "./UsersSongsListEntry";
 
 class UsersSongsList extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
-    this.state = {
-
-    };
+    this.state = {};
   }
 
-
-
-  render(){
-    return(
-
+  render() {
+    return (
       <div>
         <p>In the UsersSongsList Component</p>
       </div>
-
     );
   }
-};
-
+}
 
 export default UsersSongsList;
