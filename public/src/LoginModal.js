@@ -14,11 +14,8 @@ const LoginModal = props => (
       placeholder="Password"
       onChange={e => props.handleUserCredentialsLogin(e.target.value)}
     />
-
+    <Button waves="light" onClick={e => {props.handleLoginClick(e); }}>Login</Button> <br /><br />
     <Button waves="light" onClick={e => {props.handleSignupClick(e); }}>Register</Button>
-    <Button waves="light" onClick={e => {props.handleLoginClick(e); }}>
-      Login
-    </Button>
   </Modal>
 );
 
