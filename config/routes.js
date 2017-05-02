@@ -11,10 +11,12 @@ router.post('/signup', usersController.signUp);
 router.get('/users/:username/:password', usersController.login);
 
 //Post To Amazon S3 And Then To DB
-router.post('', songsController.postSongsToAWSAndDB);
+router.post('/songs', songsController.postSongsToDB);
 
 //Get Songs From DB
-router.get('', songsController.getSongsFromDB);
+// router.get('', songsController.getSongsFromDB);
+
+
 
 router.post('/upload', amazonsController.uploader);
 
