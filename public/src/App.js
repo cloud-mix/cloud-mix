@@ -113,7 +113,6 @@ class App extends Component {
     this.setState({
       loginUserCredentials: loginCredentials
     });
-    console.log(this.state.loginUserCredentials);
   }
 
   handleSongCreateTitleInput(title) {
