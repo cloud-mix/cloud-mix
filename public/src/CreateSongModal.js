@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Modal, NavItem, DropDown } from "react-materialize";
+import { Button, Modal, NavItem, Dropdown } from "react-materialize";
+import {Link} from 'react-router-dom';
 
 const CreateSongModal = props => (
   <Modal
@@ -10,13 +11,13 @@ const CreateSongModal = props => (
     <input
       type="text"
       placeholder="Song Name"
-      onChange={e => props.handleUsernameInputLogin(e.target.value)}
+      onChange={e => props.handleSongCreateTitleInput(e.target.value)}
     />
     <br />
     <input
       type="text"
       placeholder="Genre"
-      onChange={e => props.handleUserCredentialsLogin(e.target.value)}
+      onChange={e => props.handleSongCreateGenreInput(e.target.value)}
     />
     <Dropdown trigger={<Button>Maximum number of contributors</Button>}>
       <NavItem>One</NavItem>
@@ -31,9 +32,11 @@ const CreateSongModal = props => (
       <NavItem>Ten</NavItem>
     </Dropdown>
 
-    <Button waves="light" onClick={e => props.handleSignupClick(e)}>
-      Create Jam Session
-    </Button>
+    <Link to="/jam">
+      <Button waves="light" modal="close" onClick={e => props.handleSongCreateClick(e)}>
+        Create Jam Session
+      </Button>
+    </Link>
 
   </Modal>
 );
