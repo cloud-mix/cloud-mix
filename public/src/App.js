@@ -70,8 +70,8 @@ class App extends Component {
   handleLoginClick(e) {
     e.preventDefault();
     if (
-      this.state.loginUsernameInput.length > 6 &&
-      this.state.loginUserCredentials.length > 6
+      this.state.loginUsernameInput.length >= 6 ||
+      this.state.loginUserCredentials.length >= 6
     ) {
       this.loginUser();
     }
@@ -79,8 +79,8 @@ class App extends Component {
 
   handleSignupClick() {
     if (
-      this.state.loginUsernameInput.length > 6 &&
-      this.state.loginUserCredentials.length > 6
+      this.state.loginUsernameInput.length >= 6 ||
+      this.state.loginUserCredentials.length >= 6
     ) {
       this.signupUser();
     }
@@ -135,7 +135,7 @@ class App extends Component {
   }
 
   handleSongCreateClick(e) {
-    e.preventDefault();
+    // e.preventDefault();
     this.setState({
       userWouldLikeToCreateSong: true
     });

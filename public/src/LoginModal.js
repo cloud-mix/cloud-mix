@@ -25,6 +25,7 @@ const LoginModal = props => (
     </Button> <br /><br />
     <Button
       waves="light"
+      modal="close"
       onClick={e => {
         props.handleSignupClick(e);
       }}

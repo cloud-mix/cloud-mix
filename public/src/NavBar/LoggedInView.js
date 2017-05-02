@@ -2,6 +2,7 @@ import React from "react";
 // import { Navbar, Nav, NavDropdown, MenuItem, NavItem } from "react-bootstrap";
 import LoginModal from "../LoginModal";
 import { SideNav, Navbar, NavItem } from "react-materialize";
+import {Link} from 'react-router-dom';
 import CreateSongModal from '../CreateSongModal';
 
 const LoggedinView = props => (
@@ -14,7 +15,9 @@ const LoggedinView = props => (
         handleSongCreateClick={props.handleSongCreateClick}
       />
       <NavItem>
-       <div href="/" onClick={() => props.handleLogout()}>Logout</div>
+        <Link to="/">
+          <div href="/" onClick={() => props.handleLogout()}>Logout</div>
+        </Link>
       </NavItem>
     </Navbar>
   </div>

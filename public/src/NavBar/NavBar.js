@@ -13,7 +13,13 @@ const NavBar = props => {
         handleUserCredentialsLogin={props.handleUserCredentialsLogin}
         logInUrl={props.logInUrl}
       />
-    : <LoggedinView handleLogout={props.handleLogout} />;
+    : <LoggedinView
+        handleLogout={props.handleLogout}
+        handleSongCreateTitleInput={props.handleSongCreateTitleInput}
+        handleSongCreateGenreInput={props.handleSongCreateGenreInput}
+        handleSongCreateContributorLimit={props.handleSongCreateContributorLimit}
+        handleSongCreateClick={props.handleSongCreateClick}
+      />;
 };
 
 export default NavBar;
