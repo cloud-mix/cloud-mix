@@ -50,16 +50,16 @@ class App extends Component {
   signupUser() {
     axios
       .post("/signup", {
-        username: this.state.signupUsernameInput,
-        password: this.state.signupUserCredentials
+        username: this.state.loginUsernameInput,
+        password: this.state.loginUserCredentials
       })
       .then(user => {
         console.log(user, " succesfully signed up!");
         this.setState({
           currentUser: user.data.username,
           isLoggedIn: true,
-          signupUsernameInput: "",
-          signupUserCredentials: ""
+          loginUsernameInput: "",
+          loginUserCredentials: ""
         });
       })
       .catch(err => {
@@ -80,11 +80,11 @@ class App extends Component {
 
   handleSignupClick() {
     if (
-      this.state.signupUsernameInput.length > 6 &&
-      this.state.signupUserCredentials.length > 6
+      this.state.loginUsernameInput.length > 6 &&
+      this.state.loginUserCredentials.length > 6
     ) {
-      console.log(this.state.signupUserCredentials);
-      console.log(this.state.signupUsernameInput);
+      console.log(this.state.loginUserCredentials);
+      console.log(this.state.loginUsernameInput);
       this.signupUser();
     }
   }
@@ -94,8 +94,6 @@ class App extends Component {
       currentUser: "",
       loginUsernameInput: "",
       loginUserCredentials: "",
-      signupUsernameInput: "",
-      signupUserCredentials: "",
       isLoggedIn: !this.state.isLoggedIn
     });
   }
@@ -120,18 +118,6 @@ class App extends Component {
       loginUserCredentials: loginCredentials
     });
     console.log(this.state.loginUserCredentials);
-  }
-
-  handleUsernameInputSignup(signupUsername) {
-    this.setState({
-      signupUsernameInput: signupUsername
-    });
-  }
-
-  handleUserCredentialsSignup(signupCredentials) {
-    this.setState({
-      signupUserCredentials: signupCredentials
-    });
   }
 
   handleSongCreateTitleInput(title) {
@@ -190,12 +176,6 @@ class App extends Component {
                   this
                 )}
                 handleLoginClick={this.handleLoginClick.bind(this)}
-                handleUsernameInputSignup={this.handleUsernameInputSignup.bind(
-                  this
-                )}
-                handleUserCredentialsSignup={this.handleUserCredentialsSignup.bind(
-                  this
-                )}
                 handleSignupClick={this.handleSignupClick.bind(this)}
                 handleLogout={this.handleLogout.bind(this)}
                 handleSongCreateClick={this.handleSongCreateClick.bind(this)}

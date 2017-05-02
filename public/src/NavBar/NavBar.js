@@ -11,8 +11,6 @@ const NavBar = props => {
         handleSignupClick={props.handleSignupClick}
         handleUsernameInputLogin={props.handleUsernameInputLogin}
         handleUserCredentialsLogin={props.handleUserCredentialsLogin}
-        handleUsernameInputSignup={props.handleUsernameInputSignup}
-        handleUserCredentialsSignup={props.handleUserCredentialsSignup}
         logInUrl={props.logInUrl}
       />
     : <LoggedinView
