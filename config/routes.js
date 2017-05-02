@@ -1,5 +1,4 @@
 var router = require('express').Router();
-var passport = require('passport');
 var songsController = require('../controllers/songs');
 var usersController = require('../controllers/users');
 var amazonsController = require('../controllers/amazon');
