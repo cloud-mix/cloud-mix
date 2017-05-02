@@ -17,6 +17,7 @@ const LoggedoutView = props => {
           <Nav pullRight>
             <ModalView
               handleLoginClick={props.handleLoginClick}
+              handleSignupClick={props.handleSignupClick}
               handleUsernameInputLogin={props.handleUsernameInputLogin}
               handleUserCredentialsLogin={props.handleUserCredentialsLogin}
             />

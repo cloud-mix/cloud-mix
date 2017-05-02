@@ -15,7 +15,7 @@ const ModalView = props => (
       onChange={e => props.handleUserCredentialsLogin(e.target.value)}
     />
 
-    <Button waves="light">Register</Button>
+    <Button waves="light" onClick={e => props.handleSignupClick(e)}>Register</Button>
     <Button waves="light" onClick={e => props.handleLoginClick(e)}>
       Login
     </Button>
