@@ -1,8 +1,8 @@
 import React from "react";
-import { Button, Modal } from "react-materialize";
+import { Button, Modal, NavItem } from "react-materialize";
 
 const CreateSongModal = props => (
-  <Modal header="Create a song" fixedFooter trigger={<Button><p>New Jam Session</p></Button>}>
+  <Modal header="Create a song" fixedFooter trigger={<NavItem>New Jam Session</NavItem>}>
     <input
       type="text"
       placeholder="Song Name"
