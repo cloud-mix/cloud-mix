@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Nav, NavDropdown, MenuItem, NavItem } from "react-bootstrap";
-
+import CreateSongModal from '../CreateSongModal';
+import { Button } from "react-materialize";
 const LoggedinView = props => (
   <div>
     <Navbar collapseOnSelect>
@@ -11,18 +12,14 @@ const LoggedinView = props => (
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
-        <Nav pullLeft>
-          <div className="openSongCreateModalBtn">
-            <button onClick={e => props.showSongCreatePage(e)}>
-              Create Song
-            </button>
-          </div>
-        </Nav>
+      <Nav pullRight>
+        <Button href="/" onClick={() => props.handleLogout()}>Logout</Button>
+          </Nav>
         <Nav pullRight>
-          <div className="oauthbtn">
-            <a href="/" onClick={() => props.handleLogout()}>Logout</a>
-          </div>
+          <CreateSongModal />
         </Nav>
+      
+
       </Navbar.Collapse>
     </Navbar>
   </div>

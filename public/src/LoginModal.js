@@ -10,13 +10,13 @@ const LoginModal = props => (
     />
     <br />
     <input
-      type="text"
+      type="password"
       placeholder="Password"
       onChange={e => props.handleUserCredentialsLogin(e.target.value)}
     />
 
     <Button waves="light" onClick={e => props.handleSignupClick(e)}>Register</Button>
-    <Button waves="light" onClick={e => props.handleLoginClick(e)}>
+    <Button waves="light" onClick={e => { props.handleLoginClick(e); this.close()}}>
       Login
     </Button>
   </Modal>
