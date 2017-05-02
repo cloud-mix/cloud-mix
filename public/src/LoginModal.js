@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Modal } from "react-materialize";
 
-const ModalView = props => (
+const LoginModal = props => (
   <Modal header="Login" fixedFooter trigger={<Button><p>Login</p></Button>}>
     <input
       type="text"
@@ -22,4 +22,4 @@ const ModalView = props => (
   </Modal>
 );
 
-export default ModalView;
+export default LoginModal;
