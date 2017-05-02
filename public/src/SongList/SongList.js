@@ -1,7 +1,6 @@
 import React from "react";
 import SongListEntry from "./SongListEntry";
 import axios from "axios";
-<<<<<<< HEAD
 // import { Row, Col } from "react-materialize";
 import { Grid, Row, Col } from 'react-bootstrap';
 

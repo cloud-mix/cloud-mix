@@ -4,12 +4,12 @@ var Users = require('./user');
 
 var Song = db.define('song', {
   id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
-  title: {type: Sequelize.TEXT, allowNull: false},
-  genre: {type: Sequelize.TEXT, allowNull: false},
-  contributorLimit: {type: Sequelize.TEXT, allowNull: false},
-  contributorCount: {type: Sequelize.TEXT, allowNull: false},
-  songCompletion: {type: Sequelize.FLOAT, allowNull: false},
-  songUrl: {type: Sequelize.ARRAY(Sequelize.TEXT), allowNull: false}
+  title: Sequelize.TEXT,
+  genre: Sequelize.TEXT,
+  contriblimit: Sequelize.INTEGER,
+  contribcount: Sequelize.INTEGER,
+  completion: Sequelize.FLOAT,
+  url: Sequelize.ARRAY(Sequelize.TEXT)
 });
 
 module.exports = Song;
