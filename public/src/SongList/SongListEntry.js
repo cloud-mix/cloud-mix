@@ -1,20 +1,24 @@
 import React from "react";
 import { Card, CardTitle } from "react-materialize";
-import { Col } from 'react-bootstrap';
+// import { Col, Grid, Row } from 'react-bootstrap';
 
 var SongListEntry = function(props) {
   return (
-    <Card
-      className="small"
-      header={
-        <CardTitle image="https://res.cloudinary.com/demo/video/upload/h_200,w_500,fl_waveform,co_black,b_white/bumblebee.png">
-          Example Song
-        </CardTitle>
-      }
-      actions={[<a href="#">Creator</a>]}
-    >
-      Genre: Example
-    </Card>
+
+          <Card
+            className="small"
+            header={
+              <CardTitle image="http://s.bellevuecollege.edu/kbcs/uploads/2013/03/Waveform-Transmission.jpg">
+                Example Song
+              </CardTitle>
+            }
+            actions={[<a href="#">Song Status</a>]}
+          >
+            <b>Genre:</b> Example <br />
+            <b>Max Contributors:</b> 5 <br />
+            <b>Started by:</b> ExampleUser
+          </Card>
+
   );
 };
 
