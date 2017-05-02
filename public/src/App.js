@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import SongList from "./SongList/SongList";
 import NavBar from "./NavBar/NavBar";
 import JamView from "./Jam/JamView";
@@ -160,24 +160,48 @@ class App extends Component {
             isLoggedIn={this.state.isLoggedIn}
             logInUrl={this.state.logInUrl}
             handleUsernameInputLogin={this.handleUsernameInputLogin.bind(this)}
-            handleUserCredentialsLogin={this.handleUserCredentialsLogin.bind(this)}
+            handleUserCredentialsLogin={this.handleUserCredentialsLogin.bind(
+              this
+            )}
             handleLoginClick={this.handleLoginClick.bind(this)}
             handleSignupClick={this.handleSignupClick.bind(this)}
             handleLogout={this.handleLogout.bind(this)}
-
-            handleSongCreateTitleInput={this.handleSongCreateTitleInput.bind(this)}
-            handleSongCreateGenreInput={this.handleSongCreateGenreInput.bind(this)}
-            handleSongCreateContributorLimit={this.handleSongCreateContributorLimit.bind(this)}
+            handleSongCreateTitleInput={this.handleSongCreateTitleInput.bind(
+              this
+            )}
+            handleSongCreateGenreInput={this.handleSongCreateGenreInput.bind(
+              this
+            )}
+            handleSongCreateContributorLimit={this.handleSongCreateContributorLimit.bind(
+              this
+            )}
             handleSongCreateClick={this.handleSongCreateClick.bind(this)}
           />
 
-          <Route exact path="/" render={() => (
-            <SongList />
-          )}/>
+          <Route exact path="/" render={() => <SongList />} />
 
-          <Route path="/jam" render={() => (
-            <JamView />
-          )}/>
+          <Route path="/jam" render={() => <JamView />} />
+          <Footer
+            copyrights="&copy; 2017 Cloudmix"
+            moreLinks={
+              <a className="grey-text text-lighten-4 right" href="#!">
+                More Links
+              </a>
+            }
+            links={
+              <ul>
+                <li>
+                  <a className="grey-text text-lighten-3" href="#!">Link 1</a>
+                </li>
+              </ul>
+            }
+            className="example"
+          >
+            <h5 className="white-text">Footer Content</h5>
+            <p className="grey-text text-lighten-4">
+              You can use rows and columns here to organize your footer content.
+            </p>
+          </Footer>
         </div>
       </Router>
     );
