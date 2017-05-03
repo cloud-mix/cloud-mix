@@ -19,18 +19,14 @@ const CreateSongModal = props => (
       placeholder="Genre"
       onChange={e => props.handleSongCreateGenreInput(e.target.value)}
     />
-    <Dropdown trigger={<Button>Maximum number of contributors</Button>}>
-      <NavItem>One</NavItem>
-      <NavItem>Two</NavItem>
-      <NavItem>Three</NavItem>
-      <NavItem>Four</NavItem>
-      <NavItem>Five</NavItem>
-      <NavItem>Six</NavItem>
-      <NavItem>Seven</NavItem>
-      <NavItem>Eight</NavItem>
-      <NavItem>Nine</NavItem>
-      <NavItem>Ten</NavItem>
-    </Dropdown>
+
+    <input
+    type="number"
+    placeholder="Number of Contributors. Yourself Included"
+    min="2"
+    max="10"
+    onChange={e => props.handleSongCreateContributorLimit(e.target.value)}
+    />
 
     <Link to="/jam">
       <Button waves="light" modal="close" onClick={() => props.handleSongCreateClick()}>
