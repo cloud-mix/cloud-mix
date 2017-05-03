@@ -4,7 +4,7 @@ import waveformVisual from '../../audioHelpers/waveformVisual.js';
 class WavefromVisual extends Component {
 
   componentDidMount() {
-    waveformVisual(this.props.url);
+    waveformVisual(this.props.url, this.props.wavesurfer);
   }
 
   render() {
