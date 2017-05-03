@@ -34,6 +34,7 @@
     "howler": "^2.0.3",
     "lodash": "^4.17.4",
     "mysql": "^2.13.0",
+    "nuka-carousel": "^2.0.4",
     "pg": "^6.1.5",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",

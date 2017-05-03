@@ -13,3 +13,11 @@
 .jamView{
     height:100vh;
 }
+
+.carouzel{
+  display: block;
+  max-height:400px;
+  width: auto;
+  height: auto;
+}
+
