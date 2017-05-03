@@ -33,7 +33,7 @@ const CreateSongModal = props => (
     </Dropdown>
 
     <Link to="/jam">
-      <Button waves="light" modal="close" onClick={e => props.handleSongCreateClick(e)}>
+      <Button waves="light" modal="close" onClick={() => props.handleSongCreateClick()}>
         Create Jam Session
       </Button>
     </Link>
