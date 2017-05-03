@@ -4,6 +4,7 @@ import getUserMedia from '../../audioHelpers/getUserMedia.js';
 import stopRecord from '../../audioHelpers/stopRecord.js';
 import record from '../../audioHelpers/record.js';
 import play from '../../audioHelpers/play.js';
+import waveformInit from '../../audioHelpers/waveformInit.js';
 import { Button } from "react-materialize";
 
 class JamView extends Component {
@@ -15,7 +16,8 @@ class JamView extends Component {
       urls: [],
       offset: 0,
       firstRec: false,
-      change: false
+      change: false,
+      wavesurfer: null
     }
   }
 
@@ -25,6 +27,7 @@ class JamView extends Component {
       this.setUrl.bind(this),
       this.setRecorder.bind(this)
     );
+    waveformInit(this.setWavesurfer.bind(this));
   }
 
   setRecorder(recorder) {
@@ -53,6 +56,10 @@ class JamView extends Component {
     this.setState({firstRec: !this.state.firstRec});
   }
 
+  setWavesurfer(wave) {
+    this.setState({wavesurfer: wave});
+  }
+
   render() {
     return (
       <div className="jamView">
@@ -69,7 +76,7 @@ class JamView extends Component {
               stopRecord(this.state.recorder, this.setRecording.bind(this));
             }}
           >Stop</Button>
-       
+
         ) : (
           <Button className='recordButton'  floating large waves='light' icon='mic_none'
             onClick={() => {
@@ -94,8 +101,13 @@ class JamView extends Component {
           }}></input>
         ) : null}
 
+        <div className="waveform"></div>
         {this.state.urls.map((url, i) => {
-          return <WaveformVisual key={i} url={url.url} />
+          return <WaveformVisual
+            key={i}
+            url={url.url}
+            wavesurfer={this.state.wavesurfer}
+          />
         })}
 
       </div>
