@@ -38,10 +38,12 @@ class JamView extends Component {
   }
 
   uploadToAmazon(){
-         axios.post('/upload', {
-           file: './song.mp3',
+
+          axios.post('/upload', {
+           file: this.state.urls[this.state.urls.length - 1].url.slice(5),
            key: this.props.currentUser + '/' + this.props.currentUser + '_' + this.props.songCreateTitle + '_' + this.state.urls.length + '.mp3'
-        })
+          });
+         
   }
 
   handleOnSongSubmitClick(){
