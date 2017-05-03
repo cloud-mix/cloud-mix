@@ -138,23 +138,8 @@ class App extends Component {
   }
 
   handleSongCreateClick() {
-    // e.preventDefault();
-    // this.setState({
-    //   userWouldLikeToCreateSong: true
-    // });
     console.log('creating new song');
   }
-
-  // handleCancelSongCreateClick() {
-  //   console.log(this.state.userWouldLikeToCreateSong);
-  //   this.setState({
-  //     userWouldLikeToCreateSong: false
-  //   });
-  // }
-
-  // handleSongSubmitClick() {
-  //   this.createSong();
-  // }
 
   render() {
     return (
@@ -186,7 +171,11 @@ class App extends Component {
 
           <Route exact path="/" render={() => <Jumbotron />} />
 
-          <Route exact path="/" render={() => <SongList />} />
+          <Route exact path="/" render={() => (
+            <SongList
+              setSongTitle={this.handleSongCreateTitleInput.bind(this)}
+            />
+          )} />
 
           <Route path="/jam" render={() => <JamView
             songCreateTitle={this.state.songCreateTitle}
