@@ -1,7 +1,8 @@
 import {Howl} from 'howler';
 
-const play = (urls, offset, cb) => {
+const play = (urls, offset, offestCb, playCb, trackCb) => {
   let last = urls.length - 1;
+  playCb();
   let newRecording = new Howl({
     src: [urls[last].url],
       format: 'mp3',
@@ -10,7 +11,8 @@ const play = (urls, offset, cb) => {
         begin: [offset, 60000]
       }
   });
-  cb(last, offset);
+  offestCb(last, offset);
+  trackCb(newRecording);
   newRecording.play('begin');
 
   for (let i = 0; i < last; i++) {
@@ -22,7 +24,6 @@ const play = (urls, offset, cb) => {
         begin: [urls[i].offset, 60000]
       }
     });
-
     track.play('begin');
   }
 }
