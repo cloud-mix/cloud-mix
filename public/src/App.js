@@ -22,7 +22,7 @@ class App extends Component {
       songCreateTitle: "",
       songCreateGenre: "",
       songCreateContributorLimit: "",
-      userWouldLikeToCreateSong: false
+      // userWouldLikeToCreateSong: false
     };
 
     this.signupUser = this.signupUser.bind(this);
@@ -134,23 +134,24 @@ class App extends Component {
     });
   }
 
-  handleSongCreateClick(e) {
+  handleSongCreateClick() {
     // e.preventDefault();
-    this.setState({
-      userWouldLikeToCreateSong: true
-    });
+    // this.setState({
+    //   userWouldLikeToCreateSong: true
+    // });
+    console.log('creating new song');
   }
 
-  handleCancelSongCreateClick() {
-    console.log(this.state.userWouldLikeToCreateSong);
-    this.setState({
-      userWouldLikeToCreateSong: false
-    });
-  }
+  // handleCancelSongCreateClick() {
+  //   console.log(this.state.userWouldLikeToCreateSong);
+  //   this.setState({
+  //     userWouldLikeToCreateSong: false
+  //   });
+  // }
 
-  handleSongSubmitClick() {
-    this.createSong();
-  }
+  // handleSongSubmitClick() {
+  //   this.createSong();
+  // }
 
   render() {
     return (
@@ -180,7 +181,11 @@ class App extends Component {
 
           <Route exact path="/" render={() => <SongList />} />
 
-          <Route path="/jam" render={() => <JamView />} />
+          <Route path="/jam" render={() => <JamView
+            songCreateTitle={this.state.songCreateTitle}
+            songCreateGenre={this.state.songCreateGenre}
+          />} />
+
           <Footer
             copyrights="&copy; 2017 Cloudmix"
             moreLinks={

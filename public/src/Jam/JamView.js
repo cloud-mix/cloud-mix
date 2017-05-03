@@ -1,26 +1,9 @@
 import React, { Component } from 'react';
-// import NewRecording from "./NewRecording";
-// import PreviousRecording from "./PreviousRecording";
 import WaveformVisual from './WaveformVisual.js'
 import getUserMedia from '../../audioHelpers/getUserMedia.js';
 import stopRecord from '../../audioHelpers/stopRecord.js';
 import record from '../../audioHelpers/record.js';
 import play from '../../audioHelpers/play.js';
-
-// const JamView = function(props) {
-//   return (
-//     <div>
-//       <p>Jamview Component</p>
-//       <NewRecording
-//         getTitle={props.handleSongCreateTitleInput}
-//         getGenre={props.handleSongCreateGenreInput}
-//         getContributorLimit={props.handleSongCreateContributorLimit}
-//         userWouldLikeToCreateSong={props.userWouldLikeToCreateSong}
-//       />
-//       <PreviousRecording />
-//     </div>
-//   );
-// };
 
 class JamView extends Component {
   constructor() {
@@ -74,7 +57,8 @@ class JamView extends Component {
       <div className="jamView">
 
         <div className="jam_header">
-          <h2>Song Name</h2>
+          <h2>{this.props.songCreateTitle}</h2>
+          <h3>{this.props.songCreateGenre}</h3>
         </div>
 
         {this.state.recording ? (
