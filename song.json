@@ -6,6 +6,7 @@
     "contribcount": 6,
     "completion": 1.0,
     "url": ["https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/Alexander123_ElectricAvenue_1", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/wesleysnipes_ElectricAvenue_2", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/georgelopez_ElectricAvenue_3", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/bobmarley_ElectricAvenue_4", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/dougfine_ElectricAvenue_5", "https://s3-us-west-1.amazonaws.com/cloudmix/Alexander123/questlove_ElectricAvenue_6"],
+    "contributors": ["Alexander123", "wesleysnipes", "georgelopez", "bobmarley", "dougfine", "questlove"],
     "userId": 1
   },
   {

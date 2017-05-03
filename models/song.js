@@ -8,7 +8,9 @@ var Song = db.define('song', {
   contriblimit: Sequelize.INTEGER,
   contribcount: Sequelize.INTEGER,
   completion: Sequelize.FLOAT,
-  url: Sequelize.ARRAY(Sequelize.TEXT)
+  url: Sequelize.ARRAY(Sequelize.TEXT),
+  contributors: Sequelize.ARRAY(Sequelize.TEXT),
+  offsets: Sequelize.ARRAY(Sequelize.INTEGER)
 });
 
 module.exports = Song;

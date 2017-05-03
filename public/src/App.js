@@ -6,6 +6,7 @@ import JamView from "./Jam/JamView";
 import axios from "axios";
 import LoginModal from "./LoginModal";
 import { Footer } from "react-materialize";
+import Jumbotron from "./Jumbotron";
 
 class App extends Component {
   constructor(props) {
@@ -157,6 +158,7 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <Jumbotron />
           <NavBar
             isLoggedIn={this.state.isLoggedIn}
             logInUrl={this.state.logInUrl}
@@ -186,6 +188,7 @@ class App extends Component {
             songCreateGenre={this.state.songCreateGenre}
           />} />
 
+
           <Footer
             copyrights="&copy; 2017 Cloudmix"
             moreLinks={
@@ -193,19 +196,9 @@ class App extends Component {
                 More Links
               </a>
             }
-            links={
-              <ul>
-                <li>
-                  <a className="grey-text text-lighten-3" href="#!">Link 1</a>
-                </li>
-              </ul>
-            }
-            className="example"
+            
           >
-            <h5 className="white-text">Footer Content</h5>
-            <p className="grey-text text-lighten-4">
-              You can use rows and columns here to organize your footer content.
-            </p>
+            
           </Footer>
         </div>
       </Router>
