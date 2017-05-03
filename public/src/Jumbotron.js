@@ -1,5 +1,5 @@
 import React from "react";
-var Slider = require("react-slick");
+import Slider from "react-slick";
 
 var settings = {
   dots: true,
@@ -10,6 +10,13 @@ var settings = {
 };
 
 var Jumbotron = function(props) {
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
   return (
     <Slider {...settings}>
       <div><h3>1</h3></div>

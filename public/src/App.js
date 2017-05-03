@@ -158,7 +158,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Jumbotron />
           <NavBar
             isLoggedIn={this.state.isLoggedIn}
             logInUrl={this.state.logInUrl}
@@ -180,7 +179,8 @@ class App extends Component {
             )}
             handleSongCreateClick={this.handleSongCreateClick.bind(this)}
           />
-
+             
+          <Route exact path="/" render={() => <Jumbotron />} />
           <Route exact path="/" render={() => <SongList />} />
 
           <Route path="/jam" render={() => <JamView
