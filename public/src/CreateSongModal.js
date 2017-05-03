@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Modal, NavItem, Dropdown } from "react-materialize";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const CreateSongModal = props => (
   <Modal
@@ -33,7 +33,11 @@ const CreateSongModal = props => (
     </Dropdown>
 
     <Link to="/jam">
-      <Button waves="light" modal="close" onClick={() => props.handleSongCreateClick()}>
+      <Button
+        waves="light"
+        modal="close"
+        onClick={() => props.handleSongCreateClick()}
+      >
         Create Jam Session
       </Button>
     </Link>
