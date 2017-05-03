@@ -4,6 +4,7 @@ import getUserMedia from '../../audioHelpers/getUserMedia.js';
 import stopRecord from '../../audioHelpers/stopRecord.js';
 import record from '../../audioHelpers/record.js';
 import play from '../../audioHelpers/play.js';
+import stopPlayback from '../../audioHelpers/stopPlayback.js';
 import waveformInit from '../../audioHelpers/waveformInit.js';
 import { Button } from "react-materialize";
 import axios from 'axios';
@@ -19,8 +20,9 @@ class JamView extends Component {
       urls: [],
       offset: 0,
       firstRec: false,
-      change: false, 
+      change: false,
       playing: false,
+      tracks: [],
       wavesurfer: null
     }
     this.uploadToAmazon = this.uploadToAmazon.bind(this);
@@ -73,6 +75,15 @@ class JamView extends Component {
     this.setState({firstRec: !this.state.firstRec});
   }
 
+  setPlaying() {
+    this.setState({playing: !this.state.playing});
+  }
+
+  setTrack(track) {
+    this.state.tracks.push(track);
+    this.setState({change: !this.state.change});
+  }
+
   setWavesurfer(wave) {
     this.setState({wavesurfer: wave});
   }
@@ -87,7 +98,6 @@ class JamView extends Component {
         </div>
 
         {this.state.recording ? (
-
           <Button className='red' floating large waves='light' icon='mic_off'
             onClick={() => {
               stopRecord(this.state.recorder, this.setRecording.bind(this));
@@ -105,11 +115,34 @@ class JamView extends Component {
               );
             }}
           ></Button>
-
         )}
-        <Button floating large  waves='light' icon='play_arrow' onClick={() => {
-          play(this.state.urls, this.state.offset, this.setTrackOffset.bind(this));
-        }}></Button>
+
+        {!this.state.playing ? (
+          <Button
+            floating large
+            waves='light'
+            icon='play_arrow'
+            onClick={() => {
+              play(
+                this.state.urls,
+                this.state.offset,
+                this.setTrackOffset.bind(this),
+                this.setPlaying.bind(this),
+                this.setTrack.bind(this)
+              );
+            }}
+          ></Button>
+        ) : (
+          <Button
+            floating large
+            wave="light"
+            icon="stop"
+            onClick={() => {
+              stopPlayback(this.state.tracks, this.setPlaying.bind(this));
+            }}
+          ></Button>
+        )}
+
         {this.state.urls > 1 ? (
           <input onChange={e => {
             this.setOffset(e.target.value);
