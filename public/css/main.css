@@ -17,10 +17,19 @@
 .carouzel{
 object-fit: cover;
 width: 100%;
-height: 250px;
+height: 400px;
+margin-top:15px;
+margin-bottom:15px;
 }
+
+
 
 .recordButton{
     margin:20px;
 }
+
+.red{
+    margin:20px;
+}
+
 
