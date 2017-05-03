@@ -15,8 +15,8 @@ const LoggedinView = props => (
         handleSongCreateClick={props.handleSongCreateClick}
       />
       <NavItem>
-        <Link to="/">
-          <div href="/" onClick={() => props.handleLogout()}>Logout</div>
+        <Link to="/"  onClick={() => props.handleLogout()}>
+         Logout
         </Link>
       </NavItem>
     </Navbar>
