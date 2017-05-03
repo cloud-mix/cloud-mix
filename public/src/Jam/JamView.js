@@ -4,6 +4,7 @@ import getUserMedia from '../../audioHelpers/getUserMedia.js';
 import stopRecord from '../../audioHelpers/stopRecord.js';
 import record from '../../audioHelpers/record.js';
 import play from '../../audioHelpers/play.js';
+import waveformInit from '../../audioHelpers/waveformInit.js';
 import { Button } from "react-materialize";
 import axios from 'axios';
 import saveAs from 'save-as';
@@ -19,7 +20,8 @@ class JamView extends Component {
       offset: 0,
       firstRec: false,
       change: false, 
-      playing: false
+      playing: false,
+      wavesurfer: null
     }
     this.uploadToAmazon = this.uploadToAmazon.bind(this);
   }
@@ -30,6 +32,7 @@ class JamView extends Component {
       this.setUrl.bind(this),
       this.setRecorder.bind(this)
     );
+    waveformInit(this.setWavesurfer.bind(this));
   }
 
   uploadToAmazon(){
@@ -70,6 +73,10 @@ class JamView extends Component {
     this.setState({firstRec: !this.state.firstRec});
   }
 
+  setWavesurfer(wave) {
+    this.setState({wavesurfer: wave});
+  }
+
   render() {
     return (
       <div className="jamView">
@@ -86,7 +93,6 @@ class JamView extends Component {
               stopRecord(this.state.recorder, this.setRecording.bind(this));
             }}
           ></Button>
-       
         ) : (
           <Button className='recordButton'  floating large waves='light' icon='mic_none'
             onClick={() => {
@@ -111,8 +117,13 @@ class JamView extends Component {
           }}></input>
         ) : null}
 
+        <div className="waveform"></div>
         {this.state.urls.map((url, i) => {
-          return <WaveformVisual key={i} url={url.url} />
+          return <WaveformVisual
+            key={i}
+            url={url.url}
+            wavesurfer={this.state.wavesurfer}
+          />
         })}
 
         <Button onClick={(e) => this.uploadToAmazon(e)}>
