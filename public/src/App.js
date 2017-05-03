@@ -88,6 +88,7 @@ class App extends Component {
   }
 
   handleLogout() {
+    console.log('handleLogout triggerd');
     this.setState({
       currentUser: "",
       loginUsernameInput: "",
@@ -159,9 +160,11 @@ class App extends Component {
     return (
       <Router>
         <div>
+
           <NavBar
             isLoggedIn={this.state.isLoggedIn}
             logInUrl={this.state.logInUrl}
+            username={this.state.currentUser}
             handleUsernameInputLogin={this.handleUsernameInputLogin.bind(this)}
             handleUserCredentialsLogin={this.handleUserCredentialsLogin.bind(
               this
@@ -181,14 +184,15 @@ class App extends Component {
             handleSongCreateClick={this.handleSongCreateClick.bind(this)}
           />
 
-          <Jumbotron />
+          <Route exact path="/" render={() => <Jumbotron />} />
 
           <Route exact path="/" render={() => <SongList />} />
 
           <Route path="/jam" render={() => <JamView
             songCreateTitle={this.state.songCreateTitle}
             songCreateGenre={this.state.songCreateGenre}
-          />} />
+            />}
+          />
 
 
           <Footer
@@ -197,11 +201,9 @@ class App extends Component {
               <a className="grey-text text-lighten-4 right" href="#!">
                 More Links
               </a>
-            }
-
-          >
-
+            }>
           </Footer>
+
         </div>
       </Router>
     );
