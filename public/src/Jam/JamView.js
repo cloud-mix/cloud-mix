@@ -4,6 +4,7 @@ import getUserMedia from '../../audioHelpers/getUserMedia.js';
 import stopRecord from '../../audioHelpers/stopRecord.js';
 import record from '../../audioHelpers/record.js';
 import play from '../../audioHelpers/play.js';
+import { Button } from "react-materialize";
 
 class JamView extends Component {
   constructor() {
@@ -62,13 +63,15 @@ class JamView extends Component {
         </div>
 
         {this.state.recording ? (
-          <button
+
+          <Button className='recordButton' floating large waves='light' icon='mic_off'
             onClick={() => {
               stopRecord(this.state.recorder, this.setRecording.bind(this));
             }}
-          >Stop</button>
+          >Stop</Button>
+       
         ) : (
-          <button
+          <Button className='recordButton'  floating large waves='light' icon='mic_none'
             onClick={() => {
               record(
                 this.state.recorder,
@@ -78,13 +81,12 @@ class JamView extends Component {
                 this.setFirstRec.bind(this)
               );
             }}
-          >Rec</button>
+          >Rec</Button>
+
         )}
-
-        <button onClick={() => {
+        <Button floating large  waves='light' icon='play_arrow' onClick={() => {
           play(this.state.urls, this.state.offset, this.setTrackOffset.bind(this));
-        }}>Play</button>
-
+        }}>Play</Button>
         {this.state.urls > 1 ? (
           <input onChange={e => {
             this.setOffset(e.target.value);

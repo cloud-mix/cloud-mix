@@ -22,7 +22,7 @@ class App extends Component {
       allSongs: [],
       songCreateTitle: "",
       songCreateGenre: "",
-      songCreateContributorLimit: "",
+      songCreateContributorLimit: 0,
       // userWouldLikeToCreateSong: false
     };
 
@@ -125,6 +125,7 @@ class App extends Component {
   }
 
   handleSongCreateGenreInput(genre) {
+    console.log(genre);
     this.setState({
       songCreateGenre: genre
     });
@@ -132,7 +133,7 @@ class App extends Component {
 
   handleSongCreateContributorLimit(limit) {
     this.setState({
-      songCreateContributorLimit: limit
+      songCreateContributorLimit: parseInt(limit, 10)
     });
   }
 
