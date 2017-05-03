@@ -6,6 +6,9 @@ import record from '../../audioHelpers/record.js';
 import play from '../../audioHelpers/play.js';
 import waveformInit from '../../audioHelpers/waveformInit.js';
 import { Button } from "react-materialize";
+import axios from 'axios';
+import saveAs from 'save-as';
+
 
 class JamView extends Component {
   constructor() {
@@ -16,9 +19,11 @@ class JamView extends Component {
       urls: [],
       offset: 0,
       firstRec: false,
-      change: false,
+      change: false, 
+      playing: false,
       wavesurfer: null
     }
+    this.uploadToAmazon = this.uploadToAmazon.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +33,18 @@ class JamView extends Component {
       this.setRecorder.bind(this)
     );
     waveformInit(this.setWavesurfer.bind(this));
+  }
+
+  uploadToAmazon(){
+         axios.post('/upload', {
+           file: './song.mp3',
+           key: this.props.currentUser + '/' + this.props.currentUser + '_' + this.props.songCreateTitle + '_' + this.state.urls.length + '.mp3'
+        })
+  }
+
+  handleOnSongSubmitClick(){
+    e.preventDefault();
+    this.uploadToAmazon();
   }
 
   setRecorder(recorder) {
@@ -65,18 +82,17 @@ class JamView extends Component {
       <div className="jamView">
 
         <div className="jam_header">
-          <h2>{this.props.songCreateTitle}</h2>
-          <h3>{this.props.songCreateGenre}</h3>
+          <h2>Title: {this.props.songCreateTitle}</h2>
+          <h3>Genre: {this.props.songCreateGenre}</h3>
         </div>
 
         {this.state.recording ? (
 
-          <Button className='recordButton' floating large waves='light' icon='mic_off'
+          <Button className='red' floating large waves='light' icon='mic_off'
             onClick={() => {
               stopRecord(this.state.recorder, this.setRecording.bind(this));
             }}
-          >Stop</Button>
-
+          ></Button>
         ) : (
           <Button className='recordButton'  floating large waves='light' icon='mic_none'
             onClick={() => {
@@ -88,12 +104,12 @@ class JamView extends Component {
                 this.setFirstRec.bind(this)
               );
             }}
-          >Rec</Button>
+          ></Button>
 
         )}
         <Button floating large  waves='light' icon='play_arrow' onClick={() => {
           play(this.state.urls, this.state.offset, this.setTrackOffset.bind(this));
-        }}>Play</Button>
+        }}></Button>
         {this.state.urls > 1 ? (
           <input onChange={e => {
             this.setOffset(e.target.value);
@@ -109,6 +125,10 @@ class JamView extends Component {
             wavesurfer={this.state.wavesurfer}
           />
         })}
+
+        <Button onClick={(e) => this.uploadToAmazon(e)}>
+          Submit
+        </Button>
 
       </div>
     );

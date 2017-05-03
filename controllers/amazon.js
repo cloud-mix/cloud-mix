@@ -1,4 +1,5 @@
 var s3 = require("s3");
+var fs = require('fs');
 
 var client = s3.createClient({
  maxAsyncS3: 20,     // this is the default
@@ -14,20 +15,22 @@ var client = s3.createClient({
 
 
 var uploader = function (req, res) {
-
+  console.log(req.body);
   var file = req.body.file;
   var zeKey = req.body.key;
+  fs.writeFile('../../SoundFiles/song.mp3', file, (err, done) => {
+    if(err) {
+      console.log(err);
+    } else {
+      var params = {
+      localFile: file,
 
-  var params = {
-    localFile: file,
-
-    s3Params: {
+      s3Params: {
       Bucket: "cloudmix",
       Key: zeKey
-    },
-  };
+    }}
 
-  var upload = client.uploadFile(params);
+    var upload = client.uploadFile(params);
     upload.on('error', function(err) {
      console.error("unable to upload: ", err.stack);
     });
@@ -38,8 +41,7 @@ var uploader = function (req, res) {
     upload.on("end", function() {
      console.log("done uploading");
     });
-
-}
+    }})};
 
 
 
