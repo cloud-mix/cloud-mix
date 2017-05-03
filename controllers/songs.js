@@ -30,9 +30,6 @@ var postSong = function(req, res){
 }
 
 
-// var getSongsFromDB = function(req, res){
-//   //get songs from DB then render to Client with axios call
-// }
 
 
 module.exports = {
