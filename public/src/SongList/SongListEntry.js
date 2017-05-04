@@ -15,7 +15,8 @@ var SongListEntry = props => {
           </CardTitle>
         }
         onClick={() => {
-          props.setSongTitle(props.song);
+          props.setSongTitle(props.song.title);
+          props.setGenre(props.song.genre);
         }}
       >
         <b>Genre:</b> {props.song.genre} <br />
