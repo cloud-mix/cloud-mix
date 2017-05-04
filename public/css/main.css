@@ -96,3 +96,19 @@ body {
   display: none;
   visibility: hidden;
 }
+
+.card-content{
+  position: relative;
+}
+
+.buttonContainer{
+  float: right;
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+}
+
+.cardButton {
+  width: 80px !important;
+  height: 80px !important;
+}

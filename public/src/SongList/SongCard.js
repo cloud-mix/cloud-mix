@@ -7,7 +7,7 @@ const SongCard = props => {
   props.song.cont === 0 ? status = `Completed` : status = `Only ${props.song.cont} jam left`;
   return (
     <Card
-      className="small"
+      className="small buttonCard"
       header={
         <CardTitle image="http://s.bellevuecollege.edu/kbcs/uploads/2013/03/Waveform-Transmission.jpg">
           {props.song.title}
@@ -21,7 +21,9 @@ const SongCard = props => {
       <b>Genre:</b> {props.song.genre} <br />
       <b>{status}</b><br />
       <b>Started by:</b> {props.song.creator}
-      <Button
+      <div className="buttonContainer">
+        <Button
+          className="cardButton"
           floating large
           waves='light'
           icon='play_arrow'
@@ -29,6 +31,7 @@ const SongCard = props => {
             console.log('playing');
           }}
         ></Button>
+      </div>
     </Card>
   );
 }
