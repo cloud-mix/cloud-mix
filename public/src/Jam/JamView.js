@@ -47,6 +47,7 @@ class JamView extends Component {
   }
 
   uploadToAmazon(){
+<<<<<<< HEAD
     //  console.log(Object.getPrototypeOf(this.state.blob));
     //  var arrayBuffer;
     //  var fileReader = new FileReader();
@@ -92,6 +93,14 @@ class JamView extends Component {
       // setTimeout(() => {
       //   console.log("About to post to server: ", arrayBuffer);
       //   }, 3000);    
+=======
+
+          axios.post('/upload', {
+           file: this.state.urls[this.state.urls.length - 1].url.slice(5),
+           key: this.props.currentUser + '/' + this.props.currentUser + '_' + this.props.songCreateTitle + '_' + this.state.urls.length + '.mp3'
+          });
+         
+>>>>>>> b3826044335faf5479113eac0fa114871fb065b9
   }
 
   handleOnSongSubmitClick(){
