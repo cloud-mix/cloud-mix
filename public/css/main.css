@@ -29,7 +29,6 @@ body {
   width: 100%;
   height: 400px;
   margin-top:15px;
-  margin-bottom:15px;
 }
 
 .recordButton{
@@ -73,6 +72,7 @@ body {
 .jam_header{
   margin:20px;
 }
+
 .title {
   float: left;
   height: 54px;
@@ -84,15 +84,29 @@ body {
   float: right;
 }
 
-
 .submittedBtn{
   background-color: red;
   border-radius: 3px;
   border: solid black 3px;
 }
 
-
 .hideSubmitted{
   display: none;
   visibility: hidden;
+}
+
+.card-content{
+  position: relative;
+}
+
+.buttonContainer{
+  float: right;
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+}
+
+.cardButton {
+  width: 80px !important;
+  height: 80px !important;
 }

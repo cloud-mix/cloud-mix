@@ -146,7 +146,6 @@ class App extends Component {
   }
 
   handleSongCreateGenreInput(genre) {
-    console.log(genre);
     this.setState({
       songCreateGenre: genre
     });
