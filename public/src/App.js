@@ -180,6 +180,7 @@ class App extends Component {
           <Route path="/jam" render={() => <JamView
             songCreateTitle={this.state.songCreateTitle}
             songCreateGenre={this.state.songCreateGenre}
+            songCreateContributorLimit={this.state.songCreateContributorLimit}
             currentUser={this.state.currentUser}
             />}
           />
