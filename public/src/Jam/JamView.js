@@ -9,7 +9,6 @@ import waveformInit from '../../audioHelpers/waveformInit.js';
 import { Button } from "react-materialize";
 import axios from 'axios';
 import blobUtil from 'blob-util';
-import {Howl} from 'howler';
 
 class JamView extends Component {
   constructor() {
