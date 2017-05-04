@@ -9,14 +9,31 @@ const LoginModal = props => (
       onChange={e => props.handleUsernameInputLogin(e.target.value)}
     />
     <br />
+    {props.validUsername === false ? (
+        <p>Username must be at least 6 characters long</p>
+      ) :
+      (
+        <div></div>
+      )
+    }
     <input
       type="password"
       placeholder="Password"
       onChange={e => props.handleUserCredentialsLogin(e.target.value)}
     />
+
+    {props.validPassword === false ? (
+        <p>Password must be at least 6 characters long</p>
+      ) :
+      (
+        <div></div>
+      )
+    }
+
+
     <Button
       waves="light"
-      modal="close"
+      modal={props.modalStatus}
       onClick={e => {
         props.handleLoginClick(e);
       }}
@@ -25,7 +42,7 @@ const LoginModal = props => (
     </Button> <br /><br />
     <Button
       waves="light"
-      modal="close"
+      modal={props.modalStatus}
       onClick={e => {
         props.handleSignupClick(e);
       }}

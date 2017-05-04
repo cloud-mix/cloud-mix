@@ -22,13 +22,14 @@ class App extends Component {
       allSongs: [],
       songCreateTitle: "",
       songCreateGenre: "",
-      songCreateContributorLimit: 0
-      // userWouldLikeToCreateSong: false
+      songCreateContributorLimit: 0,
+      validUsername: null,
+      validPassword: null,
+      modalStatus: ''
     };
 
     this.signupUser = this.signupUser.bind(this);
     this.loginUser = this.loginUser.bind(this);
-    // this.createSong = this.createSong.bind(this);
   }
 
   loginUser() {
@@ -74,7 +75,17 @@ class App extends Component {
       this.state.loginUsernameInput.length >= 6 ||
       this.state.loginUserCredentials.length >= 6
     ) {
+      this.setState({
+        validUsername: true,
+        validPassword: true
+      });
+      this.handleModalStatus();
       this.loginUser();
+    } else {
+      this.setState({
+        validUsername: false,
+        validPassword: false
+      });
     }
   }
 
@@ -83,7 +94,17 @@ class App extends Component {
       this.state.loginUsernameInput.length >= 6 ||
       this.state.loginUserCredentials.length >= 6
     ) {
+      this.setState({
+        validUsername: true,
+        validPassword: true
+      });
+      this.handleModalStatus();
       this.signupUser();
+    } else {
+      this.setState({
+        validUsername: false,
+        validPassword: false
+      });
     }
   }
 
@@ -141,6 +162,14 @@ class App extends Component {
     console.log("creating new song");
   }
 
+  handleModalStatus(){
+    if(this.state.validUsername === true && this.state.validPassword === true){
+      this.setState({
+        modalStatus: "close"
+      });
+    };
+  }
+
   render() {
     return (
       <Router>
@@ -167,6 +196,9 @@ class App extends Component {
               this
             )}
             handleSongCreateClick={this.handleSongCreateClick.bind(this)}
+            validUsername={this.state.validUsername}
+            validPassword={this.state.validPassword}
+            modalStatus={this.state.modalStatus}
           />
 
           <Route exact path="/" render={() => <Jumbotron />} />
