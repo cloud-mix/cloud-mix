@@ -51,7 +51,7 @@ class JamView extends Component {
           title: this.props.songCreateTitle,
           genre: this.props.songCreateGenre,
           contriblimit: this.props.songCreateContributorLimit,
-          url: data,
+          url: btoa(data),
           contributors: this.props.currentUser,
           username: this.props.currentUser
         });
