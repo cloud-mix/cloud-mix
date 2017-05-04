@@ -24,7 +24,8 @@ class JamView extends Component {
       playing: false,
       tracks: [],
       wavesurfer: null,
-      blob: null
+      blob: null,
+      uploadSuccessful: false
     }
     this.uploadToAmazon = this.uploadToAmazon.bind(this);
   }
@@ -55,6 +56,9 @@ class JamView extends Component {
           contributors: this.props.currentUser,
           username: this.props.currentUser
         });
+      });
+      this.setState({
+        uploadSuccessful: true
       })
       } else {
         blobUtil.blobToBinaryString(this.state.blob)
@@ -64,7 +68,10 @@ class JamView extends Component {
               url: this.state.urls[this.state.urls.length - 1],
               offsets: this.state.offsets[this.state.offsets.length - 1]
             });
-          })
+          });
+          this.setState({
+            uploadSuccessful: true
+          });
       }
   }
 
@@ -113,13 +120,27 @@ class JamView extends Component {
   }
 
   render() {
+    console.log(this.state.uploadSuccessful)
     return (
       <div className="jamView">
-
         <div className="jam_header">
           <h3><b>Title:  </b>{this.props.songCreateTitle}</h3>
           <h3><b>Genre:  </b>{this.props.songCreateGenre}</h3>
         </div>
+
+        {this.state.uploadSuccessful === true ?
+          (
+            <div className="submittedBtn">
+              <h1>Successfully Uploaded Track</h1>
+            </div>
+          ) :
+          (
+            <div className="hideSubmitted">
+
+            </div>
+          )
+        }
+
 
         {this.state.recording ? (
           <Button className='red' floating large waves='light' icon='mic_off'
@@ -185,7 +206,11 @@ class JamView extends Component {
           />
         })}
 
-      </div>
+        <Button onClick={(e) => this.uploadToAmazon(e)}>
+          Submit
+        </Button>
+
+    </div>
     );
   }
 }

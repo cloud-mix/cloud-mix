@@ -83,3 +83,16 @@ body {
 .navBar > li{
   float: right;
 }
+
+
+.submittedBtn{
+  background-color: red;
+  border-radius: 3px;
+  border: solid black 3px;
+}
+
+
+.hideSubmitted{
+  display: none;
+  visibility: hidden;
+}
