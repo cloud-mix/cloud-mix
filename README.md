@@ -7,21 +7,25 @@ Lead Developer: <a href="https://www.github.com/dsousadev">David Desousa</a>
 
 Product Owner: <a href="https://www.github.com/Hugodol">Hugo Dolemieux</a>
 
-Scrum Master: <a href="alex1100.software">Alex Raffe Aleksanyan</a>
+Scrum Master: <a href="http://alex1100.software">Alex Raffe Aleksanyan</a>
 
 
 <b>Technologies</b>
 - Node.js
 - React.js
 - React Router
-- Amazon S3
-- MySQL
+- PostgreSQL
 - Sequelize
 - Dotenv
-- Elasticsearch
-- React-Bootstrap
-- Wad.js
+- React-Materialize
 - Howler.js
+- Web Audio API
+- Axios
+- Express
+- WaveSurfer
+- Webpack
+- Bcrypt
+- Nuka-Carousel
  
 
 
