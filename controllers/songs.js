@@ -55,15 +55,10 @@ var getSoonToBeCompleted = function(req, res){
 };
 
 var getSongs = function(req, res){
-  var tempObject = [];
   Song.findAll({})
     .then((songs) => {
       songs.forEach((song) => {
-        arrayBufferToBlob(song.url[0].data)
-        .then((data) => {
-          tempObject = data;
-          res.status(200).send(tempObject);
-        })
+        res.status(200).send(song);
       })
     })
     .catch((err) => {
