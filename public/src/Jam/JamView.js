@@ -206,9 +206,6 @@ class JamView extends Component {
           />
         })}
 
-        <Button onClick={(e) => this.uploadToAmazon(e)}>
-          Submit
-        </Button>
 
     </div>
     );
