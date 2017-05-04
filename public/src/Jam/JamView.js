@@ -9,7 +9,6 @@ import waveformInit from '../../audioHelpers/waveformInit.js';
 import { Button } from "react-materialize";
 import axios from 'axios';
 import blobUtil from 'blob-util';
-import {Howl} from 'howler';
 
 class JamView extends Component {
   constructor() {
@@ -187,9 +186,10 @@ class JamView extends Component {
             }}
           ></Button>
         )}
-        <Button className="submitButton" onClick={(e) => this.uploadToAmazon(e)}>
+        {this.state.blob ? ( <Button className="submitButton" onClick={(e) => this.uploadToAmazon(e)}>
           Submit
-        </Button>
+        </Button> ) : null }
+
         {this.state.urls > 1 ? (
           <input onChange={e => {
             this.setOffset(e.target.value);
@@ -206,9 +206,6 @@ class JamView extends Component {
           />
         })}
 
-        <Button onClick={(e) => this.uploadToAmazon(e)}>
-          Submit
-        </Button>
 
     </div>
     );

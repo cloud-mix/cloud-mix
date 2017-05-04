@@ -1,8 +1,6 @@
+var React = require("react");
 
-
-var React = require('react');
-
-var Carousel = require('nuka-carousel');
+var Carousel = require("nuka-carousel");
 
 const Jumbotron = props => {
   mixins: [Carousel.ControllerMixin];
@@ -15,6 +13,5 @@ const Jumbotron = props => {
       </Carousel>
     );
 };
-
 
 export default Jumbotron;

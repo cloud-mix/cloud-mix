@@ -6,8 +6,6 @@ var debug = require("debug")("app:http");
 var session = require("express-session");
 // var User = require("./models/user");
 
-
-
 require("dotenv").config();
 require("dotenv").load();
 

@@ -23,12 +23,13 @@ class App extends Component {
       songCreateTitle: "",
       songCreateGenre: "",
       songCreateContributorLimit: 0,
-      // userWouldLikeToCreateSong: false
+      validUsername: null,
+      validPassword: null,
+      modalStatus: ''
     };
 
     this.signupUser = this.signupUser.bind(this);
     this.loginUser = this.loginUser.bind(this);
-    // this.createSong = this.createSong.bind(this);
   }
 
   loginUser() {
@@ -74,7 +75,17 @@ class App extends Component {
       this.state.loginUsernameInput.length >= 6 ||
       this.state.loginUserCredentials.length >= 6
     ) {
+      this.setState({
+        validUsername: true,
+        validPassword: true
+      });
+      this.handleModalStatus();
       this.loginUser();
+    } else {
+      this.setState({
+        validUsername: false,
+        validPassword: false
+      });
     }
   }
 
@@ -83,12 +94,22 @@ class App extends Component {
       this.state.loginUsernameInput.length >= 6 ||
       this.state.loginUserCredentials.length >= 6
     ) {
+      this.setState({
+        validUsername: true,
+        validPassword: true
+      });
+      this.handleModalStatus();
       this.signupUser();
+    } else {
+      this.setState({
+        validUsername: false,
+        validPassword: false
+      });
     }
   }
 
   handleLogout() {
-    console.log('handleLogout triggerd');
+    console.log("handleLogout triggerd");
     this.setState({
       currentUser: "",
       loginUsernameInput: "",
@@ -137,7 +158,15 @@ class App extends Component {
   }
 
   handleSongCreateClick() {
-    console.log('creating new song');
+    console.log("creating new song");
+  }
+
+  handleModalStatus(){
+    if(this.state.validUsername === true && this.state.validPassword === true){
+      this.setState({
+        modalStatus: "close"
+      });
+    };
   }
 
   render() {
@@ -166,26 +195,38 @@ class App extends Component {
               this
             )}
             handleSongCreateClick={this.handleSongCreateClick.bind(this)}
+            validUsername={this.state.validUsername}
+            validPassword={this.state.validPassword}
+            modalStatus={this.state.modalStatus}
           />
 
           <Route exact path="/" render={() => <Jumbotron />} />
 
-          <Route exact path="/" render={() => (
-            <SongList
-              setSongTitle={this.handleSongCreateTitleInput.bind(this)}
-              setGenre={this.handleSongCreateGenreInput.bind(this)}
-              isLoggedIn={this.state.isLoggedIn}
-            />
-          )} />
-
-          <Route path="/jam" render={() => <JamView
-            songCreateTitle={this.state.songCreateTitle}
-            songCreateGenre={this.state.songCreateGenre}
-            songCreateContributorLimit={this.state.songCreateContributorLimit}
-            currentUser={this.state.currentUser}
-            />}
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <SongList
+                setSongTitle={this.handleSongCreateTitleInput.bind(this)}
+                setGenre={this.handleSongCreateGenreInput.bind(this)}
+                isLoggedIn={this.state.isLoggedIn}
+              />
+            )}
           />
 
+          <Route
+            path="/jam"
+            render={() => (
+              <JamView
+                songCreateTitle={this.state.songCreateTitle}
+                songCreateGenre={this.state.songCreateGenre}
+                songCreateContributorLimit={
+                  this.state.songCreateContributorLimit
+                }
+                currentUser={this.state.currentUser}
+              />
+            )}
+          />
 
           <Footer
             copyrights="&copy; 2017 Cloudmix"
@@ -193,8 +234,8 @@ class App extends Component {
               <a className="grey-text text-lighten-4 right" href="#!">
                 More Links
               </a>
-            }>
-          </Footer>
+            }
+          />
 
         </div>
       </Router>
