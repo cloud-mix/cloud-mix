@@ -10,6 +10,9 @@ const LoggedoutView = props => {
       </div>
       <LoginModal
         handleLoginClick={props.handleLoginClick}
+        validUsername={props.validUsername}
+        validPassword={props.validPassword}
+        modalStatus={props.modalStatus}
         handleSignupClick={props.handleSignupClick}
         handleUsernameInputLogin={props.handleUsernameInputLogin}
         handleUserCredentialsLogin={props.handleUserCredentialsLogin}
