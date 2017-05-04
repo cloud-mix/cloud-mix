@@ -7,7 +7,10 @@ import CreateSongModal from '../CreateSongModal';
 
 const LoggedinView = props => (
   <div>
-    <Navbar brand='Cloudmix' className='navBar' right>
+    <Navbar className='navBar'>
+      <div className="title">
+        <img src="../../images/logo_title.png"/>
+      </div>
 
       <Route exact path="/" render={() => (
         <NavItem>

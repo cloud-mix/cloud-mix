@@ -8,11 +8,8 @@ import stopPlayback from '../../audioHelpers/stopPlayback.js';
 import waveformInit from '../../audioHelpers/waveformInit.js';
 import { Button } from "react-materialize";
 import axios from 'axios';
-import saveAs from 'save-as';
-import $ from 'jquery';
-
-
-
+import blobUtil from 'blob-util';
+import {Howl} from 'howler';
 
 class JamView extends Component {
   constructor() {
@@ -26,7 +23,7 @@ class JamView extends Component {
       change: false,
       playing: false,
       tracks: [],
-      wavesurfer: null, 
+      wavesurfer: null,
       blob: null
     }
     this.uploadToAmazon = this.uploadToAmazon.bind(this);
@@ -47,60 +44,26 @@ class JamView extends Component {
   }
 
   uploadToAmazon(){
-<<<<<<< HEAD
-    //  console.log(Object.getPrototypeOf(this.state.blob));
-    //  var arrayBuffer;
-    //  var fileReader = new FileReader();
-    //  var context = this;
-    //  fileReader.onload = function() {
-    //    console.log("Count me")
-    //     arrayBuffer = this.result;
-    //     console.log(this.result);
-    //     console.log(this.result.byteLength)
-    //     console.log(JSON.stringify(this.result.byteLength));
-    //     axios.post('/upload', {
-    //        file: this.result,
-    //        key: context.props.currentUser + '/' + context.props.currentUser + '_' + context.props.songCreateTitle + '_' + context.state.urls.length + '.mp3'
-    //       })
-    //  };
-    //  fileReader.readAsArrayBuffer(this.state.blob);
-
-    // var fd = new FormData();
-    // fd.append('data', this.state.urls[this.state.urls.length - 1].url);
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/upload',
-    //   data: fd,
-    //   processData: false,
-    //   contentType: false,
-    // }).done(function(data) {
-    //   console.log(data);
-    // });
-
-
-    axios.get(this.state.urls[this.state.urls.length - 1].url,  { headers: {
-        'Content-Type': 'application/byte-stream'
-    }}).then(data => {
-        axios.post('/upload', {
-         file: data,
-         key: this.props.currentUser + '/' + this.props.currentUser + '_' + this.props.songCreateTitle + '_' + this.state.urls.length + '.mp3'
-        });
-    })
-
-  
-
-
-      // setTimeout(() => {
-      //   console.log("About to post to server: ", arrayBuffer);
-      //   }, 3000);    
-=======
-
-          axios.post('/upload', {
-           file: this.state.urls[this.state.urls.length - 1].url.slice(5),
-           key: this.props.currentUser + '/' + this.props.currentUser + '_' + this.props.songCreateTitle + '_' + this.state.urls.length + '.mp3'
-          });
-         
->>>>>>> b3826044335faf5479113eac0fa114871fb065b9
+    blobUtil.blobToBinaryString(this.state.blob)
+      .then(data => {
+        blobUtil.binaryStringToBlob(data)
+          .then(result => {
+            // console.log('blob after convert', result);
+            let url = window.URL.createObjectURL(result);
+            // console.log('url after convert', url);
+            let testTrack = new Howl({
+              src: [url],
+              format: 'mp3',
+              html5: true
+            });
+            console.log('track playing')
+            testTrack.play();
+          })
+        // axios.post('/upload', {
+        //   file: data,
+        //   key: this.props.currentUser + '/' + this.props.currentUser + '_' + this.props.songCreateTitle + '_' + this.state.urls.length + '.mp3'
+        // });
+      });
   }
 
   handleOnSongSubmitClick(){

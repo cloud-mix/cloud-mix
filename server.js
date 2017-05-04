@@ -4,21 +4,9 @@ var logger = require("morgan");
 var bodyParser = require("body-parser");
 var debug = require("debug")("app:http");
 var session = require("express-session");
-var User = require("./models/user");
-var multer = require('multer');
-var request = require("request");
-// var S3FS = require('s3fs');
-// var multipart = require('connect-multiparty');
-// var multipartMiddleware = multipart();
+// var User = require("./models/user");
 
-// var bucketPath = 'cloudmix';
-// var s3Options = {
-//   region: 'us-west-1'
-// }
 
-// var fsImpl = new S3FS(bucketPath, s3Options);
-
-// fsImpl.writeFile( )
 
 require("dotenv").config();
 require("dotenv").load();

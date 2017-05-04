@@ -1,11 +1,13 @@
 import React from "react";
-// import { Navbar, Nav, NavDropdown, MenuItem, NavItem } from "react-bootstrap";
 import LoginModal from "../LoginModal";
 import { SideNav, Navbar, NavItem } from "react-materialize";
 
 const LoggedoutView = props => {
   return (
-    <Navbar brand="Cloudmix" className="navBar" right>
+    <Navbar  className="navBar">
+      <div className="title">
+        <img src="../../images/logo_title.png"/>
+      </div>
       <LoginModal
         handleLoginClick={props.handleLoginClick}
         handleSignupClick={props.handleSignupClick}
