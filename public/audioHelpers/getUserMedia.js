@@ -17,7 +17,7 @@ const getUserMedia = (urlsCb, recCb, blobCb) => {
       }
       recorder.ondataavailable = e => {
         return chunks.push(e.data);
-      } 
+      }
     })
     .catch(err => console.log(err));
   } else {
