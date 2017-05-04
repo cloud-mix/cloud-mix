@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal, NavItem, Dropdown } from "react-materialize";
+import { Button, Modal, NavItem } from "react-materialize";
 import { Link } from "react-router-dom";
 
 const CreateSongModal = props => (
@@ -21,11 +21,11 @@ const CreateSongModal = props => (
     />
 
     <input
-    type="number"
-    placeholder="Number of Contributors. Yourself Included"
-    min="2"
-    max="10"
-    onChange={e => props.handleSongCreateContributorLimit(e.target.value)}
+      type="number"
+      placeholder="Number of Contributors. Yourself Included"
+      min="2"
+      max="10"
+      onChange={e => props.handleSongCreateContributorLimit(e.target.value)}
     />
 
     <Link to="/jam">

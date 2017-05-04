@@ -109,7 +109,7 @@ class App extends Component {
   }
 
   handleLogout() {
-    console.log('handleLogout triggerd');
+    console.log("handleLogout triggerd");
     this.setState({
       currentUser: "",
       loginUsernameInput: "",
@@ -159,7 +159,7 @@ class App extends Component {
   }
 
   handleSongCreateClick() {
-    console.log('creating new song');
+    console.log("creating new song");
   }
 
   handleModalStatus(){
@@ -203,22 +203,31 @@ class App extends Component {
 
           <Route exact path="/" render={() => <Jumbotron />} />
 
-          <Route exact path="/" render={() => (
-            <SongList
-              setSongTitle={this.handleSongCreateTitleInput.bind(this)}
-              setGenre={this.handleSongCreateGenreInput.bind(this)}
-              isLoggedIn={this.state.isLoggedIn}
-            />
-          )} />
-
-          <Route path="/jam" render={() => <JamView
-            songCreateTitle={this.state.songCreateTitle}
-            songCreateGenre={this.state.songCreateGenre}
-            songCreateContributorLimit={this.state.songCreateContributorLimit}
-            currentUser={this.state.currentUser}
-            />}
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <SongList
+                setSongTitle={this.handleSongCreateTitleInput.bind(this)}
+                setGenre={this.handleSongCreateGenreInput.bind(this)}
+                isLoggedIn={this.state.isLoggedIn}
+              />
+            )}
           />
 
+          <Route
+            path="/jam"
+            render={() => (
+              <JamView
+                songCreateTitle={this.state.songCreateTitle}
+                songCreateGenre={this.state.songCreateGenre}
+                songCreateContributorLimit={
+                  this.state.songCreateContributorLimit
+                }
+                currentUser={this.state.currentUser}
+              />
+            )}
+          />
 
           <Footer
             copyrights="&copy; 2017 Cloudmix"
@@ -226,8 +235,8 @@ class App extends Component {
               <a className="grey-text text-lighten-4 right" href="#!">
                 More Links
               </a>
-            }>
-          </Footer>
+            }
+          />
 
         </div>
       </Router>
