@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const CreateSongModal = props => (
   <Modal
-    header="Create a song"
+    header="Create a Jam Session"
     fixedFooter
     trigger={<NavItem>New Jam Session</NavItem>}
   >

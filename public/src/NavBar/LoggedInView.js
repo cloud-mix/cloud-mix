@@ -14,7 +14,9 @@ const LoggedinView = props => (
 
       <Route exact path="/" render={() => (
         <NavItem>
-          {props.username}
+          <Link to="/" onClick={() => props.handleLogout()}>
+            Logout
+          </Link>
         </NavItem>
       )}/>
 
@@ -29,9 +31,7 @@ const LoggedinView = props => (
 
       <Route exact path="/" render={() => (
         <NavItem>
-          <Link to="/" onClick={() => props.handleLogout()}>
-            Logout
-          </Link>
+          {props.username}
         </NavItem>
       )}/>
 

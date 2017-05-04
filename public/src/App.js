@@ -174,6 +174,7 @@ class App extends Component {
           <Route exact path="/" render={() => (
             <SongList
               setSongTitle={this.handleSongCreateTitleInput.bind(this)}
+              isLoggedIn={this.state.isLoggedIn}
             />
           )} />
 

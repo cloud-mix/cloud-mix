@@ -17,6 +17,7 @@ body {
 
 .page-footer{
   background-color: #546e7a !important;
+  padding-top: 0px !important;
 }
 
 .jamView{
