@@ -36,6 +36,15 @@ body {
   margin:20px;
 }
 
+.submitButton{
+  margin:20px;
+}
+
+.waveform{
+  width:50%;
+   margin: auto;
+}
+
 .red{
   margin:20px;
 }
@@ -61,6 +70,9 @@ body {
   background-position: right bottom;
 }
 
+.jam_header{
+  margin:20px;
+}
 .title {
   float: left;
   height: 54px;
