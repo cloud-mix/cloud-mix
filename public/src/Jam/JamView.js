@@ -187,9 +187,10 @@ class JamView extends Component {
             }}
           ></Button>
         )}
-        <Button className="submitButton" onClick={(e) => this.uploadToAmazon(e)}>
+        {this.state.blob ? ( <Button className="submitButton" onClick={(e) => this.uploadToAmazon(e)}>
           Submit
-        </Button>
+        </Button> ) : null }
+
         {this.state.urls > 1 ? (
           <input onChange={e => {
             this.setOffset(e.target.value);
