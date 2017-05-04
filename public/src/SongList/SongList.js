@@ -34,11 +34,13 @@ class SongList extends React.Component {
          <Col s={6}><SongListEntry
            song={this.state.completed[0]}
            setSongTitle={this.props.setSongTitle}
+           setGenre={this.props.setGenre}
            isLoggedIn={this.props.isLoggedIn}
          /></Col>
          <Col s={6}><SongListEntry
            song={this.state.soon[0]}
            setSongTitle={this.props.setSongTitle}
+           setGenre={this.props.setGenre}
            isLoggedIn={this.props.isLoggedIn}
          /></Col>
         </Row>
@@ -47,11 +49,13 @@ class SongList extends React.Component {
           <Col s={6}><SongListEntry
             song={this.state.completed[1]}
             setSongTitle={this.props.setSongTitle}
+            setGenre={this.props.setGenre}
             isLoggedIn={this.props.isLoggedIn}
           /></Col>
           <Col s={6}><SongListEntry
             song={this.state.soon[1]}
             setSongTitle={this.props.setSongTitle}
+            setGenre={this.props.setGenre}
             isLoggedIn={this.props.isLoggedIn}
           /></Col>
         </Row>
@@ -59,11 +63,13 @@ class SongList extends React.Component {
           <Col s={6}><SongListEntry
             song={this.state.completed[2]}
             setSongTitle={this.props.setSongTitle}
+            setGenre={this.props.setGenre}
             isLoggedIn={this.props.isLoggedIn}
           /></Col>
           <Col s={6}><SongListEntry
             song={this.state.soon[2]}
             setSongTitle={this.props.setSongTitle}
+            setGenre={this.props.setGenre}
             isLoggedIn={this.props.isLoggedIn}
           /></Col>
         </Row>
@@ -71,11 +77,13 @@ class SongList extends React.Component {
           <Col s={6}><SongListEntry
             song={this.state.completed[3]}
             setSongTitle={this.props.setSongTitle}
+            setGenre={this.props.setGenre}
             isLoggedIn={this.props.isLoggedIn}
           /></Col>
           <Col s={6}><SongListEntry
             song={this.state.soon[3]}
             setSongTitle={this.props.setSongTitle}
+            setGenre={this.props.setGenre}
             isLoggedIn={this.props.isLoggedIn}
           /></Col>
         </Row>

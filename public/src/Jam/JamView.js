@@ -124,8 +124,8 @@ class JamView extends Component {
     return (
       <div className="jamView">
         <div className="jam_header">
-          <h2>Title: {this.props.songCreateTitle}</h2>
-          <h3>Genre: {this.props.songCreateGenre}</h3>
+          <h3><b>Title:  </b>{this.props.songCreateTitle}</h3>
+          <h3><b>Genre:  </b>{this.props.songCreateGenre}</h3>
         </div>
 
         {this.state.uploadSuccessful === true ?
@@ -187,7 +187,9 @@ class JamView extends Component {
             }}
           ></Button>
         )}
-
+        <Button className="submitButton" onClick={(e) => this.uploadToAmazon(e)}>
+          Submit
+        </Button>
         {this.state.urls > 1 ? (
           <input onChange={e => {
             this.setOffset(e.target.value);
