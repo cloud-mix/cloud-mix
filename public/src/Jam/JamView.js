@@ -44,26 +44,28 @@ class JamView extends Component {
   }
 
   uploadToAmazon(){
+    if(this.state.urls.length < 2){
     blobUtil.blobToBinaryString(this.state.blob)
       .then(data => {
-        blobUtil.binaryStringToBlob(data)
-          .then(result => {
-            // console.log('blob after convert', result);
-            let url = window.URL.createObjectURL(result);
-            // console.log('url after convert', url);
-            let testTrack = new Howl({
-              src: [url],
-              format: 'mp3',
-              html5: true
+        axios.post('/songs', {
+          title: this.props.songCreateTitle,
+          genre: this.props.songCreateGenre,
+          contriblimit: this.props.songCreateContributorLimit,
+          url: data,
+          contributors: this.props.currentUser,
+          username: this.props.currentUser
+        });
+      })
+      } else {
+        blobUtil.blobToBinaryString(this.state.blob)
+          .then(data => {
+            axios.put('/songs', {
+              contributors: this.props.currentUser,
+              url: this.state.urls[this.state.urls.length - 1],
+              offsets: this.state.offsets[this.state.offsets.length - 1]
             });
-            console.log('track playing')
-            testTrack.play();
           })
-        // axios.post('/upload', {
-        //   file: data,
-        //   key: this.props.currentUser + '/' + this.props.currentUser + '_' + this.props.songCreateTitle + '_' + this.state.urls.length + '.mp3'
-        // });
-      });
+      }
   }
 
   handleOnSongSubmitClick(){

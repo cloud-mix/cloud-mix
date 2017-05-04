@@ -15,14 +15,22 @@ router.post('/signup', usersController.signUp);
 //Login
 router.get('/users/:username/:password', usersController.login);
 
-//Post To Amazon S3 And Then To DB
+//Get all songs
+router.get('/songs', songsController.getSongs);
+
+//Get most recent songs
+router.get('/recent', songsController.getMostRecentSongs);
+
+//Get closest to be completed
+router.get('/soon', songsController.getSoonToBeCompleted);
+
+//Create a song
 router.post('/songs', songsController.postSong);
 
-//Get Songs From DB
-// router.get('', songsController.getSongsFromDB);
+//Update a song
+router.put('/songs', songsController.updateSong);
 
 
-
-router.post('/upload', type, amazonsController.uploader);
+// router.post('/upload', type, amazonsController.uploader);
 
 module.exports = router;
