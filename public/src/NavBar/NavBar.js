@@ -7,6 +7,9 @@ import UsersSongsList from "../UsersSongsList/UsersSongsList";
 const NavBar = props => {
   return props.isLoggedIn === false
     ? <LoggedoutView
+        validUsername={props.validUsername}
+        validPassword={props.validPassword}
+        modalStatus={props.modalStatus}
         handleLoginClick={props.handleLoginClick}
         handleSignupClick={props.handleSignupClick}
         handleUsernameInputLogin={props.handleUsernameInputLogin}
