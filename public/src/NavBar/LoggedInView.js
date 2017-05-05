@@ -9,7 +9,9 @@ const LoggedinView = props => (
   <div>
     <Navbar className='navBar'>
       <div className="title">
+        <Link to="/">
         <img src="../../images/logo_title.png"/>
+        </Link>
       </div>
 
       <Route exact path="/" render={() => (
