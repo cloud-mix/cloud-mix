@@ -6,6 +6,8 @@ const play = (urls, offset, offestCb, playCb, trackCb, firstRec) => {
   playCb();
 
   if (firstRec) {
+    console.log('with new recording')
+
     let newRecording = new Howl({
       src: [urls[last].url],
         format: 'mp3',
@@ -37,13 +39,15 @@ const play = (urls, offset, offestCb, playCb, trackCb, firstRec) => {
       track.play('begin');
     }
   } else {
+    console.log('no new recording');
+
     urls.forEach(url => {
       let track = new Howl({
-        src: [urls[i].url],
+        src: [url.url],
         format: 'mp3',
         html5: true,
         sprite: {
-          begin: [urls[i].offset, 360000]
+          begin: [url.offset, 360000]
         }
       });
       tracks.push(track);
