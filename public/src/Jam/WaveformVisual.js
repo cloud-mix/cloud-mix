@@ -10,7 +10,7 @@ class WavefromVisual extends Component {
   render() {
     return (
       <div>
-        <div className='waveform'></div>
+        <div></div>
       </div>
     );
   }
