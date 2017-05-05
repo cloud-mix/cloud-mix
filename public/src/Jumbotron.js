@@ -1,5 +1,4 @@
 var React = require("react");
-
 var Carousel = require("nuka-carousel");
 
 const Jumbotron = props => {

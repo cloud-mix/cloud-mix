@@ -32,6 +32,7 @@ class App extends Component {
 
     this.signupUser = this.signupUser.bind(this);
     this.loginUser = this.loginUser.bind(this);
+    this.handleSuccessfulUpload = this.handleSuccessfulUpload.bind(this);
   }
 
   loginUser() {
@@ -74,7 +75,10 @@ class App extends Component {
         console.log("Error signing up user because: ", err);
       });
   }
-
+  handleSuccessfulUpload() {
+    // e.preventDefault();
+    this.setState({showUploadSuccess: true})
+  }
   handleLoginClick(e) {
     e.preventDefault();
     if (
@@ -225,6 +229,7 @@ class App extends Component {
             path="/jam"
             render={() => (
               <JamView
+                handleSuccessfulUpload={this.handleSuccessfulUpload}
                 songCreateTitle={this.state.songCreateTitle}
                 songCreateGenre={this.state.songCreateGenre}
                 songCreateContributorLimit={
@@ -266,6 +271,18 @@ class App extends Component {
             }}
             onEscapeKey={() => this.setState({ showLoginError: false })}
             onOutsideClick={() => this.setState({ showLoginError: false })}
+          />;
+          <SweetAlert
+            show={this.state.showUploadSuccess}
+            title="Upload successful"
+            text="Your contribution was recorded successfully!"
+            type="success"
+            onConfirm={() => {
+              console.log("confirm");
+              this.setState({ showUploadSuccess: false });
+            }}
+            onEscapeKey={() => this.setState({ showUploadSuccess: false })}
+            onOutsideClick={() => this.setState({ showUploadSuccess: false })}
           />;
 
         </div>
