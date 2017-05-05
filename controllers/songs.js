@@ -71,14 +71,28 @@ var getSongs = function(req, res){
 var updateSong = function(req, res){
   Song.findOne({where: { title: req.body.title, genre: req.body.genre }})
   .then((song) => {
-    Song.updateAttributes({
-      contribcount: song.contribcount + 1,
-      completion: (song.contribcount + 1) / song.contriblimit,
-      url: song.url.push(req.body.url),
-      contributors: song.contributors.push(req.body.contributors),
-      offsets: song.offsets.push(req.body.offsets)
-    });
-    res.sendStatus(201);
+    console.log("Found Song: ", song.id);
+    song.contribcount = song.contribcount + 1;
+    song.completion = song.contribcount / song.contriblimit;
+    song.url.push(req.body.url);
+    song.contributors.push(req.body.contributors);
+    song.offsets.push(req.body.offsets);
+    Song.update({
+      contribcount: song.contribcount,
+      completion: song.completion,
+      url: song.url,
+      contributors: song.contributors,
+      offsets: song.offsets
+    }, {
+      where: { id: song.id }
+    })
+    .then((result) => {
+      res.status(200).send(result);
+    })
+    .catch((error) => {
+      console.log("Couldn't update the song: " + song + " because: ", error);
+      res.status(204).send();
+    })
   })
   .catch((err) => {
     console.log("Song does not exist in the Database or Network Error: ", err);
