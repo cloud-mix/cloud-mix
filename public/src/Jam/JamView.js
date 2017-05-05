@@ -30,7 +30,6 @@ class JamView extends Component {
     }
 
     this.postBlobToDB= this.postBlobToDB.bind(this);
-    };
   }
 
   componentDidMount() {
@@ -127,7 +126,7 @@ class JamView extends Component {
     this.state.urls.length > 0 ?
       waveformVisual(this.state.urls[this.state.urls.length - 1].url, this.state.wavesurfer) : null;
     console.log(this.state.uploadSuccessful)
-    
+
     return (
       <div className="jamView">
         <div className="jam_header">
@@ -191,9 +190,9 @@ class JamView extends Component {
                 stopPlayback(this.state.tracks, this.setPlaying.bind(this));
               }}
             />}
-        
+
         {this.state.blob
-              ? 
+              ?
                   <Link to="/"><Button
                     className="submitButton"
                     onClick={e => this.postBlobToDB(e)}
@@ -202,7 +201,7 @@ class JamView extends Component {
                   </Button></Link>
               : <div />
           }
-        
+
 
         {this.state.urls > 1
           ? <input
