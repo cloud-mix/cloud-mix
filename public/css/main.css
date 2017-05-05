@@ -41,7 +41,9 @@ body {
 
 .waveform{
   width:50%;
-   margin: auto;
+  margin: auto;
+  border: solid;
+  box-shadow: 10px 10px 5px #888888;
 }
 
 .red{
