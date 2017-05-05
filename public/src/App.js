@@ -7,6 +7,7 @@ import axios from "axios";
 import LoginModal from "./LoginModal";
 import { Footer } from "react-materialize";
 import Jumbotron from "./Jumbotron";
+import SweetAlert from "sweetalert-react";
 
 class App extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class App extends Component {
       songCreateContributorLimit: 0,
       validUsername: null,
       validPassword: null,
-      modalStatus: ''
+      show: false
     };
 
     this.signupUser = this.signupUser.bind(this);
@@ -41,11 +42,15 @@ class App extends Component {
           this.state.loginUserCredentials
       )
       .then(user => {
-        this.setState({
-          currentUser: user.data.username,
-          isLoggedIn: true,
-          loginUserCredentials: ""
-        });
+        if (user.data !== "Invalid Login Credentials") {
+          this.setState({
+            currentUser: user.data.username,
+            isLoggedIn: true,
+            loginUserCredentials: ""
+          });
+        } else {
+          this.setState({ show: true });
+        }
       });
   }
 
@@ -79,16 +84,15 @@ class App extends Component {
         validUsername: true,
         validPassword: true
       });
-      this.handleModalStatus();
       this.loginUser();
     } else {
       this.setState({
         validUsername: false,
-        validPassword: false
+        validPassword: false,
+        show: true
       });
     }
   }
-
   handleSignupClick() {
     if (
       this.state.loginUsernameInput.length >= 6 ||
@@ -161,12 +165,14 @@ class App extends Component {
     console.log("creating new song");
   }
 
-  handleModalStatus(){
-    if(this.state.validUsername === true && this.state.validPassword === true){
+  handleModalStatus() {
+    if (
+      this.state.validUsername === true && this.state.validPassword === true
+    ) {
       this.setState({
         modalStatus: "close"
       });
-    };
+    }
   }
 
   render() {
@@ -236,6 +242,23 @@ class App extends Component {
               </a>
             }
           />
+
+          <SweetAlert
+            show={this.state.show}
+            title="Login Error"
+            text="Please check your username and password and try again."
+            showCancelButton
+            onConfirm={() => {
+              console.log("confirm");
+              this.setState({ show: false });
+            }}
+            onCancel={() => {
+              console.log("cancel");
+              this.setState({ show: false });
+            }}
+            onEscapeKey={() => this.setState({ show: false })}
+            onOutsideClick={() => this.setState({ show: false })}
+          />;
 
         </div>
       </Router>

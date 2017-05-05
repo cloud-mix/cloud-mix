@@ -1,55 +1,52 @@
 import React from "react";
 import { Button, Modal, NavItem } from "react-materialize";
 
-const LoginModal = props => (
-  <Modal header="Login" fixedFooter trigger={<NavItem>Login</NavItem>}>
-    <input
-      type="text"
-      placeholder="Username"
-      onChange={e => props.handleUsernameInputLogin(e.target.value)}
-    />
-    <br />
-    {props.validUsername === false ? (
-        <p>Username must be at least 6 characters long</p>
-      ) :
-      (
-        <div></div>
-      )
-    }
-    <input
-      type="password"
-      placeholder="Password"
-      onChange={e => props.handleUserCredentialsLogin(e.target.value)}
-    />
+class LoginModal extends React.Component {
+  constructor() {
+    super();
+  }
+  render() {
+    return(
+    <Modal header="Login" fixedFooter trigger={<NavItem>Login</NavItem>}>
+      <input
+        type="text"
+        placeholder="Username"
+        onChange={e => this.props.handleUsernameInputLogin(e.target.value)}
+      />
+      <br />
+      {this.props.validUsername === false
+        ? <p>Username must be at least 6 characters long</p>
+        : <div />}
+      <input
+        type="password"
+        placeholder="Password"
+        onChange={e => this.props.handleUserCredentialsLogin(e.target.value)}
+      />
 
-    {props.validPassword === false ? (
-        <p>Password must be at least 6 characters long</p>
-      ) :
-      (
-        <div></div>
-      )
-    }
+      {this.props.validPassword === false
+        ? <p>Password must be at least 6 characters long</p>
+        : <div />}
 
-
-    <Button
-      waves="light"
-      modal={props.modalStatus}
-      onClick={e => {
-        props.handleLoginClick(e);
-      }}
-    >
-      Login
-    </Button> <br /><br />
-    <Button
-      waves="light"
-      modal={props.modalStatus}
-      onClick={e => {
-        props.handleSignupClick(e);
-      }}
-    >
-      Register
-    </Button>
-  </Modal>
-);
+      <Button
+        waves="light"
+        modal="close"
+        onClick={e => {
+          this.props.handleLoginClick(e);
+        }}
+      >
+        Login
+      </Button> <br /><br />
+      <Button
+        waves="light"
+        modal="close"
+        onClick={e => {
+          this.props.handleSignupClick(e);
+        }}
+      >
+        Register
+      </Button>
+    </Modal>);
+  }
+}
 
 export default LoginModal;

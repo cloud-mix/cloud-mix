@@ -40,7 +40,7 @@ var login = function(req, res){
       });
     } else {
       console.log('Invalid Login Credentials');
-      res.status(404).send(err);
+      res.send('Invalid Login Credentials');
     }
   });
 }
