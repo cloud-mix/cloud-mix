@@ -6,9 +6,7 @@ const LoggedoutView = props => {
   return (
     <Navbar  className="navBar">
       <div className="title">
-        <Link to="/">
         <img src="../../images/logo_title.png"/>
-        </Link>
       </div>
       <LoginModal
         handleLoginClick={props.handleLoginClick}
