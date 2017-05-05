@@ -7,6 +7,7 @@ import record from "../../audioHelpers/record.js";
 import play from "../../audioHelpers/play.js";
 import stopPlayback from "../../audioHelpers/stopPlayback.js";
 import waveformInit from "../../audioHelpers/waveformInit.js";
+import waveformVisual from "../../audioHelpers/waveformVisual.js";
 import inputVisual from "../../audioHelpers/inputVisual.js";
 import { Button, Modal } from "react-materialize";
 import axios from "axios";
@@ -113,9 +114,8 @@ class JamView extends Component {
     this.setState({ playing: !this.state.playing });
   }
 
-  setTrack(track) {
-    this.state.tracks.push(track);
-    this.setState({ change: !this.state.change });
+  setTrack(tracks) {
+    this.setState({ tracks: tracks});
   }
 
   setWavesurfer(wave) {
@@ -213,15 +213,6 @@ class JamView extends Component {
           : null}
 
         <div className="waveform" />
-        {this.state.urls.map((url, i) => {
-          return (
-            <WaveformVisual
-              key={i}
-              url={url.url}
-              wavesurfer={this.state.wavesurfer}
-            />
-          );
-        })}
 
       </div>
     );
