@@ -27,13 +27,13 @@ class JamView extends Component {
       wavesurfer: null,
       blob: null,
       uploadSuccessful: false
-    };
+    }
 
-    this.postBlobToDB = this.postBlobToDB.bind(this);
+    this.postBlobToDB= this.postBlobToDB.bind(this);
+    };
   }
 
   componentDidMount() {
-    //TODO: grab existing track and set to urls
     getUserMedia(
       this.setUrl.bind(this),
       this.setRecorder.bind(this),
@@ -124,12 +124,17 @@ class JamView extends Component {
   }
 
   render() {
+    this.state.urls.length > 0 ?
+      waveformVisual(this.state.urls[this.state.urls.length - 1].url, this.state.wavesurfer) : null;
+    console.log(this.state.uploadSuccessful)
+    
     return (
       <div className="jamView">
         <div className="jam_header">
           <h3><b>Title: </b>{this.props.songCreateTitle}</h3>
           <h3><b>Genre: </b>{this.props.songCreateGenre}</h3>
         </div>
+
 
         <div id="input" />
 
