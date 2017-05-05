@@ -14,18 +14,18 @@ class LoginModal extends React.Component {
         onChange={e => this.props.handleUsernameInputLogin(e.target.value)}
       />
       <br />
-      {this.props.validUsername === false
+      {/*{this.props.validUsername === false
         ? <p>Username must be at least 6 characters long</p>
-        : <div />}
+        : <div />}*/}
       <input
         type="password"
         placeholder="Password"
         onChange={e => this.props.handleUserCredentialsLogin(e.target.value)}
       />
 
-      {this.props.validPassword === false
+      {/*{this.props.validPassword === false
         ? <p>Password must be at least 6 characters long</p>
-        : <div />}
+        : <div />}*/}
 
       <Button
         waves="light"

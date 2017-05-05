@@ -35,7 +35,7 @@ var login = function(req, res){
           res.status(200).send(user);
         } else {
           console.log('Invalid Login Credentials');
-          res.status(404).send(err);
+          res.send('Invalid Login Credentials');
         }
       });
     } else {

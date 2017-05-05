@@ -26,7 +26,8 @@ class App extends Component {
       songCreateContributorLimit: 0,
       validUsername: null,
       validPassword: null,
-      show: false
+      showLoginError: false,
+      showSignupError: false
     };
 
     this.signupUser = this.signupUser.bind(this);
@@ -49,7 +50,7 @@ class App extends Component {
             loginUserCredentials: ""
           });
         } else {
-          this.setState({ show: true });
+          this.setState({ showLoginError: true });
         }
       });
   }
@@ -89,7 +90,7 @@ class App extends Component {
       this.setState({
         validUsername: false,
         validPassword: false,
-        show: true
+        showSignupError: true
       });
     }
   }
@@ -242,18 +243,29 @@ class App extends Component {
               </a>
             }
           />
-
           <SweetAlert
-            show={this.state.show}
+            show={this.state.showSignupError}
+            title="Registration Error"
+            text="Both your username and password must be at least 6 characters long."
+            type="error"
+            onConfirm={() => {
+              console.log("confirm");
+              this.setState({ showSignupError: false });
+            }}
+            onEscapeKey={() => this.setState({ showSignupError: false })}
+            onOutsideClick={() => this.setState({ showSignupError: false })}
+          />;
+          <SweetAlert
+            show={this.state.showLoginError}
             title="Login Error"
             text="Please check your username and password and try again."
             type="error"
             onConfirm={() => {
               console.log("confirm");
-              this.setState({ show: false });
+              this.setState({ showLoginError: false });
             }}
-            onEscapeKey={() => this.setState({ show: false })}
-            onOutsideClick={() => this.setState({ show: false })}
+            onEscapeKey={() => this.setState({ showLoginError: false })}
+            onOutsideClick={() => this.setState({ showLoginError: false })}
           />;
 
         </div>
