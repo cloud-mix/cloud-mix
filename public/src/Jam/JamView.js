@@ -27,7 +27,8 @@ class JamView extends Component {
       blob: null,
       uploadSuccessful: false
     }
-    this.uploadToDB = this.uploadToDB.bind(this);
+    
+    this.postBlobToDB= this.postBlobToDB.bind(this);
   }
 
   componentDidMount() {
@@ -45,7 +46,7 @@ class JamView extends Component {
     this.setState({blob: blob});
   }
 
-  uploadToDB(){
+  postBlobToDB(){
     if(this.state.urls.length < 2){
     blobUtil.blobToBinaryString(this.state.blob)
       .then(data => {
@@ -78,7 +79,7 @@ class JamView extends Component {
 
   handleOnSongSubmitClick(){
     e.preventDefault();
-    this.uploadToDB();
+    this.postBlobToDB();
   }
 
   setRecorder(recorder) {
@@ -190,7 +191,8 @@ class JamView extends Component {
             }}
           ></Button>
         )}
-        {this.state.blob ? ( <Button className="submitButton" onClick={(e) => this.uploadToDB(e)}>
+
+        {this.state.blob ? ( <Button className="submitButton" onClick={(e) => this.postBlobToDB(e)}>
           Submit
         </Button> ) : null }
 

@@ -247,13 +247,9 @@ class App extends Component {
             show={this.state.show}
             title="Login Error"
             text="Please check your username and password and try again."
-            showCancelButton
+            type="error"
             onConfirm={() => {
               console.log("confirm");
-              this.setState({ show: false });
-            }}
-            onCancel={() => {
-              console.log("cancel");
               this.setState({ show: false });
             }}
             onEscapeKey={() => this.setState({ show: false })}
