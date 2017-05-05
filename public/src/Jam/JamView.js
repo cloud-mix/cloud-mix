@@ -112,9 +112,8 @@ class JamView extends Component {
     this.setState({playing: !this.state.playing});
   }
 
-  setTrack(track) {
-    this.state.tracks.push(track);
-    this.setState({change: !this.state.change});
+  setTrack(tracks) {
+    this.setState({tracks: tracks});
   }
 
   setWavesurfer(wave) {

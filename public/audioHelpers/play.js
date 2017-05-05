@@ -2,12 +2,10 @@ import {Howl} from 'howler';
 
 const play = (urls, offset, offestCb, playCb, trackCb, firstRec) => {
   let last = urls.length - 1;
+  let tracks = [];
   playCb();
 
-  console.log('firstRec is', firstRec);
-
   if (firstRec) {
-    console.log('something was recorded');
     let newRecording = new Howl({
       src: [urls[last].url],
         format: 'mp3',
@@ -23,7 +21,7 @@ const play = (urls, offset, offestCb, playCb, trackCb, firstRec) => {
         }
     });
     offestCb(last, offset);
-    trackCb(newRecording);
+    tracks.push(newRecording);
     newRecording.play('begin');
 
     for (let i = 0; i < last; i++) {
@@ -35,13 +33,24 @@ const play = (urls, offset, offestCb, playCb, trackCb, firstRec) => {
           begin: [urls[i].offset, 360000]
         }
       });
-      trackCb(track);
+      tracks.push(track);
       track.play('begin');
     }
   } else {
-    console.log('no recording yet');
+    urls.forEach(url => {
+      let track = new Howl({
+        src: [urls[i].url],
+        format: 'mp3',
+        html5: true,
+        sprite: {
+          begin: [urls[i].offset, 360000]
+        }
+      });
+      tracks.push(track);
+      track.play('begin');
+    });
   }
-
+  trackCb(tracks);
 }
 
 export default play;
