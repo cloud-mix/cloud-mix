@@ -6,6 +6,7 @@ import record from '../../audioHelpers/record.js';
 import play from '../../audioHelpers/play.js';
 import stopPlayback from '../../audioHelpers/stopPlayback.js';
 import waveformInit from '../../audioHelpers/waveformInit.js';
+import inputVisual from '../../audioHelpers/inputVisual.js';
 import { Button } from "react-materialize";
 import axios from 'axios';
 import blobUtil from 'blob-util';
@@ -37,6 +38,7 @@ class JamView extends Component {
       this.setBlob.bind(this)
     );
     waveformInit(this.setWavesurfer.bind(this));
+    inputVisual();
   }
 
   setBlob(blob) {
@@ -126,6 +128,8 @@ class JamView extends Component {
           <h3><b>Title:  </b>{this.props.songCreateTitle}</h3>
           <h3><b>Genre:  </b>{this.props.songCreateGenre}</h3>
         </div>
+
+        <div id="input"></div>
 
         {this.state.uploadSuccessful === true ?
           (

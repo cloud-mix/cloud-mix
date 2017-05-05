@@ -110,3 +110,7 @@ body {
   width: 80px !important;
   height: 80px !important;
 }
+
+a {
+  color: black !important;
+}
