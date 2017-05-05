@@ -27,6 +27,7 @@ class JamView extends Component {
       blob: null,
       uploadSuccessful: false
     }
+    
     this.postBlobToDB= this.postBlobToDB.bind(this);
   }
 
@@ -190,6 +191,7 @@ class JamView extends Component {
             }}
           ></Button>
         )}
+
         {this.state.blob ? ( <Button className="submitButton" onClick={(e) => this.postBlobToDB(e)}>
           Submit
         </Button> ) : null }
