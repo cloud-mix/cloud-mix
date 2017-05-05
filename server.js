@@ -18,6 +18,7 @@ var app = express();
 // Helper layer (parses the requests, and adds further data).
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser({ limit: '50mb'}));
 
 require("./config/database");
 
