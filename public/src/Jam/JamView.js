@@ -6,6 +6,7 @@ import record from '../../audioHelpers/record.js';
 import play from '../../audioHelpers/play.js';
 import stopPlayback from '../../audioHelpers/stopPlayback.js';
 import waveformInit from '../../audioHelpers/waveformInit.js';
+import waveformVisual from '../../audioHelpers/waveformVisual.js';
 import inputVisual from '../../audioHelpers/inputVisual.js';
 import { Button } from "react-materialize";
 import axios from 'axios';
@@ -27,12 +28,11 @@ class JamView extends Component {
       blob: null,
       uploadSuccessful: false
     }
-    
+
     this.postBlobToDB= this.postBlobToDB.bind(this);
   }
 
   componentDidMount() {
-    //TODO: grab existing track and set to urls
     getUserMedia(
       this.setUrl.bind(this),
       this.setRecorder.bind(this),
@@ -122,6 +122,8 @@ class JamView extends Component {
   }
 
   render() {
+    this.state.urls.length > 0 ?
+      waveformVisual(this.state.urls[this.state.urls.length - 1].url, this.state.wavesurfer) : null;
     console.log(this.state.uploadSuccessful)
     return (
       <div className="jamView">
@@ -177,14 +179,15 @@ class JamView extends Component {
                 this.state.offset,
                 this.setTrackOffset.bind(this),
                 this.setPlaying.bind(this),
-                this.setTrack.bind(this)
+                this.setTrack.bind(this),
+                this.state.firstRec
               );
             }}
           ></Button>
         ) : (
           <Button
             floating large
-            wave="light"
+            waves="light"
             icon="stop"
             onClick={() => {
               stopPlayback(this.state.tracks, this.setPlaying.bind(this));
@@ -204,14 +207,6 @@ class JamView extends Component {
         ) : null}
 
         <div className="waveform"></div>
-        {this.state.urls.map((url, i) => {
-          return <WaveformVisual
-            key={i}
-            url={url.url}
-            wavesurfer={this.state.wavesurfer}
-          />
-        })}
-
 
     </div>
     );
