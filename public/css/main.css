@@ -6,14 +6,14 @@
 body {
   font-family: cloudMix;
   background-color: grey;
-  /*background-image: url(http://wallpapercave.com/wp/BEkbIvB.jpg);*/
+  background-image: url(http://xboxhut.com/wp-content/uploads/2016/06/brick-wall-graffiti-dark-interior-designers-plumbing-contractors.jpg);
+  background-repeat: no-repeat;
 }
 
 #app{
   width: 75%;
   margin: 0 auto;
   background-color: white;
-  /*box-shadow: 10px 10px 5px #888888;*/
 }
 
 .oauthbtn{
