@@ -19,11 +19,6 @@ const LoggedoutView = props => {
         handleUsernameInputLogin={props.handleUsernameInputLogin}
         handleUserCredentialsLogin={props.handleUserCredentialsLogin}
       />
-
-      <Link to="/songs">
-        <div className="searchSongs"
-        >Find Songs</div>
-      </Link>
     </Navbar>
   );
 };
