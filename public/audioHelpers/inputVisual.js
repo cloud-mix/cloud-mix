@@ -2,7 +2,7 @@ import WaveSurfer from 'wavesurfer';
 import '../../node_modules/wavesurfer/dist/plugin/wavesurfer.microphone.min.js';
 
 
-const inputVisual = () => {
+const inputVisual = cb => {
   let inputWave = WaveSurfer.create({
     container: '#input',
     waveColor: 'green'
@@ -19,6 +19,7 @@ const inputVisual = () => {
     console.warn('Device error: ' + code);
   });
   microphone.play();
+  cb(inputWave);
 }
 
 export default inputVisual;

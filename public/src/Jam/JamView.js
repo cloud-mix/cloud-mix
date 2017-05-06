@@ -25,6 +25,7 @@ class JamView extends Component {
       playing: false,
       tracks: [],
       wavesurfer: null,
+      inputWave: null,
       blob: null,
       uploadSuccessful: false
     }
@@ -39,7 +40,7 @@ class JamView extends Component {
       this.setBlob.bind(this)
     );
     waveformInit(this.setWavesurfer.bind(this));
-    inputVisual();
+    inputVisual(this.setInputWave.bind(this));
   }
 
   setBlob(blob) {
@@ -122,7 +123,12 @@ class JamView extends Component {
     this.setState({ wavesurfer: wave });
   }
 
+  setInputWave(wave) {
+    this.setState({inputWave: wave});
+  }
+
   render() {
+    // this.props.setAudioContext([this.state.wavesurfer, this.state.inputWave]);
     this.state.firstRec ?
       waveformVisual(this.props.currentSong.url[this.props.currentSong.url.length - 1], this.state.wavesurfer) : null;
     return (
@@ -196,18 +202,21 @@ class JamView extends Component {
               }}
             />}
 
-        {this.state.blob
-              ? (
-                  <Link to="/"><Button
-                    className="submitButton"
-                    onClick={e => {this.setTrackOffset(this.state.offset)
-                    this.postBlobToDB(e);}}
-                  >
-                    Submit
-                  </Button></Link>)
-              : null
+        {this.state.blob ? (
+          <Link to="/">
+            <Button
+              className="submitButton"
+              onClick={e => {
+                this.setTrackOffset(this.state.offset);
+                this.postBlobToDB(e);
+                // this.state.wavesurfer.destroy();
+                // this.state.inputWave.destroy();
+              }}
+            >
+                Submit
+            </Button>
+          </Link>) : null
           }
-
 
         {this.props.currentSong.url.length > 1
           ? <input

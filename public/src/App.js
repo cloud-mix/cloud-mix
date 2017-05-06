@@ -25,7 +25,8 @@ class App extends Component {
       validPassword: null,
       showLoginError: false,
       showSignupError: false,
-      currentSong: {url:[]}
+      currentSong: {url:[]},
+      audioContext: []
     };
 
     this.signupUser = this.signupUser.bind(this);
@@ -34,9 +35,6 @@ class App extends Component {
     this.setCurrentSong = this.setCurrentSong.bind(this);
     this.handleSongCreate = this.handleSongCreate.bind(this);
   }
-
-
-
 
   loginUser() {
     axios
@@ -175,9 +173,12 @@ class App extends Component {
     }
   }
 
-
+  setAudioContext(context) {
+    this.setState({audioContext: context});
+  }
 
   render() {
+    console.log('context in app', this.state.audioContext);
     return (
       <Router>
         <div>
@@ -233,6 +234,7 @@ class App extends Component {
                 currentSong={this.state.currentSong}
                 currentUser={this.state.currentUser}
                 setCurrentSong={this.setCurrentSong}
+                setAudioContext={this.setAudioContext.bind(this)}
               />
             )}
           />
