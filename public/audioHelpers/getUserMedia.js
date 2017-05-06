@@ -13,7 +13,7 @@ const getUserMedia = (urlsCb, recCb, blobCb) => {
         blobCb(blob);
         chunks = [];
         let url = window.URL.createObjectURL(blob);
-        urlsCb({url: url, offset: 0});
+        urlsCb(url);
       }
       recorder.ondataavailable = e => {
         return chunks.push(e.data);

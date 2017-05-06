@@ -47,12 +47,12 @@ class JamView extends Component {
   }
 
   postBlobToDB() {
-    if (this.state.urls.length < 2) {
+    if (this.props.currentSong.url.length < 2) {
       blobUtil.blobToBinaryString(this.state.blob).then(data => {
         axios.post("/songs", {
-          title: this.props.songCreateTitle,
-          genre: this.props.songCreateGenre,
-          contriblimit: this.props.songCreateContributorLimit,
+          title: this.props.currentSong.title,
+          genre: this.props.currentSong.genre,
+          contriblimit: this.props.currentSong.contriblimit,
           url: btoa(data),
           contributors: this.props.currentUser,
           username: this.props.currentUser
@@ -67,8 +67,8 @@ class JamView extends Component {
       blobUtil.blobToBinaryString(this.state.blob).then(data => {
         axios.put("/songs", {
           contributors: this.props.currentUser,
-          url: this.state.urls[this.state.urls.length - 1],
-          offsets: this.state.offsets[this.state.offsets.length - 1]
+          url: this.props.currentSong.url[this.props.currentSong.url.length - 1],
+          offsets: this.props.currentSong.offsets[this.props.currentSong.offsets.length - 1]
         });
       });
       this.setState({
@@ -123,9 +123,8 @@ class JamView extends Component {
   }
 
   render() {
-    console.log(this.props);
     this.state.firstRec ?
-      waveformVisual(this.props.currentSong.url[this.props.currentSong.url - 1], this.state.wavesurfer) : null;
+      waveformVisual(this.props.currentSong.url[this.props.currentSong.url.length - 1], this.state.wavesurfer) : null;
     return (
       <div className="jamView">
         <div className="jam_header">

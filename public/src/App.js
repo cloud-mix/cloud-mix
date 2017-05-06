@@ -159,7 +159,8 @@ class App extends Component {
       title: title,
       genre: genre,
       contriblimit: contributors,
-      url: []
+      url: [],
+      offsets: []
     }})
     console.log("IN HANDLE SONG CREATE, state is", this.state);
   }
