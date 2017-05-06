@@ -259,7 +259,7 @@ class App extends Component {
             }}
             onEscapeKey={() => this.setState({ showSignupError: false })}
             onOutsideClick={() => this.setState({ showSignupError: false })}
-          />;
+          />
           <SweetAlert
             show={this.state.showLoginError}
             title="Login Error"
@@ -271,7 +271,7 @@ class App extends Component {
             }}
             onEscapeKey={() => this.setState({ showLoginError: false })}
             onOutsideClick={() => this.setState({ showLoginError: false })}
-          />;
+          />
           <SweetAlert
             show={this.state.showUploadSuccess}
             title="Upload successful"
@@ -283,7 +283,7 @@ class App extends Component {
             }}
             onEscapeKey={() => this.setState({ showUploadSuccess: false })}
             onOutsideClick={() => this.setState({ showUploadSuccess: false })}
-          />;
+          />
 
         </div>
       </Router>
