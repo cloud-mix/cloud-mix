@@ -8,7 +8,7 @@ var postSong = function(req, res){
   Song.findOne({where: {title: req.body.title, genre: req.body.genre}})
   .then((song) => {
     if(song){
-      console.log("Song already exists. ", song);
+      console.log("Song already exists. ", song.title);
       res.status(200).send(song);
     } else {
       User.find({where: { username: req.body.username }})
@@ -86,7 +86,7 @@ var updateSong = function(req, res){
       res.status(200).send(result);
     })
     .catch((error) => {
-      console.log("Couldn't update the song: " + song + " because: ", error);
+      console.log("Couldn't update the song: " + song.title + " because: ", error);
       res.status(204).send();
     })
   })
