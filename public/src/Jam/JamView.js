@@ -122,6 +122,7 @@ class JamView extends Component {
     this.setState({inputWave: wave});
   }
 
+
   render() {
     this.state.firstRec ?
       waveformVisual(this.props.currentSong.url[this.props.currentSong.url.length - 1], this.state.wavesurfer) : null;
@@ -201,6 +202,8 @@ class JamView extends Component {
               className="submitButton"
               onClick={e => {
                 this.setTrackOffset(this.state.offset);
+    
+                console.log("OFFSET IS", this.state.offset );
                 this.postBlobToDB(e);
                 this.state.wavesurfer.destroy();
                 this.state.inputWave.destroy();
@@ -212,12 +215,9 @@ class JamView extends Component {
           }
 
         {this.props.currentSong.url.length > 1
-          ? <input
-              onChange={e => {
-                this.setOffset(e.target.value);
-                console.log("current offset is", e.target.value);
-              }}
-            />
+          ? <p className="range-field">
+              <input type="range" id="test5" min="0" max="100" onChange={(e) => this.setOffset(e.target.value)} />
+            </p>
           : null}
 
         <div className="waveform" />
