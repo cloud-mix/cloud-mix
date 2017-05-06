@@ -30,6 +30,7 @@ class App extends Component {
       wavesurfer: null,
       waveInput: null,
       allSongs: []
+
     };
 
     this.signupUser = this.signupUser.bind(this);
@@ -37,26 +38,6 @@ class App extends Component {
     this.handleSuccessfulUpload = this.handleSuccessfulUpload.bind(this);
     this.setCurrentSong = this.setCurrentSong.bind(this);
     this.handleSongCreate = this.handleSongCreate.bind(this);
-    this.getAllSongs = this.getAllSongs.bind(this);
-  }
-
-
-  componentDidMount(){
-    this.getAllSongs();
-  }
-
-  getAllSongs(){
-    axios.get('/songs')
-      .then((songs) => {
-        console.log("In the all songs list component getting the songs: ", songs);
-        convertToUrls(songs.data);
-        this.setState({
-          allSongs: songs.data
-        });
-      })
-      .catch((error) => {
-         console.log("Couldn't get the songs because: ", error);
-      });
   }
 
 
@@ -243,26 +224,17 @@ class App extends Component {
             )}
           />
 
-          {this.state.allSongs.length > 0 ? (
-          <div>
+
             <Route
               path="/songs"
               render={() => (
                 <AllSongsList
-                  songs={this.state.allSongs}
                   isLoggedIn={this.state.isLoggedIn}
                   setCurrentSong={this.setCurrentSong}
                 />
               )}
             />
-          </div>
-          ) :
-          (
-            <div>
 
-            </div>
-          )
-        }
 
           <Route
             path="/jam"

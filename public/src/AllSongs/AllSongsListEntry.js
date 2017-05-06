@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom';
 import { Card, CardTitle, Button } from "react-materialize";
 import play from '../../audioHelpers/play.js';
 
-var AllSongsListEntry = props => {
+var AllSongsListEntry = function(props) => {
   let status = '';
   props.song.contriblimit - props.song.contribcount === 0 ? status = `Completed` : status = `Only ${props.song.contriblimit - props.song.contribcount} jam left`;
-  return (
+  return props.song.url.length > 0 ? (
     <Card
       className="small buttonCard"
       header={
@@ -42,7 +42,12 @@ var AllSongsListEntry = props => {
         ></Button>
       </div>
     </Card>
-  );
+  ) :
+  (
+    <div>
+
+    </div>
+  )
 };
 
 export default AllSongsListEntry;

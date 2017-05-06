@@ -5,19 +5,56 @@ import axios from 'axios';
 import blobUtil from "blob-util";
 import convertToUrls from '../../audioHelpers/convertToUrls.js';
 
-var AllSongsList = function(props){
+class AllSongsList extends Component {
+  constructor(){
+    super();
+    this.state = {
+      songs: [],
+      loaded: 0
+    }
 
-      console.log("I got the songs to be populating the dang array", props.songs);
-    return props.songs.length > 0 ? (
+    this.getAllSongs = this.getAllSongs.bind(this);
+  }
+
+  componentDidMount(){
+    this.getAllSongs();
+  }
+
+  getAllSongs(){
+    axios.get('/songs')
+      .then((songs) => {
+        console.log("In the all songs list component getting the songs: ", songs);
+        convertToUrls(songs.data);
+        this.setState({
+          songs: songs.data
+        });
+        this.setLoaded();
+      })
+      .catch((error) => {
+        console.log("Couldn't get the songs because: ", error);
+      });
+  }
+
+   setLoaded() {
+    this.setState({loaded: this.state.loaded + 1});
+  }
+
+
+
+  render(){
+    console.log("I got the songs to be populating the dang array", this.state.songs.length)
+
+    return this.state.songs.length > 0 ? (
         <div>
-        {props.songs.map((song) => {
+        {console.log(this.state.songs.length)};
+        {this.state.songs.map((song) => {
           console.log("Each darn song: ", song);
           <Row className="show-grid">
             <Col s={6}>
               <AllSongsListEntry
                 song={song}
-                isLoggedIn={props.isLoggedIn}
-                setCurrentSong={props.setCurrentSong}
+                isLoggedIn={this.props.isLoggedIn}
+                setCurrentSong={this.props.setCurrentSong}
               />
             </Col>
           </Row>
@@ -28,8 +65,9 @@ var AllSongsList = function(props){
         <div className="loading">
           <div className="comingSoon">Jams coming soon</div>
         </div>
-      );
-  };
+      )
+  }
+}
 
 
 export default AllSongsList;

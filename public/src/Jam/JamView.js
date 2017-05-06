@@ -61,11 +61,12 @@ class JamView extends Component {
       this.props.handleSuccessfulUpload();
     } else {
       blobUtil.blobToBinaryString(this.state.blob).then(data => {
+        var url = btoa(data);
         axios.put("/songs", {
           contributors: this.props.currentUser,
           title: this.props.currentSong.title,
           genre: this.props.currentSong.genre,
-          url: this.props.currentSong.url[this.props.currentSong.url.length - 1],
+          url: url,
           offsets: this.props.currentSong.offsets[this.props.currentSong.offsets.length - 1]
         });
       });
