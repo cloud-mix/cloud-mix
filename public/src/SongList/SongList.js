@@ -60,17 +60,17 @@ class SongList extends React.Component {
 
   render() {
 
-    return this.state.soon.length > 0 ? (
+    return this.state.loaded === 2 ? (
       <div>
         <Row className="show-grid">
          <Col s={6}><SongListEntry
-           currentUser={this.state.props.currentUser}
+           currentUser={this.props.currentUser}
            song={this.state.completed[0]}
            isLoggedIn={this.props.isLoggedIn}
            setCurrentSong={this.props.setCurrentSong}
          /></Col>
          <Col s={6}><SongListEntry
-           currentUser={this.state.props.currentUser}
+           currentUser={this.props.currentUser}
            song={this.state.soon[0]}
            isLoggedIn={this.props.isLoggedIn}
            setCurrentSong={this.props.setCurrentSong}
@@ -79,27 +79,27 @@ class SongList extends React.Component {
 
         <Row className="show-grid">
           <Col s={6}><SongListEntry
-            currentUser={this.state.props.currentUser}
+            currentUser={this.props.currentUser}
             song={this.state.completed[1]}
             isLoggedIn={this.props.isLoggedIn}
             setCurrentSong={this.props.setCurrentSong}
           /></Col>
           <Col s={6}><SongListEntry
-            currentUser={this.state.props.currentUser}
+            currentUser={this.props.currentUser}
             song={this.state.soon[1]}
             isLoggedIn={this.props.isLoggedIn}
             setCurrentSong={this.props.setCurrentSong}
           /></Col>
         </Row>
         <Row className="show-grid">
-          <Col s={6}><SongListEntry 
-            currentUser={this.state.props.currentUser}
+          <Col s={6}><SongListEntry
+            currentUser={this.props.currentUser}
             song={this.state.completed[2]}
             isLoggedIn={this.props.isLoggedIn}
             setCurrentSong={this.props.setCurrentSong}
           /></Col>
           <Col s={6}><SongListEntry
-            currentUser={this.state.props.currentUser}
+            currentUser={this.props.currentUser}
             song={this.state.soon[2]}
             isLoggedIn={this.props.isLoggedIn}
             setCurrentSong={this.props.setCurrentSong}
@@ -107,13 +107,13 @@ class SongList extends React.Component {
         </Row>
         <Row className="show-grid">
           <Col s={6}><SongListEntry
-            currentUser={this.state.props.currentUser}
+            currentUser={this.props.currentUser}
             song={this.state.completed[3]}
             isLoggedIn={this.props.isLoggedIn}
             setCurrentSong={this.props.setCurrentSong}
           /></Col>
           <Col s={6}><SongListEntry
-            currentUser={this.state.props.currentUser}
+            currentUser={this.props.currentUser}
             song={this.state.soon[3]}
             isLoggedIn={this.props.isLoggedIn}
             setCurrentSong={this.props.setCurrentSong}
