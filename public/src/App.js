@@ -27,6 +27,7 @@ class App extends Component {
       showLoginError: false,
       showSignupError: false,
       currentSong: {url:[]},
+      audioContext: [],
       allSongs: []
     };
 
@@ -37,7 +38,6 @@ class App extends Component {
     this.handleSongCreate = this.handleSongCreate.bind(this);
     this.getAllSongs = this.getAllSongs.bind(this);
   }
-
 
 
   componentDidMount(){
@@ -196,9 +196,12 @@ class App extends Component {
     }
   }
 
-
+  setAudioContext(context) {
+    this.setState({audioContext: context});
+  }
 
   render() {
+    console.log('context in app', this.state.audioContext);
     return (
       <Router>
         <div>
@@ -263,6 +266,7 @@ class App extends Component {
                 currentSong={this.state.currentSong}
                 currentUser={this.state.currentUser}
                 setCurrentSong={this.setCurrentSong}
+                setAudioContext={this.setAudioContext.bind(this)}
               />
             )}
           />
