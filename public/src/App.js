@@ -33,6 +33,26 @@ class App extends Component {
     this.signupUser = this.signupUser.bind(this);
     this.loginUser = this.loginUser.bind(this);
     this.handleSuccessfulUpload = this.handleSuccessfulUpload.bind(this);
+    this.getAllSongs = this.getAllSongs.bind(this);
+  }
+
+
+  componentDidMount(){
+    this.getAllSongs();
+  }
+
+
+  getAllSongs(){
+    axios.get('/songs')
+      .then((songs) => {
+        console.log("Got all the songs: ", songs);
+        this.setState({
+          allSongs: songs.data
+        })
+      })
+      .catch((error) => {
+        console.log("Coundn't get all the songs because: ", error);
+      })
   }
 
   loginUser() {
@@ -223,6 +243,18 @@ class App extends Component {
                 isLoggedIn={this.state.isLoggedIn}
               />
             )}
+          />
+
+          <Route
+            exact
+            path="/songs"
+            render={() => (
+              <AllSongsList
+                songs={allSongs}
+                isLoggedIn={this.state.isLoggedIn}
+              />
+            )}
+
           />
 
           <Route

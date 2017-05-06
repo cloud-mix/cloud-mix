@@ -5,7 +5,7 @@ import { Row, Col, Grid } from "react-materialize";
 var AllSongsList = props => {
   return (
     <div>
-    {props.allSongs.map((song) => {
+    {props.songs.map((song) => {
       <Row className="show-grid">
         <Col s={6}>
           <SongListEntry
