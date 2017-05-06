@@ -92,7 +92,7 @@ class SongList extends React.Component {
           /></Col>
         </Row>
         <Row className="show-grid">
-          <Col s={6}><SongListEntry
+          <Col s={6}><SongListEntry 
             currentUser={this.props.currentUser}
             song={this.state.completed[2]}
             isLoggedIn={this.props.isLoggedIn}
@@ -128,12 +128,3 @@ class SongList extends React.Component {
 }
 
 export default SongList;
-
-
-
-
-// <Row>
-//   <Col s={4}>
-//     <Preloader size='big'/>
-//   </Col>
-// </Row>
