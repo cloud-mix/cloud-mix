@@ -128,12 +128,3 @@ class SongList extends React.Component {
 }
 
 export default SongList;
-
-
-
-
-// <Row>
-//   <Col s={4}>
-//     <Preloader size='big'/>
-//   </Col>
-// </Row>
