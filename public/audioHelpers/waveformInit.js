@@ -9,12 +9,13 @@ const getRandomColor = () => {
     return color;
 }
 
-const waveformInint = cb => {
+const waveformInint = (waveCb, contextCb) => {
   let wavesurfer = WaveSurfer.create({
     container: '.waveform',
     waveColor: getRandomColor()
   });
-  cb(wavesurfer);
+  waveCb(wavesurfer);
+  contextCb(wavesurfer);
 }
 
 export default waveformInint;

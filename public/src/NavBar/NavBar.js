@@ -19,6 +19,8 @@ const NavBar = props => {
         handleLogout={props.handleLogout}
         username={props.username}
         handleSongCreate={props.handleSongCreate}
+        wavesurfer={props.wavesurfer}
+        waveInput={props.waveInput}
       />;
 };
 
