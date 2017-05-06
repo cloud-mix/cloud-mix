@@ -13,32 +13,6 @@ const LoggedinView = props => (
           <img src="../../images/logo_title.png"/>
         </div>
       </Link>
-
-
-      <Link to="/songs">
-        <div className="searchSongs"
-          onClick={() => {
-            props.setSongTitle(props.song.title);
-            props.setGenre(props.song.genre);
-          }}
-        >Search Songs</div>
-      </Link>
-
-      <Route exact path="/" render={() => (
-        <NavItem>
-          {props.username}
-        </NavItem>
-      )}/>
-
-      <Route exact path="/" render={() => (
-        <CreateSongModal
-          handleSongCreateTitleInput={props.handleSongCreateTitleInput}
-          handleSongCreateGenreInput={props.handleSongCreateGenreInput}
-          handleSongCreateContributorLimit={props.handleSongCreateContributorLimit}
-          handleSongCreateClick={props.handleSongCreateClick}
-        />
-      )}/>
-
       <Route exact path="/" render={() => (
         <NavItem>
           <Link to="/" onClick={() => props.handleLogout()}>
@@ -47,6 +21,22 @@ const LoggedinView = props => (
         </NavItem>
       )}/>
 
+
+
+
+
+      <Route exact path="/" render={() => (
+        <CreateSongModal
+          handleSongCreate={props.handleSongCreate}
+        />
+      )}/>
+
+
+      <Route exact path="/" render={() => (
+        <NavItem>
+          {props.username}
+        </NavItem>
+      )}/>
 
     </Navbar>
   </div>

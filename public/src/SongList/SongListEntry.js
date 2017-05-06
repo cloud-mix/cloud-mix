@@ -16,8 +16,7 @@ var SongListEntry = props => {
             <Link to="/jam">
               <div className="jamRequest"
                 onClick={() => {
-                  props.setSongTitle(props.song.title);
-                  props.setGenre(props.song.genre);
+                  props.setCurrentSong(props.song);
                 }}
               >Come Jam !</div>
               </Link>

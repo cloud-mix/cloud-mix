@@ -14,20 +14,11 @@ const NavBar = props => {
         handleUsernameInputLogin={props.handleUsernameInputLogin}
         handleUserCredentialsLogin={props.handleUserCredentialsLogin}
         logInUrl={props.logInUrl}
-        setSongTitle={props.setSongTitle}
-        setSongGenre={props.setSongGenre}
       />
     : <LoggedinView
         handleLogout={props.handleLogout}
         username={props.username}
-        handleSongCreateTitleInput={props.handleSongCreateTitleInput}
-        handleSongCreateGenreInput={props.handleSongCreateGenreInput}
-        handleSongCreateContributorLimit={
-          props.handleSongCreateContributorLimit
-        }
-        handleSongCreateClick={props.handleSongCreateClick}
-        setSongTitle={props.setSongTitle}
-        setSongGenre={props.setSongGenre}
+        handleSongCreate={props.handleSongCreate}
       />;
 };
 

@@ -19,7 +19,6 @@ class JamView extends Component {
     this.state = {
       recorder: null,
       recording: false,
-      urls: [],
       offset: 0,
       firstRec: false,
       change: false,
@@ -93,7 +92,7 @@ class JamView extends Component {
   }
 
   setUrl(url) {
-    this.state.urls.push(url);
+    this.props.currentSong.url.push(url);
     this.setState({ change: !this.state.change });
   }
 
@@ -101,8 +100,8 @@ class JamView extends Component {
     this.setState({ offset: offset });
   }
 
-  setTrackOffset(i, offset) {
-    this.state.urls[i].offset = offset;
+  setTrackOffset(offset) {
+    this.props.currentSong.offsets.push(offset);
     this.setState({ change: !this.state.change });
   }
 
@@ -123,15 +122,14 @@ class JamView extends Component {
   }
 
   render() {
-    this.state.urls.length > 0 ?
-      waveformVisual(this.state.urls[this.state.urls.length - 1].url, this.state.wavesurfer) : null;
-    console.log(this.state.uploadSuccessful)
-
+    console.log(this.props);
+    this.state.firstRec ?
+      waveformVisual(this.props.currentSong.url[this.props.currentSong.url - 1], this.state.wavesurfer) : null;
     return (
       <div className="jamView">
         <div className="jam_header">
-          <h3><b>Title: </b>{this.props.songCreateTitle}</h3>
-          <h3><b>Genre: </b>{this.props.songCreateGenre}</h3>
+          <h3><b>Title: </b>{this.props.currentSong.title}</h3>
+          <h3><b>Genre: </b>{this.props.currentSong.genre}</h3>
         </div>
 
 
@@ -157,7 +155,7 @@ class JamView extends Component {
               onClick={() => {
                 record(
                   this.state.recorder,
-                  this.state.urls,
+                  this.props.currentSong.url,
                   this.setRecording.bind(this),
                   this.state.firstRec,
                   this.setFirstRec.bind(this)
@@ -173,11 +171,12 @@ class JamView extends Component {
               icon="play_arrow"
               onClick={() => {
                 play(
-                  this.state.urls,
+                  this.props.currentSong.url,
                   this.state.offset,
-                  this.setTrackOffset.bind(this),
                   this.setPlaying.bind(this),
-                  this.setTrack.bind(this)
+                  this.setTrack.bind(this),
+                  this.state.firstRec,
+                  this.props.currentSong.offsets
                 );
               }}
             />
@@ -192,18 +191,19 @@ class JamView extends Component {
             />}
 
         {this.state.blob
-              ?
+              ? (
                   <Link to="/"><Button
                     className="submitButton"
-                    onClick={e => this.postBlobToDB(e)}
+                    onClick={e => {this.setTrackOffset(this.state.offset)
+                    this.postBlobToDB(e);}}
                   >
                     Submit
-                  </Button></Link>
-              : <div />
+                  </Button></Link>)
+              : null
           }
 
 
-        {this.state.urls > 1
+        {this.props.currentSong.url.length > 1
           ? <input
               onChange={e => {
                 this.setOffset(e.target.value);
