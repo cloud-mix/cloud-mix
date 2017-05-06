@@ -21,18 +21,18 @@ class App extends Component {
       signupUserCredentials: "",
       loginUsernameInput: "",
       loginUserCredentials: "",
-      songCreateTitle: "",
-      songCreateGenre: "",
-      songCreateContributorLimit: 0,
       validUsername: null,
       validPassword: null,
       showLoginError: false,
-      showSignupError: false
+      showSignupError: false,
+      currentSong: {url:[]}
     };
 
     this.signupUser = this.signupUser.bind(this);
     this.loginUser = this.loginUser.bind(this);
     this.handleSuccessfulUpload = this.handleSuccessfulUpload.bind(this);
+    this.setCurrentSong = this.setCurrentSong.bind(this);
+    this.handleSongCreate = this.handleSongCreate.bind(this);
   }
 
 
@@ -57,6 +57,9 @@ class App extends Component {
           this.setState({ showLoginError: true });
         }
       });
+  }
+  setCurrentSong(song) {
+    this.setState({currentSong: song});
   }
 
   signupUser() {
@@ -151,26 +154,14 @@ class App extends Component {
     });
   }
 
-  handleSongCreateTitleInput(title) {
-    this.setState({
-      songCreateTitle: title
-    });
-  }
-
-  handleSongCreateGenreInput(genre) {
-    this.setState({
-      songCreateGenre: genre
-    });
-  }
-
-  handleSongCreateContributorLimit(limit) {
-    this.setState({
-      songCreateContributorLimit: parseInt(limit, 10)
-    });
-  }
-
-  handleSongCreateClick() {
-    console.log("creating new song");
+  handleSongCreate(title, genre, contributors) {
+    this.setState({currentSong: {
+      title: title,
+      genre: genre,
+      contriblimit: contributors,
+      url: []
+    }})
+    console.log("IN HANDLE SONG CREATE, state is", this.state);
   }
 
   handleModalStatus() {
@@ -201,21 +192,11 @@ class App extends Component {
             handleLoginClick={this.handleLoginClick.bind(this)}
             handleSignupClick={this.handleSignupClick.bind(this)}
             handleLogout={this.handleLogout.bind(this)}
-            handleSongCreateTitleInput={this.handleSongCreateTitleInput.bind(
-              this
-            )}
-            handleSongCreateGenreInput={this.handleSongCreateGenreInput.bind(
-              this
-            )}
-            handleSongCreateContributorLimit={this.handleSongCreateContributorLimit.bind(
-              this
-            )}
-            handleSongCreateClick={this.handleSongCreateClick.bind(this)}
+
             validUsername={this.state.validUsername}
             validPassword={this.state.validPassword}
             modalStatus={this.state.modalStatus}
-            setSongTitle={this.handleSongCreateTitleInput.bind(this)}
-            setGenre={this.handleSongCreateGenreInput.bind(this)}
+            handleSongCreate={this.handleSongCreate}
           />
 
           <Route exact path="/" render={() => <Jumbotron />} />
@@ -225,9 +206,8 @@ class App extends Component {
             path="/"
             render={() => (
               <SongList
-                setSongTitle={this.handleSongCreateTitleInput.bind(this)}
-                setGenre={this.handleSongCreateGenreInput.bind(this)}
                 isLoggedIn={this.state.isLoggedIn}
+                setCurrentSong={this.setCurrentSong}
               />
             )}
           />
@@ -237,9 +217,8 @@ class App extends Component {
             path="/songs"
             render={() => (
               <AllSongsList
-                setSongTitle={this.handleSongCreateTitleInput.bind(this)}
-                setGenre={this.handleSongCreateGenreInput.bind(this)}
                 isLoggedIn={this.state.isLoggedIn}
+                setCurrentSong={this.setCurrentSong}
               />
             )}
 
@@ -250,11 +229,7 @@ class App extends Component {
             render={() => (
               <JamView
                 handleSuccessfulUpload={this.handleSuccessfulUpload}
-                songCreateTitle={this.state.songCreateTitle}
-                songCreateGenre={this.state.songCreateGenre}
-                songCreateContributorLimit={
-                  this.state.songCreateContributorLimit
-                }
+                currentSong={this.state.currentSong}
                 currentUser={this.state.currentUser}
               />
             )}

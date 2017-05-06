@@ -59,66 +59,55 @@ class SongList extends React.Component {
 
 
   render() {
-    console.log(this.state.completed);
-    console.log(this.state.soon);
-
     return this.state.loaded === 2 ? (
       <div>
         <Row className="show-grid">
          <Col s={6}><SongListEntry
            song={this.state.completed[0]}
-           setSongTitle={this.props.setSongTitle}
-           setGenre={this.props.setGenre}
            isLoggedIn={this.props.isLoggedIn}
+           setCurrentSong={this.props.setCurrentSong}
          /></Col>
          <Col s={6}><SongListEntry
            song={this.state.soon[0]}
-           setSongTitle={this.props.setSongTitle}
-           setGenre={this.props.setGenre}
            isLoggedIn={this.props.isLoggedIn}
+           setCurrentSong={this.props.setCurrentSong}
          /></Col>
         </Row>
 
         <Row className="show-grid">
           <Col s={6}><SongListEntry
             song={this.state.completed[1]}
-            setSongTitle={this.props.setSongTitle}
-            setGenre={this.props.setGenre}
             isLoggedIn={this.props.isLoggedIn}
+            setCurrentSong={this.props.setCurrentSong}
           /></Col>
           <Col s={6}><SongListEntry
             song={this.state.soon[1]}
-            setSongTitle={this.props.setSongTitle}
-            setGenre={this.props.setGenre}
             isLoggedIn={this.props.isLoggedIn}
+            setCurrentSong={this.props.setCurrentSong}
           /></Col>
         </Row>
         <Row className="show-grid">
           <Col s={6}><SongListEntry
             song={this.state.completed[2]}
-            setSongTitle={this.props.setSongTitle}
-            setGenre={this.props.setGenre}
             isLoggedIn={this.props.isLoggedIn}
+            setCurrentSong={this.props.setCurrentSong}
           /></Col>
           <Col s={6}><SongListEntry
             song={this.state.soon[2]}
-            setSongTitle={this.props.setSongTitle}
-            setGenre={this.props.setGenre}
             isLoggedIn={this.props.isLoggedIn}
+            setCurrentSong={this.props.setCurrentSong}
           /></Col>
         </Row>
         <Row className="show-grid">
           <Col s={6}><SongListEntry
             song={this.state.completed[3]}
-            setSongTitle={this.props.setSongTitle}
-            setGenre={this.props.setGenre}
             isLoggedIn={this.props.isLoggedIn}
+            setCurrentSong={this.props.setCurrentSong}
           /></Col>
           <Col s={6}><SongListEntry
             song={this.state.soon[3]}
-            setSongTitle={this.props.setSongTitle}
-            setGenre={this.props.setGenre}
             isLoggedIn={this.props.isLoggedIn}
+            setCurrentSong={this.props.setCurrentSong}
           /></Col>
         </Row>
         </div>

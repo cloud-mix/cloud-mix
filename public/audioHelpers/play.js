@@ -1,6 +1,6 @@
 import {Howl} from 'howler';
 
-const play = (urls, offset, offestCb, playCb, trackCb, firstRec) => {
+const play = (urls, offset, playCb, trackCb, firstRec, offsets) => {
   let last = urls.length - 1;
   let tracks = [];
   playCb();
@@ -9,7 +9,7 @@ const play = (urls, offset, offestCb, playCb, trackCb, firstRec) => {
     console.log('with new recording')
 
     let newRecording = new Howl({
-      src: [urls[last].url],
+      src: [urls[last]],
         format: 'mp3',
         html5: true,
         onplay: function() {
@@ -22,17 +22,16 @@ const play = (urls, offset, offestCb, playCb, trackCb, firstRec) => {
           playCb();
         }
     });
-    offestCb(last, offset);
     tracks.push(newRecording);
     newRecording.play('begin');
 
     for (let i = 0; i < last; i++) {
       let track = new Howl({
-        src: [urls[i].url],
+        src: [urls[i]],
         format: 'mp3',
         html5: true,
         sprite: {
-          begin: [urls[i].offset, 360000]
+          begin: [offsets[i], 360000]
         }
       });
       tracks.push(track);
@@ -41,13 +40,13 @@ const play = (urls, offset, offestCb, playCb, trackCb, firstRec) => {
   } else {
     console.log('no new recording');
 
-    urls.forEach(url => {
+    urls.forEach((url, i) => {
       let track = new Howl({
-        src: [url.url],
+        src: [url],
         format: 'mp3',
         html5: true,
         sprite: {
-          begin: [url.offset, 360000]
+          begin: [offsets[i], 360000]
         }
       });
       tracks.push(track);
