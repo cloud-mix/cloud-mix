@@ -65,7 +65,6 @@ var getSongs = function(req, res){
 
 
 var updateSong = function(req, res){
-  console.log("GOT INTO UPDATE SONG REQ IS, ", req.body);
   Song.findOne({where: { title: req.body.title, genre: req.body.genre }})
   .then((song) => {
     console.log("Found Song: ", song.id);
