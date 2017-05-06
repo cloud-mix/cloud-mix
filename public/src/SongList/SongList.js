@@ -1,6 +1,6 @@
 import React from "react";
 import SongListEntry from "./SongListEntry";
-import { Row, Col, Grid } from "react-materialize";
+import { Row, Col, Grid, Preloader } from "react-materialize";
 import axios from 'axios';
 
 class SongList extends React.Component {
@@ -129,7 +129,14 @@ class SongList extends React.Component {
           /></Col>
         </Row>
         </div>
-    ) : <div className="loading">loading</div>
+    ) : (
+      <div className="loading">
+        <Row>
+          <Col s={4}>
+            <Preloader size='big'/>
+          </Col>
+        </Row>
+      </div>)
   }
 }
 
