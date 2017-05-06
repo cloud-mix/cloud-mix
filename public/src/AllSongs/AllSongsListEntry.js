@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { Card, CardTitle, Button } from "react-materialize";
 import play from '../../audioHelpers/play.js';
 
-var AllSongsListEntry = function(props) => {
+var AllSongsListEntry = (props) => {
   let status = '';
   props.song.contriblimit - props.song.contribcount === 0 ? status = `Completed` : status = `Only ${props.song.contriblimit - props.song.contribcount} jam left`;
   return props.song.url.length > 0 ? (
