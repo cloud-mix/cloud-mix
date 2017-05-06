@@ -57,9 +57,7 @@ var getSoonToBeCompleted = function(req, res){
 var getSongs = function(req, res){
   Song.findAll({})
     .then((songs) => {
-      songs.forEach((song) => {
-        res.status(200).send(song);
-      })
+      res.status(200).send(songs);
     })
     .catch((err) => {
       console.log("Couldn't retrieve songs from the DB because: ", err);
