@@ -10,7 +10,7 @@ class AllSongsList extends Component {
     super();
     this.state = {
       songs: [],
-      loaded: 0
+      goodToGo: 0
     }
 
     this.getAllSongs = this.getAllSongs.bind(this);
@@ -36,7 +36,7 @@ class AllSongsList extends Component {
   }
 
    setLoaded() {
-    this.setState({loaded: this.state.loaded + 1});
+    this.setState({goodToGo: this.state.goodToGo + 1});
   }
 
 
@@ -44,7 +44,7 @@ class AllSongsList extends Component {
   render(){
     console.log("I got the songs to be populating the dang array", this.state.songs.length)
 
-    return this.state.songs.length > 0 ? (
+    return this.state.goodToGo > 0 ? (
         <div>
         {console.log(this.state.songs.length)};
         {this.state.songs.map((song) => {
