@@ -1,6 +1,7 @@
 import React from "react";
 import LoginModal from "../LoginModal";
 import { SideNav, Navbar, NavItem } from "react-materialize";
+import {Link} from 'react-router-dom';
 
 const LoggedoutView = props => {
   return (
@@ -8,6 +9,7 @@ const LoggedoutView = props => {
       <div className="title">
         <img src="../../images/logo_title.png"/>
       </div>
+
       <LoginModal
         handleLoginClick={props.handleLoginClick}
         validUsername={props.validUsername}
@@ -17,6 +19,15 @@ const LoggedoutView = props => {
         handleUsernameInputLogin={props.handleUsernameInputLogin}
         handleUserCredentialsLogin={props.handleUserCredentialsLogin}
       />
+
+      <Link to="/songs">
+        <div className="searchSongs"
+          onClick={() => {
+            props.setSongTitle(props.song.title);
+            props.setGenre(props.song.genre);
+          }}
+        >Find Songs</div>
+      </Link>
     </Navbar>
   );
 };

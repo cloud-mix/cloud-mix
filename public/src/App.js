@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import SongList from "./SongList/SongList";
+import AllSongsList from './AllSongs/AllSongsList';
 import NavBar from "./NavBar/NavBar";
 import JamView from "./Jam/JamView";
 import axios from "axios";
@@ -20,7 +21,6 @@ class App extends Component {
       signupUserCredentials: "",
       loginUsernameInput: "",
       loginUserCredentials: "",
-      allSongs: [],
       songCreateTitle: "",
       songCreateGenre: "",
       songCreateContributorLimit: 0,
@@ -33,27 +33,10 @@ class App extends Component {
     this.signupUser = this.signupUser.bind(this);
     this.loginUser = this.loginUser.bind(this);
     this.handleSuccessfulUpload = this.handleSuccessfulUpload.bind(this);
-    this.getAllSongs = this.getAllSongs.bind(this);
   }
 
 
-  componentDidMount(){
-    this.getAllSongs();
-  }
 
-
-  getAllSongs(){
-    axios.get('/songs')
-      .then((songs) => {
-        console.log("Got all the songs: ", songs);
-        this.setState({
-          allSongs: songs.data
-        })
-      })
-      .catch((error) => {
-        console.log("Coundn't get all the songs because: ", error);
-      })
-  }
 
   loginUser() {
     axios
@@ -200,6 +183,8 @@ class App extends Component {
     }
   }
 
+
+
   render() {
     return (
       <Router>
@@ -229,6 +214,8 @@ class App extends Component {
             validUsername={this.state.validUsername}
             validPassword={this.state.validPassword}
             modalStatus={this.state.modalStatus}
+            setSongTitle={this.handleSongCreateTitleInput.bind(this)}
+            setGenre={this.handleSongCreateGenreInput.bind(this)}
           />
 
           <Route exact path="/" render={() => <Jumbotron />} />
@@ -250,7 +237,8 @@ class App extends Component {
             path="/songs"
             render={() => (
               <AllSongsList
-                songs={allSongs}
+                setSongTitle={this.handleSongCreateTitleInput.bind(this)}
+                setGenre={this.handleSongCreateGenreInput.bind(this)}
                 isLoggedIn={this.state.isLoggedIn}
               />
             )}
