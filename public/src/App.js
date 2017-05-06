@@ -218,6 +218,7 @@ class App extends Component {
             path="/"
             render={() => (
               <SongList
+                currentUser={this.state.currentUser}
                 isLoggedIn={this.state.isLoggedIn}
                 setCurrentSong={this.setCurrentSong}
               />
