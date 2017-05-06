@@ -2,6 +2,7 @@ import React from "react";
 import SongListEntry from "./SongListEntry";
 import { Row, Col, Grid, Preloader } from "react-materialize";
 import axios from 'axios';
+import convertToUrls from '../../audioHelpers/convertToUrls.js';
 
 class SongList extends React.Component {
   constructor() {
@@ -26,6 +27,7 @@ class SongList extends React.Component {
     axios.get('/recent')
       .then((songs) => {
         console.log("In the song list component getting the recent songs: ", songs);
+        convertToUrls(songs.data);
         this.setState({
           completed: songs.data
         });
@@ -40,6 +42,7 @@ class SongList extends React.Component {
     axios.get('/soon')
       .then((songs) => {
         console.log("In the song list component getting the soon to be completed songs: ", songs);
+        convertToUrls(songs.data);
         this.setState({
           soon: songs.data
         });
