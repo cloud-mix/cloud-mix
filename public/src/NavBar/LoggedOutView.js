@@ -19,8 +19,6 @@ const LoggedoutView = props => {
         handleUsernameInputLogin={props.handleUsernameInputLogin}
         handleUserCredentialsLogin={props.handleUserCredentialsLogin}
       />
-
-
     </Navbar>
   );
 };
