@@ -27,7 +27,10 @@ class App extends Component {
       showLoginError: false,
       showSignupError: false,
       currentSong: {url:[]},
-      audioContext: []
+      wavesurfer: null,
+      waveInput: null,
+      allSongs: []
+
     };
 
     this.signupUser = this.signupUser.bind(this);
@@ -81,10 +84,12 @@ class App extends Component {
         console.log("Error signing up user because: ", err);
       });
   }
+
   handleSuccessfulUpload() {
     // e.preventDefault();
     this.setState({showUploadSuccess: true})
   }
+
   handleLoginClick(e) {
     e.preventDefault();
     if (
@@ -104,6 +109,7 @@ class App extends Component {
       });
     }
   }
+
   handleSignupClick() {
     if (
       this.state.loginUsernameInput.length >= 6 ||
@@ -175,12 +181,15 @@ class App extends Component {
     }
   }
 
-  setAudioContext(context) {
-    this.setState({audioContext: context});
+  setWavesurfer(wave) {
+    this.setState({wavesurfer: wave});
+  }
+
+  setWaveInput(wave) {
+    this.setState({waveInput: wave});
   }
 
   render() {
-    console.log('context in app', this.state.audioContext);
     return (
       <Router>
         <div>
@@ -190,17 +199,16 @@ class App extends Component {
             logInUrl={this.state.logInUrl}
             username={this.state.currentUser}
             handleUsernameInputLogin={this.handleUsernameInputLogin.bind(this)}
-            handleUserCredentialsLogin={this.handleUserCredentialsLogin.bind(
-              this
-            )}
+            handleUserCredentialsLogin={this.handleUserCredentialsLogin.bind(this)}
             handleLoginClick={this.handleLoginClick.bind(this)}
             handleSignupClick={this.handleSignupClick.bind(this)}
             handleLogout={this.handleLogout.bind(this)}
-
             validUsername={this.state.validUsername}
             validPassword={this.state.validPassword}
             modalStatus={this.state.modalStatus}
             handleSongCreate={this.handleSongCreate}
+            wavesurfer={this.state.wavesurfer}
+            waveInput={this.state.waveInput}
           />
 
           <Route exact path="/" render={() => <Jumbotron />} />
@@ -236,7 +244,8 @@ class App extends Component {
                 currentSong={this.state.currentSong}
                 currentUser={this.state.currentUser}
                 setCurrentSong={this.setCurrentSong}
-                setAudioContext={this.setAudioContext.bind(this)}
+                setWavesurfer={this.setWavesurfer.bind(this)}
+                setWaveInput={this.setWaveInput.bind(this)}
               />
             )}
           />

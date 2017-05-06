@@ -8,7 +8,14 @@ import CreateSongModal from '../CreateSongModal';
 const LoggedinView = props => (
   <div>
     <Navbar className='navBar'>
-      <Link to="/">
+      <Link to="/"
+        onClick={() => {
+          if (props.wavesurfer && props.waveInput) {
+            props.wavesurfer.destroy();
+            props.waveInput.destroy();
+          }
+        }}
+      >
         <div className="title">
           <img src="../../images/logo_title.png"/>
         </div>
