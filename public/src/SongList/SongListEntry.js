@@ -30,7 +30,7 @@ class SongListEntry extends Component {
         header={
           <CardTitle image="http://s.bellevuecollege.edu/kbcs/uploads/2013/03/Waveform-Transmission.jpg">
             {this.props.song.title}
-            {this.props.song.contriblimit - this.props.song.contribcount !== 0 && this.props.isLoggedIn ? (
+            {this.props.song.contriblimit - this.props.song.contribcount !== 0 && this.props.isLoggedIn && !this.props.song.contributors.includes(this.props.currentUser) ? (
               <Link to="/jam">
                 <div className="jamRequest"
                   onClick={() => {
