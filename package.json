@@ -36,6 +36,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-materialize": "^0.18.2",
+    "react-paginate": "^4.4.2",
     "react-router-dom": "^4.1.1",
     "sequelize": "^3.30.4",
     "sweetalert-react": "^0.4.9",
