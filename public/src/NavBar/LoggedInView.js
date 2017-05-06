@@ -8,11 +8,11 @@ import CreateSongModal from '../CreateSongModal';
 const LoggedinView = props => (
   <div>
     <Navbar className='navBar'>
-      <div className="title">
-        <Link to="/">
-        <img src="../../images/logo_title.png"/>
-        </Link>
-      </div>
+      <Link to="/">
+        <div className="title">
+          <img src="../../images/logo_title.png"/>
+        </div>
+      </Link>
 
       <Route exact path="/" render={() => (
         <NavItem>

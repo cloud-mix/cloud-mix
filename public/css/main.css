@@ -116,3 +116,17 @@ body {
 a {
   color: black !important;
 }
+
+.card-title{
+  position: relative;
+  width: 100%;
+}
+
+.jamRequest{
+  position: absolute;
+  transform: rotate(-30deg);
+  left: 54%;
+  bottom: 65%;
+  font-size: xx-large;
+  color: red;
+}
