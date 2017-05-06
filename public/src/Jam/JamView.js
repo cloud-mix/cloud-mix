@@ -27,7 +27,6 @@ class JamView extends Component {
       wavesurfer: null,
       inputWave: null,
       blob: null,
-      uploadSuccessful: false
     }
 
     this.postBlobToDB= this.postBlobToDB.bind(this);
@@ -59,21 +58,16 @@ class JamView extends Component {
           username: this.props.currentUser
         });
       });
-      this.setState({
-        uploadSuccessful: true
-      });
       this.props.handleSuccessfulUpload();
-
     } else {
       blobUtil.blobToBinaryString(this.state.blob).then(data => {
         axios.put("/songs", {
           contributors: this.props.currentUser,
+          title: this.props.currentSong.title,
+          genre: this.props.currentSong.genre,
           url: this.props.currentSong.url[this.props.currentSong.url.length - 1],
           offsets: this.props.currentSong.offsets[this.props.currentSong.offsets.length - 1]
         });
-      });
-      this.setState({
-        uploadSuccessful: true
       });
       this.props.handleSuccessfulUpload();
     }

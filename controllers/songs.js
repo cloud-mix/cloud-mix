@@ -33,7 +33,6 @@ var postSong = function(req, res){
 var getMostRecentSongs = function(req, res){
   Song.findAll({ where: { completion: 1.0 }, limit: 4, order: '"updatedAt" DESC' })
     .then((songs) => {
-      console.log("4 Most Recent Songs Retrieved: ", songs);
       res.status(200).send(songs);
     })
     .catch((err) => {
@@ -45,7 +44,6 @@ var getMostRecentSongs = function(req, res){
 var getSoonToBeCompleted = function(req, res){
   Song.findAll({ where: { completion: { $lt: 1.0 }}, limit: 4, order: '"completion" DESC' })
     .then((songs) => {
-      console.log("4 Soonest To Be Completed Retrieved: ", songs);
       res.status(200).send(songs);
     })
     .catch((err) => {
