@@ -5,6 +5,15 @@
 
 body {
   font-family: cloudMix;
+  background-color: grey;
+  /*background-image: url(http://wallpapercave.com/wp/BEkbIvB.jpg);*/
+}
+
+#app{
+  width: 75%;
+  margin: 0 auto;
+  background-color: white;
+  /*box-shadow: 10px 10px 5px #888888;*/
 }
 
 .oauthbtn{
@@ -129,4 +138,8 @@ a {
   bottom: 65%;
   font-size: xx-large;
   color: red;
+}
+
+.loading{
+  height:100vh;
 }

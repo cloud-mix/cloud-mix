@@ -8,17 +8,18 @@ class SongList extends React.Component {
     super();
     this.state = {
       completed: [
-        {title: 'Pain?', genre: 'metal', contributors: ['Alex1100'], contribcount: 1, contriblimit: 1},
-        {title: 'Hello World', genre: 'Dev Rock', contributors: ['newscrash'], contribcount: 1, contriblimit: 1},
-        {title: 'Yo Yo', genre: 'hip-hop', contributors: ['Kanye'], contribcount: 1, contriblimit: 1},
-        {title: 'Beautiful Freak', genre: 'trip-hop', contributors: ['hugodol'], contribcount: 1, contriblimit: 1}
+        // {title: 'Pain?', genre: 'metal', contributors: ['Alex1100'], contribcount: 1, contriblimit: 1},
+        // {title: 'Hello World', genre: 'Dev Rock', contributors: ['newscrash'], contribcount: 1, contriblimit: 1},
+        // {title: 'Yo Yo', genre: 'hip-hop', contributors: ['Kanye'], contribcount: 1, contriblimit: 1},
+        // {title: 'Beautiful Freak', genre: 'trip-hop', contributors: ['hugodol'], contribcount: 1, contriblimit: 1}
       ],
       soon: [
-        {title: 'bitchy blob', genre: 'electronic', contributors: ['someDude254'], contribcount:5, contriblimit: 9},
-        {title: 'Jamz Bros', genre: 'Soul', contributors: ['steviewonder'], contribcount: 9, contriblimit: 9},
-        {title: 'Run with the Wolf', genre: 'classical', contributors: ['mozart'], contribcount: 2, contriblimi: 9},
-        {title: 'Hypertension', genre: 'pop', contributors: ['asswipe'], contribcount: 6, contriblimit: 9}
-      ]
+        // {title: 'bitchy blob', genre: 'electronic', contributors: ['someDude254'], contribcount:5, contriblimit: 9},
+        // {title: 'Jamz Bros', genre: 'Soul', contributors: ['steviewonder'], contribcount: 9, contriblimit: 9},
+        // {title: 'Run with the Wolf', genre: 'classical', contributors: ['mozart'], contribcount: 2, contriblimi: 9},
+        // {title: 'Hypertension', genre: 'pop', contributors: ['asswipe'], contribcount: 6, contriblimit: 9}
+      ],
+      loaded: 0
     };
 
     this.getMostRecentSongs = this.getMostRecentSongs.bind(this);
@@ -38,6 +39,7 @@ class SongList extends React.Component {
         this.setState({
           completed: songs.data
         });
+        this.setLoaded();
       })
       .catch((error) => {
         console.log("Couldn't get the recent songs because: ", error);
@@ -51,10 +53,15 @@ class SongList extends React.Component {
         this.setState({
           soon: songs.data
         });
+        this.setLoaded();
       })
       .catch((error) => {
         console.log("Coudn't get the soon to be completed songs because: ", error);
       })
+  }
+
+  setLoaded() {
+    this.setState({loaded: this.state.loaded + 1});
   }
 
 
@@ -62,7 +69,7 @@ class SongList extends React.Component {
     console.log(this.state.completed);
     console.log(this.state.soon);
 
-    return (
+    return this.state.loaded === 2 ? (
       <div>
         <Row className="show-grid">
          <Col s={6}><SongListEntry
@@ -122,7 +129,7 @@ class SongList extends React.Component {
           /></Col>
         </Row>
         </div>
-    );
+    ) : <div className="loading">loading</div>
   }
 }
 
