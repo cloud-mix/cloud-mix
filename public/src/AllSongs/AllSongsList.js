@@ -46,28 +46,33 @@ class AllSongsList extends Component {
 
     return this.state.goodToGo > 0 ? (
         <div>
-        {console.log(this.state.songs.length)};
-        {this.state.songs.map((song) => {
-          console.log("Each darn song: ", song);
-          <Row className="show-grid">
-            <Col s={6}>
-              <AllSongsListEntry
-                song={song}
-                isLoggedIn={this.props.isLoggedIn}
-                setCurrentSong={this.props.setCurrentSong}
-              />
-            </Col>
-          </Row>
-        })}
+          <p>Fuck Mang</p>
+          {console.log(this.state.songs.length)}
+          <div>
+            {this.state.songs.map(song => {
+                <div>
+                  <Row>
+                    <Col s={6}>
+                      <AllSongsListEntry
+                        song={song}
+                        isLoggedIn={this.props.isLoggedIn}
+                        setCurrentSong={this.props.setCurrentSong}
+                      />
+                    </Col>
+                  </Row>
+                </div>
+              })
+            }
+          </div>
         </div>
       ) :
       (
         <div className="loading">
           <div className="comingSoon">Jams coming soon</div>
         </div>
-      )
-  }
-}
+      );
+  };
+};
 
 
 export default AllSongsList;
