@@ -1,6 +1,6 @@
 import recordPlayback from './recordPlayback.js';
 
-const record = (recorder, urls, isRec, firstRec, firstCb) => {
+const record = (recorder, urls, isRec, firstRec, firstCb, offsets, trackCb) => {
   if (!firstRec) {
     firstCb();
   } else {
@@ -9,7 +9,7 @@ const record = (recorder, urls, isRec, firstRec, firstCb) => {
   recorder.start();
   isRec();
   if (urls.length > 0) {
-    recordPlayback(urls);
+    recordPlayback(urls, offsets, trackCb);
   }
   console.log(recorder.state);
   console.log('recording started');

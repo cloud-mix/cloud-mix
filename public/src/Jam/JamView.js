@@ -143,7 +143,11 @@ class JamView extends Component {
               waves="light"
               icon="mic_off"
               onClick={() => {
-                stopRecord(this.state.recorder, this.setRecording.bind(this));
+                stopRecord(
+                  this.state.recorder,
+                  this.setRecording.bind(this),
+                  this.state.tracks
+                );
               }}
             />
           : <Button
@@ -158,7 +162,9 @@ class JamView extends Component {
                   this.props.currentSong.url,
                   this.setRecording.bind(this),
                   this.state.firstRec,
-                  this.setFirstRec.bind(this)
+                  this.setFirstRec.bind(this),
+                  this.props.currentSong.offsets,
+                  this.setTrack.bind(this)
                 );
               }}
             />}

@@ -12,9 +12,6 @@ const play = (urls, offset, playCb, trackCb, firstRec, offsets) => {
       src: [urls[last]],
         format: 'mp3',
         html5: true,
-        onplay: function() {
-          console.log('this in track', this.duration());
-        },
         sprite: {
           begin: [offset, 360000]
         },
