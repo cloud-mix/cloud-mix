@@ -231,6 +231,7 @@ class App extends Component {
                 handleSuccessfulUpload={this.handleSuccessfulUpload}
                 currentSong={this.state.currentSong}
                 currentUser={this.state.currentUser}
+                setCurrentSong={this.setCurrentSong}
               />
             )}
           />

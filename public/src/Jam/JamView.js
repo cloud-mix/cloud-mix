@@ -93,6 +93,7 @@ class JamView extends Component {
 
   setUrl(url) {
     this.props.currentSong.url.push(url);
+    this.props.setCurrentSong(this.props.currentSong);
     this.setState({ change: !this.state.change });
   }
 
