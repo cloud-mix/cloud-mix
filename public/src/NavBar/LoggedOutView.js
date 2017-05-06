@@ -22,10 +22,6 @@ const LoggedoutView = props => {
 
       <Link to="/songs">
         <div className="searchSongs"
-          onClick={() => {
-            props.setSongTitle(props.song.title);
-            props.setGenre(props.song.genre);
-          }}
         >Find Songs</div>
       </Link>
     </Navbar>
