@@ -42,7 +42,7 @@ class AllSongsList extends Component {
 
 
   render(){
-    console.log("I got the songs to be populating the dang array", this.state.songs.length);
+    console.log("I got the songs to be populating the dang array", this.state.songs.length)
 
     return this.state.songs.length > 0 ? (
         <div>
@@ -65,8 +65,8 @@ class AllSongsList extends Component {
         <div className="loading">
           <div className="comingSoon">Jams coming soon</div>
         </div>
-      );
-  };
+      )
+  }
 }
 
 
