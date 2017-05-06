@@ -7,18 +7,8 @@ class SongList extends React.Component {
   constructor() {
     super();
     this.state = {
-      completed: [
-        // {title: 'Pain?', genre: 'metal', contributors: ['Alex1100'], contribcount: 1, contriblimit: 1},
-        // {title: 'Hello World', genre: 'Dev Rock', contributors: ['newscrash'], contribcount: 1, contriblimit: 1},
-        // {title: 'Yo Yo', genre: 'hip-hop', contributors: ['Kanye'], contribcount: 1, contriblimit: 1},
-        // {title: 'Beautiful Freak', genre: 'trip-hop', contributors: ['hugodol'], contribcount: 1, contriblimit: 1}
-      ],
-      soon: [
-        // {title: 'bitchy blob', genre: 'electronic', contributors: ['someDude254'], contribcount:5, contriblimit: 9},
-        // {title: 'Jamz Bros', genre: 'Soul', contributors: ['steviewonder'], contribcount: 9, contriblimit: 9},
-        // {title: 'Run with the Wolf', genre: 'classical', contributors: ['mozart'], contribcount: 2, contriblimi: 9},
-        // {title: 'Hypertension', genre: 'pop', contributors: ['asswipe'], contribcount: 6, contriblimit: 9}
-      ],
+      completed: [],
+      soon: [],
       loaded: 0
     };
 
@@ -131,13 +121,18 @@ class SongList extends React.Component {
         </div>
     ) : (
       <div className="loading">
-        <Row>
-          <Col s={4}>
-            <Preloader size='big'/>
-          </Col>
-        </Row>
+        <div className="comingSoon">Jams coming soon</div>
       </div>)
   }
 }
 
 export default SongList;
+
+
+
+
+// <Row>
+//   <Col s={4}>
+//     <Preloader size='big'/>
+//   </Col>
+// </Row>
