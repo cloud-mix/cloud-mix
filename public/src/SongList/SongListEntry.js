@@ -12,7 +12,7 @@ var SongListEntry = props => {
       header={
         <CardTitle image="http://s.bellevuecollege.edu/kbcs/uploads/2013/03/Waveform-Transmission.jpg">
           {props.song.title}
-          {props.song.contributors.length !== 0 && props.isLoggedIn ? (
+          {props.song.contriblimit - props.song.contribcount !== 0 && props.isLoggedIn ? (
             <Link to="/jam">
               <div className="jamRequest"
                 onClick={() => {
@@ -22,7 +22,7 @@ var SongListEntry = props => {
               >Come Jam !</div>
               </Link>
           ) : null}
-          {props.song.contributors.length !== 0 && !props.isLoggedIn ? (
+          {props.song.contriblimit - props.song.contribcount !== 0 && !props.isLoggedIn ? (
             <div className="jamRequest">Log In to Jam !</div>
           ) : null}
         </CardTitle>
