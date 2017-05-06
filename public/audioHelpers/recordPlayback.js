@@ -1,18 +1,20 @@
 import {Howl} from 'howler';
 
-const recordPlayback = urls => {
-  urls.forEach(url => {
+const recordPlayback = (urls, offsets, trackCb) => {
+  let tracks = [];
+  urls.forEach((url, i) => {
     let track = new Howl({
-      src: [url.url],
+      src: [url],
       format: 'mp3',
       html5: true,
       sprite: {
-        begin: [url.offset, 60000]
+        begin: [offsets[i], 60000]
       }
     });
-
+    tracks.push(track);
     track.play('begin');
   });
+  trackCb(tracks);
 }
 
 export default recordPlayback;

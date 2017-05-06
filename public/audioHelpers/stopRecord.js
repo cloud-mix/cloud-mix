@@ -1,5 +1,6 @@
-const stopRecord = (recorder, isRec) => {
+const stopRecord = (recorder, isRec, tracks) => {
   recorder.stop();
+  tracks.forEach(track => track.stop());
   isRec();
   console.log(recorder.state);
   console.log('recording stopped');
