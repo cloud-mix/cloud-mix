@@ -5,14 +5,14 @@ import play from '../../audioHelpers/play.js';
 
 var SongListEntry = props => {
   let status = '';
-  props.song.cont === 0 ? status = `Completed` : status = `Only ${props.song.cont} jam left`;
+  props.song.contriblimit - props.song.contribcount === 0 ? status = `Completed` : status = `Only ${props.song.contriblimit - props.song.contribcount} jam left`;
   return (
     <Card
       className="small buttonCard"
       header={
         <CardTitle image="http://s.bellevuecollege.edu/kbcs/uploads/2013/03/Waveform-Transmission.jpg">
           {props.song.title}
-          {props.song.cont !== 0 && props.isLoggedIn ? (
+          {props.song.contributors.length !== 0 && props.isLoggedIn ? (
             <Link to="/jam">
               <div className="jamRequest"
                 onClick={() => {
@@ -22,7 +22,7 @@ var SongListEntry = props => {
               >Come Jam !</div>
               </Link>
           ) : null}
-          {props.song.cont !== 0 && !props.isLoggedIn ? (
+          {props.song.contributors.length !== 0 && !props.isLoggedIn ? (
             <div className="jamRequest">Log In to Jam !</div>
           ) : null}
         </CardTitle>
@@ -30,7 +30,7 @@ var SongListEntry = props => {
     >
       <b>Genre:</b> {props.song.genre} <br />
       <b>{status}</b><br />
-      <b>Started by:</b> {props.song.creator}
+      <b>Started by:</b> {props.song.contributors[0]}
       <div className="buttonContainer">
         <Button
           className="cardButton"

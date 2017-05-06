@@ -1,33 +1,67 @@
 import React from "react";
 import SongListEntry from "./SongListEntry";
 import { Row, Col, Grid } from "react-materialize";
+import axios from 'axios';
 
 class SongList extends React.Component {
   constructor() {
     super();
     this.state = {
       completed: [
-        {title: 'Pain?', genre: 'metal', creator: 'Alex1100', cont: 0},
-        {title: 'Hello World', genre: 'Dev Rock', creator: 'newscrash', cont: 0},
-        {title: 'Yo Yo', genre: 'hip-hop', creator: 'Kanye', cont: 0},
-        {title: 'Beautiful Freak', genre: 'trip-hop', creator: 'hugodol', cont: 0}
+        {title: 'Pain?', genre: 'metal', contributors: ['Alex1100'], contribcount: 1, contriblimit: 1},
+        {title: 'Hello World', genre: 'Dev Rock', contributors: ['newscrash'], contribcount: 1, contriblimit: 1},
+        {title: 'Yo Yo', genre: 'hip-hop', contributors: ['Kanye'], contribcount: 1, contriblimit: 1},
+        {title: 'Beautiful Freak', genre: 'trip-hop', contributors: ['hugodol'], contribcount: 1, contriblimit: 1}
       ],
       soon: [
-        {title: 'bitchy blob', genre: 'electronic', creator: 'someDude254', cont:5},
-        {title: 'Jamz Bros', genre: 'Soul', creator: 'steviewonder', cont: 9},
-        {title: 'Run with the Wolf', genre: 'classical', creator: 'mozart', cont: 2},
-        {title: 'Hypertension', genre: 'pop', creator: 'asswipe', cont: 6}
+        {title: 'bitchy blob', genre: 'electronic', contributors: ['someDude254'], contribcount:5, contriblimit: 9},
+        {title: 'Jamz Bros', genre: 'Soul', contributors: ['steviewonder'], contribcount: 9, contriblimit: 9},
+        {title: 'Run with the Wolf', genre: 'classical', contributors: ['mozart'], contribcount: 2, contriblimi: 9},
+        {title: 'Hypertension', genre: 'pop', contributors: ['asswipe'], contribcount: 6, contriblimit: 9}
       ]
     };
+
+    this.getMostRecentSongs = this.getMostRecentSongs.bind(this);
+    this.getSoonToBeCompletedSongs = this.getSoonToBeCompletedSongs.bind(this);
   }
-  // componentDidMount() {
-  //   axios.get("/completed").then(function(completed) {
-  //     axios.get("/soon").then(function(soon){
-  //       this.setState({completed: completed.data, soon: soon.data});
-  //     })
-  //   });
-  // }
+
+
+  componentDidMount(){
+    this.getMostRecentSongs();
+    this.getSoonToBeCompletedSongs();
+  }
+
+  getMostRecentSongs(){
+    axios.get('/recent')
+      .then((songs) => {
+        console.log("In the song list component getting the recent songs: ", songs);
+        this.setState({
+          completed: songs.data
+        });
+      })
+      .catch((error) => {
+        console.log("Couldn't get the recent songs because: ", error);
+      })
+  }
+
+  getSoonToBeCompletedSongs(){
+    axios.get('/soon')
+      .then((songs) => {
+        console.log("In the song list component getting the soon to be completed songs: ", songs);
+        this.setState({
+          soon: songs.data
+        });
+      })
+      .catch((error) => {
+        console.log("Coudn't get the soon to be completed songs because: ", error);
+      })
+  }
+
+
   render() {
+    console.log(this.state.completed);
+    console.log(this.state.soon);
+
     return (
       <div>
         <Row className="show-grid">
