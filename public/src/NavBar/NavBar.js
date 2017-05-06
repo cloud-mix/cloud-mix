@@ -14,6 +14,8 @@ const NavBar = props => {
         handleUsernameInputLogin={props.handleUsernameInputLogin}
         handleUserCredentialsLogin={props.handleUserCredentialsLogin}
         logInUrl={props.logInUrl}
+        setSongTitle={props.setSongTitle}
+        setSongGenre={props.setSongGenre}
       />
     : <LoggedinView
         handleLogout={props.handleLogout}
@@ -24,6 +26,8 @@ const NavBar = props => {
           props.handleSongCreateContributorLimit
         }
         handleSongCreateClick={props.handleSongCreateClick}
+        setSongTitle={props.setSongTitle}
+        setSongGenre={props.setSongGenre}
       />;
 };
 
