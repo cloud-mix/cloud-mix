@@ -8,6 +8,7 @@ body {
   background-color: grey;
   background-image: url(http://xboxhut.com/wp-content/uploads/2016/06/brick-wall-graffiti-dark-interior-designers-plumbing-contractors.jpg);
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #app{
@@ -57,7 +58,7 @@ body {
   width:50%;
   margin: auto;
   border: solid;
-  box-shadow: 10px 10px 5px #888888;
+  box-shadow: 10px 10px 5px #000000;
   background-color: white;
 }
 
@@ -71,9 +72,10 @@ body {
 }
 
 .modal-content {
-  background-image: url('../images/logo.png');
+  background-image: url('../images/logo_modal.png');
   background-repeat: no-repeat;
-  background-position: center bottom;
+  background-position: center;
+  background-size: contain;
 }
 
 .nav-wrapper {
@@ -155,7 +157,7 @@ a {
 }
 
 .loading{
-  height:85vh;
+  height:90vh;
   background-image: url('../images/logo_loading.png');
   background-repeat: no-repeat;
   background-position: center;
