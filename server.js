@@ -4,7 +4,7 @@ var logger = require("morgan");
 var bodyParser = require("body-parser");
 var debug = require("debug")("app:http");
 var session = require("express-session");
-// var User = require("./models/user");
+var PORT = process.env.PORT || 8080; 
 
 require("dotenv").config();
 require("dotenv").load();
@@ -45,7 +45,7 @@ app.use(debugReq);
 // Defines all of our "dynamic" routes.
 app.use("/", routes);
 
-app.listen(8080);
+app.listen(PORT);
 
 // Catches all 404 routes.
 app.use(function(req, res, next) {

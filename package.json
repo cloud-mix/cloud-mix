@@ -4,7 +4,7 @@
   "description": "Communal Songwriting Platform Utilizing Facebook O-Auth",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./server.js",
+    "start": "node server.js",
     "compile": "webpack -w"
   },
   "author": "Lead Developer: 'David Desousa', Product Owner: 'Hugo Dolemieux', Scrum Master: 'Alex1100'",
@@ -30,6 +30,7 @@
     "express": "^4.15.2",
     "express-session": "^1.15.2",
     "howler": "^2.0.3",
+    "morgan": "^1.8.1",
     "mysql": "^2.13.0",
     "nuka-carousel": "^2.0.4",
     "pg": "^6.1.5",

@@ -49,6 +49,7 @@ class AllSongsList extends Component {
               song={song}
               isLoggedIn={this.props.isLoggedIn}
               setCurrentSong={this.props.setCurrentSong}
+              currentUser={this.props.currentUser}
             />
           </Col>
         ))}
@@ -59,6 +60,8 @@ class AllSongsList extends Component {
               song={song}
               isLoggedIn={this.props.isLoggedIn}
               setCurrentSong={this.props.setCurrentSong}
+              currentUser={this.props.currentUser}
+
             />
           </Col>
         ))}
