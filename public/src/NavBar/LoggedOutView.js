@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 const LoggedoutView = props => {
   return (
-    <Navbar  className="navBar">
+    <Navbar  className="navBar" >
       <div className="title">
         <img src="../../images/logo_title.png"/>
       </div>

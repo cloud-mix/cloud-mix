@@ -20,20 +20,16 @@ const LoggedinView = props => (
           <img src="../../images/logo_title.png"/>
         </div>
       </Link>
-        <NavItem>
-          <Link to="/" onClick={() => props.handleLogout()}>
-            Logout
-          </Link>
+      <Link to="/" onClick={() => props.handleLogout()}>
+        <NavItem className="logout">
+          Logout
         </NavItem>
- 
-
-      <NavItem>
+        </Link>
       <Link to="/songs">
-        <div className="searchSongs"
-        >Find Songs</div>
-      </Link>
+      <NavItem className="logout">
+       Find Songs
       </NavItem>
-      
+      </Link>
       <Route exact path="/" render={() => (
         <CreateSongModal
           handleSongCreate={props.handleSongCreate}
