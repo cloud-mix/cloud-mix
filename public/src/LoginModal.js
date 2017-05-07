@@ -9,23 +9,19 @@ class LoginModal extends React.Component {
     return(
     <Modal header="Login" fixedFooter trigger={<NavItem>Login</NavItem>}>
       <input
+        className="loginInput"
         type="text"
         placeholder="Username"
         onChange={e => this.props.handleUsernameInputLogin(e.target.value)}
       />
       <br />
-      {/*{this.props.validUsername === false
-        ? <p>Username must be at least 6 characters long</p>
-        : <div />}*/}
+
       <input
+        className="loginInput"
         type="password"
         placeholder="Password"
         onChange={e => this.props.handleUserCredentialsLogin(e.target.value)}
       />
-
-      {/*{this.props.validPassword === false
-        ? <p>Password must be at least 6 characters long</p>
-        : <div />}*/}
 
       <Button
         waves="light"
