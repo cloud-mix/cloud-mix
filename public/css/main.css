@@ -16,6 +16,11 @@ body {
   background-color: white;
 }
 
+.allSongs{
+  height: 100vh;
+  overflow: auto;
+}
+
 .oauthbtn{
   padding-top: 17px;
 }
