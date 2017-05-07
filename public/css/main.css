@@ -155,21 +155,10 @@ a {
 }
 
 .loading{
-  height:100vh;
-  position: relative;
-  text-align: center;
-  background-image: url('../images/logo.png');
+  height:85vh;
+  background-image: url('../images/logo_loading.png');
   background-repeat: no-repeat;
   background-position: center;
-}
-
-.comingSoon{
-  position: absolute;
-  color: red;
-  font-size: 100px;
-  transform: rotate(-30deg);
-  bottom: 48%;
-  right: 18%;
 }
 
 .loginInput{

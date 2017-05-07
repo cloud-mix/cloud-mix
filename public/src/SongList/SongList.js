@@ -87,15 +87,12 @@ class SongList extends React.Component {
               isLoggedIn={this.props.isLoggedIn}
               setCurrentSong={this.props.setCurrentSong}
             />
-         ))}  
-         </Col> 
+         ))}
+         </Col>
           </Row>
 
       </div>
-    ) : (
-      <div className="loading">
-        <div className="comingSoon">Jams coming soon</div>
-      </div>)
+    ) : <div className="loading"></div>
   }
 }
 

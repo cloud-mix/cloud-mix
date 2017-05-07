@@ -64,12 +64,7 @@ class AllSongsList extends Component {
         ))}
         </Row>
       </div>
-    ) :
-    (
-      <div className="loading">
-        <div className="comingSoon">Jams coming soon</div>
-      </div>
-    );
+    ) : <div className="loading"></div>
   };
 };
 
