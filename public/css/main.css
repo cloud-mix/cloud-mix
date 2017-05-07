@@ -121,6 +121,9 @@ body {
   position: relative;
 }
 
+.logout{
+  float: right;
+}
 .buttonContainer{
   float: right;
   position: absolute;
