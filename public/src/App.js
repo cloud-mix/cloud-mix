@@ -232,6 +232,7 @@ class App extends Component {
                 <AllSongsList
                   isLoggedIn={this.state.isLoggedIn}
                   setCurrentSong={this.setCurrentSong}
+                  currentUser={this.state.currentUser}
                 />
               )}
             />
