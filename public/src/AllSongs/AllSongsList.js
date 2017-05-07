@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Grid } from "react-materialize";
-import AllSongsListEntry from './AllSongsListEntry';
+import SongListEntry from '../SongList/SongListEntry';
 import axios from 'axios';
 import blobUtil from "blob-util";
 import convertToUrls from '../../audioHelpers/convertToUrls.js';
@@ -26,7 +26,7 @@ class AllSongsList extends Component {
         console.log("In the all songs list component getting the songs: ", songs);
         convertToUrls(songs.data);
         this.setState({
-          songs: songs.data
+          songs: [songs.data.splice(0, Math.floor(songs.data.length / 2)), songs.data.splice(Math.floor(songs.data.length / 2), songs.data.length - 1)]
         });
         this.setLoaded();
       })
@@ -39,38 +39,37 @@ class AllSongsList extends Component {
     this.setState({goodToGo: this.state.goodToGo + 1});
   }
 
-
-
   render(){
-    console.log("I got the songs to be populating the dang array", this.state.songs.length)
-
     return this.state.goodToGo > 0 ? (
-        <div>
-          <p>Fuck Mang</p>
-          {console.log(this.state.songs.length)}
-          <div>
-            {this.state.songs.map(song => {
-                <div>
-                  <Row>
-                    <Col s={6}>
-                      <AllSongsListEntry
-                        song={song}
-                        isLoggedIn={this.props.isLoggedIn}
-                        setCurrentSong={this.props.setCurrentSong}
-                      />
-                    </Col>
-                  </Row>
-                </div>
-              })
-            }
-          </div>
-        </div>
-      ) :
-      (
-        <div className="loading">
-          <div className="comingSoon">Jams coming soon</div>
-        </div>
-      );
+      <div className="allSongs">
+        <Row className="show-grid">
+        {this.state.songs[0].map(song => (
+          <Col s={6}>
+            <SongListEntry
+              song={song}
+              isLoggedIn={this.props.isLoggedIn}
+              setCurrentSong={this.props.setCurrentSong}
+            />
+          </Col>
+        ))}
+
+        {this.state.songs[1].map(song => (
+          <Col s={6}>
+            <SongListEntry
+              song={song}
+              isLoggedIn={this.props.isLoggedIn}
+              setCurrentSong={this.props.setCurrentSong}
+            />
+          </Col>
+        ))}
+        </Row>
+      </div>
+    ) :
+    (
+      <div className="loading">
+        <div className="comingSoon">Jams coming soon</div>
+      </div>
+    );
   };
 };
 

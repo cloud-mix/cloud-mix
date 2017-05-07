@@ -86,7 +86,6 @@ class App extends Component {
   }
 
   handleSuccessfulUpload() {
-    // e.preventDefault();
     this.setState({showUploadSuccess: true})
   }
 

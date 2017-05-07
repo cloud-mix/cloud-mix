@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Link} from 'react-router-dom';
-import { Card, CardTitle, Button } from "react-materialize";
+import { Card, CardTitle, Button, Col } from "react-materialize";
 import songCardPlay from '../../audioHelpers/songCardPlay.js';
 import songCardStop from '../../audioHelpers/songCardStop.js';
 

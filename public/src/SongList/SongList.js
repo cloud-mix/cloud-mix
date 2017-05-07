@@ -18,7 +18,7 @@ class SongList extends React.Component {
   }
 
 
-  componentDidMount(){
+  componentWillMount(){
     this.getMostRecentSongs();
     this.getSoonToBeCompletedSongs();
   }
@@ -62,64 +62,30 @@ class SongList extends React.Component {
 
     return this.state.loaded === 2 ? (
       <div>
-        <Row className="show-grid">
-         <Col s={6}><SongListEntry
-           currentUser={this.props.currentUser}
-           song={this.state.completed[0]}
-           isLoggedIn={this.props.isLoggedIn}
-           setCurrentSong={this.props.setCurrentSong}
-         /></Col>
-         <Col s={6}><SongListEntry
-           currentUser={this.props.currentUser}
-           song={this.state.soon[0]}
-           isLoggedIn={this.props.isLoggedIn}
-           setCurrentSong={this.props.setCurrentSong}
-         /></Col>
-        </Row>
+        {this.state.completed.map((song, i) => (
+          <Row className="show-grid">
+            <Col s={6}>
+            <SongListEntry
+              currentUser={this.props.currentUser}
+              song={this.state.completed[i]}
+              isLoggedIn={this.props.isLoggedIn}
+              setCurrentSong={this.props.setCurrentSong}
+            />
+            </Col>
+            <Col s={6}>
+            <SongListEntry
+              currentUser={this.props.currentUser}
+              song={this.state.soon[i]}
+              isLoggedIn={this.props.isLoggedIn}
+              setCurrentSong={this.props.setCurrentSong}
+            />
+            </Col>
 
-        <Row className="show-grid">
-          <Col s={6}><SongListEntry
-            currentUser={this.props.currentUser}
-            song={this.state.completed[1]}
-            isLoggedIn={this.props.isLoggedIn}
-            setCurrentSong={this.props.setCurrentSong}
-          /></Col>
-          <Col s={6}><SongListEntry
-            currentUser={this.props.currentUser}
-            song={this.state.soon[1]}
-            isLoggedIn={this.props.isLoggedIn}
-            setCurrentSong={this.props.setCurrentSong}
-          /></Col>
-        </Row>
-        <Row className="show-grid">
-          <Col s={6}><SongListEntry 
-            currentUser={this.props.currentUser}
-            song={this.state.completed[2]}
-            isLoggedIn={this.props.isLoggedIn}
-            setCurrentSong={this.props.setCurrentSong}
-          /></Col>
-          <Col s={6}><SongListEntry
-            currentUser={this.props.currentUser}
-            song={this.state.soon[2]}
-            isLoggedIn={this.props.isLoggedIn}
-            setCurrentSong={this.props.setCurrentSong}
-          /></Col>
-        </Row>
-        <Row className="show-grid">
-          <Col s={6}><SongListEntry
-            currentUser={this.props.currentUser}
-            song={this.state.completed[3]}
-            isLoggedIn={this.props.isLoggedIn}
-            setCurrentSong={this.props.setCurrentSong}
-          /></Col>
-          <Col s={6}><SongListEntry
-            currentUser={this.props.currentUser}
-            song={this.state.soon[3]}
-            isLoggedIn={this.props.isLoggedIn}
-            setCurrentSong={this.props.setCurrentSong}
-          /></Col>
-        </Row>
-        </div>
+          </Row>
+
+        ))}
+
+      </div>
     ) : (
       <div className="loading">
         <div className="comingSoon">Jams coming soon</div>
