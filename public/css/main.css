@@ -66,6 +66,10 @@ body {
   width:50%;
   margin: auto;
 }
+.maxContrib{
+  margin: auto;
+  width:50%;
+}
 
 .red{
   margin:20px;
@@ -76,10 +80,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-}
-
-.nav-wrapper {
-  /*position: absolute;*/
 }
 
 .logo {
