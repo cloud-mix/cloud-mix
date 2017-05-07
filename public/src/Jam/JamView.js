@@ -201,6 +201,7 @@ class JamView extends Component {
             <Button
               className="submitButton"
               onClick={e => {
+                stopPlayback(this.state.tracks, this.setPlaying.bind(this));
                 this.setTrackOffset(this.state.offset);
                 this.postBlobToDB(e);
                 this.state.wavesurfer.destroy();
