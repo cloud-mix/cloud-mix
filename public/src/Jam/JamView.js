@@ -214,6 +214,7 @@ class JamView extends Component {
 
         {this.props.currentSong.url.length > 1
           ? <p className="range-field">
+              Set Your Latency Offset in Milliseconds:
               <input type="range" id="test5" min="0" max="500" onChange={(e) => this.setOffset(e.target.value)} />
             </p>
           : null}
