@@ -22,7 +22,11 @@ class SongList extends React.Component {
     this.getMostRecentSongs();
     this.getSoonToBeCompletedSongs();
   }
-
+  getRecentAndSoon() {
+    this.getMostRecentSongs();
+    this.getSoonToBeCompletedSongs();
+    this.setState({refetchSongs: false});
+  }
   getMostRecentSongs(){
     axios.get('/recent')
       .then((songs) => {
@@ -59,31 +63,33 @@ class SongList extends React.Component {
 
 
   render() {
-
+    {if(this.state.refetchSongs){
+      this.getRecentAndSoon();
+    }}
     return this.state.loaded === 2 ? (
       <div>
+        <Row className="show-grid">
+          <Col s={6}>
         {this.state.completed.map((song, i) => (
-          <Row className="show-grid">
-            <Col s={6}>
             <SongListEntry
               currentUser={this.props.currentUser}
               song={this.state.completed[i]}
               isLoggedIn={this.props.isLoggedIn}
               setCurrentSong={this.props.setCurrentSong}
             />
-            </Col>
-            <Col s={6}>
+        ))}
+        </Col>
+        <Col s={6}>
+        {this.state.soon.map((song, i) => (
             <SongListEntry
               currentUser={this.props.currentUser}
               song={this.state.soon[i]}
               isLoggedIn={this.props.isLoggedIn}
               setCurrentSong={this.props.setCurrentSong}
             />
-            </Col>
-
+         ))}  
+         </Col> 
           </Row>
-
-        ))}
 
       </div>
     ) : (

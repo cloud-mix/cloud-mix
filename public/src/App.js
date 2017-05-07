@@ -29,8 +29,8 @@ class App extends Component {
       currentSong: {url:[]},
       wavesurfer: null,
       waveInput: null,
-      allSongs: []
-
+      allSongs: [],
+      refetchSongs: false
     };
 
     this.signupUser = this.signupUser.bind(this);
@@ -217,6 +217,7 @@ class App extends Component {
             path="/"
             render={() => (
               <SongList
+                refetchSongs={this.state.refetchSongs}
                 currentUser={this.state.currentUser}
                 isLoggedIn={this.state.isLoggedIn}
                 setCurrentSong={this.setCurrentSong}
@@ -289,7 +290,8 @@ class App extends Component {
             type="success"
             onConfirm={() => {
               console.log("confirm");
-              this.setState({ showUploadSuccess: false });
+              this.setState({ showUploadSuccess: false, refetchSongs:true });
+
             }}
             onEscapeKey={() => this.setState({ showUploadSuccess: false })}
             onOutsideClick={() => this.setState({ showUploadSuccess: false })}
