@@ -61,6 +61,16 @@ body {
   left: 450px;
 }
 
+.carouselText{
+  position: absolute;
+  width: auto
+  height: 387px;
+  top: 15px;
+  left: 450px;
+  color: white;
+  font-size: 32px;
+}
+
 .recordButton{
   margin:20px;
 }

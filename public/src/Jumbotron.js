@@ -11,6 +11,8 @@ const Jumbotron = props => {
         </div>
         <div className="carouzel">
           <img className="carouselBack" src="https://static1.squarespace.com/static/56477fc8e4b069c54138221c/t/56564901e4b0c668da4b2ef8/1448495364626/string-555070.jpg?format=2500w" alt="guitars_artsy_shorter_2" border="0" />
+          <p className="carouselText"> Discover, create and jam with a constantly expanding mix of music from musicians around the world.
+          </p>
         </div>
         <div className="carouzel">
           <img className="carouselBack" src="http://wallpapercave.com/wp/bCurUbJ.jpg" alt="studio" border="0"/>
