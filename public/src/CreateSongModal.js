@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 var title = "";
 var genre = "";
-var contriblimit = 0;
+var contriblimit = 2;
 
 const CreateSongModal = props => {
   return (
@@ -26,20 +26,18 @@ const CreateSongModal = props => {
         placeholder="Genre"
         onChange={e => genre = e.target.value}
       />
-
-      <input
-        type="number"
-        placeholder="Number of Contributors. Yourself Included"
-        min="2"
-        max="10"
-        onChange={e =>  contriblimit = Number(e.target.value)}
-      />
+      <div className="maxContrib">Max. Number of Contributors:</div>
+      <p className="range-field">
+        <input type="range" id="test5" min="2" max="10" onChange={(e) => {contriblimit = e.target.value;
+        console.log(contriblimit) }}/>
+      </p>
 
       <Link to="/jam">
         <Button
           waves="light"
           modal="close"
           onClick={() => {
+            console.log(contriblimit);
             props.handleSongCreate(title, genre, contriblimit)}
           }
         >

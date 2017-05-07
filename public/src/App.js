@@ -11,6 +11,7 @@ import Jumbotron from "./Jumbotron";
 import SweetAlert from "sweetalert-react";
 import convertToUrls from '../audioHelpers/convertToUrls.js';
 import footerModal from './footerModal.js';
+import getSongs from '../audioHelpers/getSongs.js';
 
 class App extends Component {
   constructor(props) {
@@ -31,9 +32,9 @@ class App extends Component {
       wavesurfer: null,
       waveInput: null,
       allSongs: [],
-      refetchSongs: false
+      loaded: 0
     };
-
+    getSongs(this);
     this.signupUser = this.signupUser.bind(this);
     this.loginUser = this.loginUser.bind(this);
     this.handleSuccessfulUpload = this.handleSuccessfulUpload.bind(this);
@@ -41,6 +42,9 @@ class App extends Component {
     this.handleSongCreate = this.handleSongCreate.bind(this);
   }
 
+  setLoaded() {
+    this.setState({loaded: this.state.loaded + 1});
+  }
 
   loginUser() {
     axios
@@ -171,16 +175,6 @@ class App extends Component {
     console.log("IN HANDLE SONG CREATE, state is", this.state);
   }
 
-  handleModalStatus() {
-    if (
-      this.state.validUsername === true && this.state.validPassword === true
-    ) {
-      this.setState({
-        modalStatus: "close"
-      });
-    }
-  }
-
   setWavesurfer(wave) {
     this.setState({wavesurfer: wave});
   }
@@ -218,7 +212,9 @@ class App extends Component {
             path="/"
             render={() => (
               <SongList
-                refetchSongs={this.state.refetchSongs}
+                loaded={this.state.loaded}
+                completed={this.state.completed}
+                soon={this.state.soon}
                 currentUser={this.state.currentUser}
                 isLoggedIn={this.state.isLoggedIn}
                 setCurrentSong={this.setCurrentSong}
@@ -290,8 +286,8 @@ class App extends Component {
             type="success"
             onConfirm={() => {
               console.log("confirm");
-              this.setState({ showUploadSuccess: false, refetchSongs:true });
-
+              this.setState({ showUploadSuccess: false });
+              getSongs(this);
             }}
             onEscapeKey={() => this.setState({ showUploadSuccess: false })}
             onOutsideClick={() => this.setState({ showUploadSuccess: false })}
