@@ -123,7 +123,6 @@ class App extends Component {
         validUsername: true,
         validPassword: true
       });
-      this.handleModalStatus();
       this.signupUser();
     } else {
       this.setState({

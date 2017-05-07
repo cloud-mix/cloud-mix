@@ -34,6 +34,5 @@ const SongList = (props) => {
       </div>
     ) : <div className="loading"></div>
   }
-}
 
 export default SongList;
