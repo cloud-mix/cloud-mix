@@ -255,7 +255,7 @@ class App extends Component {
             copyrights="&copy; 2017 Cloudmix"
             moreLinks={
               <a className="grey-text text-lighten-4 right" href="#!">
-                More Links
+                About
               </a>
             }
           />

@@ -8,6 +8,7 @@ import CreateSongModal from '../CreateSongModal';
 const LoggedinView = props => (
   <div>
     <Navbar className='navBar'>
+
       <Link to="/"
         onClick={() => {
           if (props.wavesurfer && props.waveInput) {
@@ -20,16 +21,22 @@ const LoggedinView = props => (
           <img src="../../images/logo_title.png"/>
         </div>
       </Link>
+
       <Link to="/" onClick={() => props.handleLogout()}>
         <NavItem className="logout">
           Logout
         </NavItem>
-        </Link>
-      <Link to="/songs">
-      <NavItem className="logout">
-       Find Songs
-      </NavItem>
       </Link>
+
+      <Route exact path="/" render={() => (
+        <Link to="/songs">
+          <NavItem className="logout">
+             Find Songs
+          </NavItem>
+        </Link>
+      )}/>
+
+
       <Route exact path="/" render={() => (
         <CreateSongModal
           handleSongCreate={props.handleSongCreate}

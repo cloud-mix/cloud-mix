@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 const LoggedoutView = props => {
   return (
     <Navbar  className="navBar" >
+
       <div className="title">
         <img src="../../images/logo_title.png"/>
       </div>
@@ -19,6 +20,7 @@ const LoggedoutView = props => {
         handleUsernameInputLogin={props.handleUsernameInputLogin}
         handleUserCredentialsLogin={props.handleUserCredentialsLogin}
       />
+
     </Navbar>
   );
 };
