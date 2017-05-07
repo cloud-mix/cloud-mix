@@ -170,15 +170,15 @@ class App extends Component {
     console.log("IN HANDLE SONG CREATE, state is", this.state);
   }
 
-  handleModalStatus() {
-    if (
-      this.state.validUsername === true && this.state.validPassword === true
-    ) {
-      this.setState({
-        modalStatus: "close"
-      });
-    }
-  }
+  // handleModalStatus() {
+  //   if (
+  //     this.state.validUsername === true && this.state.validPassword === true
+  //   ) {
+  //     this.setState({
+  //       modalStatus: "close"
+  //     });
+  //   }
+  // }
 
   setWavesurfer(wave) {
     this.setState({wavesurfer: wave});
@@ -292,7 +292,6 @@ class App extends Component {
             onConfirm={() => {
               console.log("confirm");
               this.setState({ showUploadSuccess: false, refetchSongs:true });
-
             }}
             onEscapeKey={() => this.setState({ showUploadSuccess: false })}
             onOutsideClick={() => this.setState({ showUploadSuccess: false })}

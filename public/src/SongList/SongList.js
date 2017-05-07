@@ -12,21 +12,19 @@ class SongList extends React.Component {
       soon: [],
       loaded: 0
     };
-
+    this.getMostRecentSongs();
+    this.getSoonToBeCompletedSongs();
+    this.render();
     this.getMostRecentSongs = this.getMostRecentSongs.bind(this);
     this.getSoonToBeCompletedSongs = this.getSoonToBeCompletedSongs.bind(this);
   }
 
 
-  componentWillMount(){
-    this.getMostRecentSongs();
-    this.getSoonToBeCompletedSongs();
-  }
-  getRecentAndSoon() {
-    this.getMostRecentSongs();
-    this.getSoonToBeCompletedSongs();
-    this.setState({refetchSongs: false});
-  }
+  // getRecentAndSoon() {
+  //   this.getMostRecentSongs();
+  //   this.getSoonToBeCompletedSongs();
+  //   this.setState({refetchSongs: false});
+  // }
   getMostRecentSongs(){
     axios.get('/recent')
       .then((songs) => {
@@ -40,6 +38,7 @@ class SongList extends React.Component {
       .catch((error) => {
         console.log("Couldn't get the recent songs because: ", error);
       })
+      this.render();
   }
 
   getSoonToBeCompletedSongs(){
@@ -55,6 +54,7 @@ class SongList extends React.Component {
       .catch((error) => {
         console.log("Coudn't get the soon to be completed songs because: ", error);
       })
+      this.render();
   }
 
   setLoaded() {

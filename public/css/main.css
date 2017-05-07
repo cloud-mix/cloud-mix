@@ -65,6 +65,11 @@ body {
   width:50%;
   margin: auto;
 }
+.maxContrib{
+  margin: auto;
+  width:50%;
+  color:white;
+}
 
 .red{
   margin:20px;
@@ -74,10 +79,6 @@ body {
   background-image: url('../images/logo.png');
   background-repeat: no-repeat;
   background-position: center bottom;
-}
-
-.nav-wrapper {
-  /*position: absolute;*/
 }
 
 .logo {
