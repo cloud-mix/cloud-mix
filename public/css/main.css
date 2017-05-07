@@ -53,14 +53,6 @@ body {
   position: relative;
 }
 
-.carouselLogo{
-  position: absolute;
-  width: 541px;
-  height: 387px;
-  top: 15px;
-  left: 450px;
-}
-
 .recordButton{
   margin:20px;
 }
