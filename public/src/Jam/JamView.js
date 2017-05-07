@@ -131,6 +131,7 @@ class JamView extends Component {
         <div className="jam_header">
           <h3><b>Title: </b>{this.props.currentSong.title}</h3>
           <h3><b>Genre: </b>{this.props.currentSong.genre}</h3>
+          <h3><b>Started by: </b>{this.props.currentUser}</h3>
         </div>
 
         <div id="input" />
