@@ -204,7 +204,13 @@ class App extends Component {
             waveInput={this.state.waveInput}
           />
 
-          <Route exact path="/" render={() => <Jumbotron />} />
+          <Route exact path="/" render={() =>
+            <Jumbotron
+              currentUser={this.state.currentUser}
+              isLoggedIn={this.state.isLoggedIn}
+              completed={this.state.completed}
+            />
+          }/>
 
           <Route
             exact
