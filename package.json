@@ -36,6 +36,7 @@
     "nuka-carousel": "^2.0.4",
     "pg": "^6.1.5",
     "react": "^15.5.4",
+    "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.4",
     "react-materialize": "^0.18.2",
     "react-paginate": "^4.4.2",

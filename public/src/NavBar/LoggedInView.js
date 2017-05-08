@@ -29,7 +29,7 @@ const LoggedinView = props => (
       </Link>
 
       <Route exact path="/" render={() => (
-        <Link to="/songs">
+        <Link to="/allSongs">
           <NavItem className="logout" onClick={() => props.setUserSongs(false)}>
              Find Songs
           </NavItem>
