@@ -112,7 +112,11 @@ body {
 }
 
 .navBar > li{
-  float: right;
+  float: right !important;
+}
+
+.userTag{
+  float: right !important;
 }
 
 .submittedBtn{
@@ -161,6 +165,17 @@ a {
   bottom: 65%;
   font-size: xx-large;
   color: red;
+}
+.active{
+  margin-top: -8px !important;
+}
+.buttonCard{
+  height:245px !important;
+  margin-bottom: 0px !important;
+}
+
+.collapsible{
+  margin-top: 0px !important;
 }
 
 .loading{
