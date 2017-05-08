@@ -233,13 +233,13 @@ class App extends Component {
 
 
             <Route
-              path="/songs"
+              path="/allSongs"
               render={() => (
                 <AllSongsList
                   isLoggedIn={this.state.isLoggedIn}
                   setCurrentSong={this.setCurrentSong}
                   currentUser={this.state.currentUser}
-                  userSongs={this.state.userSongs}
+                  userSongs={this.state.allSongs}
                 />
               )}
             />

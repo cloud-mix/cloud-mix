@@ -4,11 +4,15 @@
 }
 
 body {
-  font-family: cloudMix;
+  font-family: cloudMix !important;
   background-color: grey;
   background-image: url(http://xboxhut.com/wp-content/uploads/2016/06/brick-wall-graffiti-dark-interior-designers-plumbing-contractors.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+.searchField{
+  text-align: center;
 }
 
 #app{
