@@ -33,9 +33,9 @@ class AllSongsList extends Component {
               userSongs.push(song);
             }
           })
-          userSongs = [userSongs.splice(0, Math.floor(userSongs.length / 2)), userSongs.splice(Math.floor(userSongs.length / 2), userSongs.length - 1)];
+          userSongs = [userSongs.slice(0, Math.floor(userSongs.length / 2)), userSongs.slice(Math.floor(userSongs.length / 2), userSongs.length)];
       } else {
-          userSongs = [songs.data.splice(0, Math.floor(songs.data.length / 2)), songs.data.splice(Math.floor(songs.data.length / 2), songs.data.length - 1)];
+          userSongs = [songs.data.slice(0, Math.floor(songs.data.length / 2)), songs.data.slice(Math.floor(songs.data.length / 2), songs.data.length)];
         }
         this.setState({
           songs: userSongs
@@ -55,28 +55,27 @@ class AllSongsList extends Component {
     return  this.state.goodToGo > 0 ? 
       (<div className="allSongs">
         <Row className="show-grid">
-        {this.state.songs[0].map(song => (
           <Col s={6}>
-            <SongListEntry
-              song={song}
-              isLoggedIn={this.props.isLoggedIn}
-              setCurrentSong={this.props.setCurrentSong}
-              currentUser={this.props.currentUser}
-            />
+          {this.state.songs[0].map(song => (
+              <SongListEntry
+                song={song}
+                isLoggedIn={this.props.isLoggedIn}
+                setCurrentSong={this.props.setCurrentSong}
+                currentUser={this.props.currentUser}
+              />
+          ))}
           </Col>
-        ))}
-
-        {this.state.songs[1].map(song => (
           <Col s={6}>
-            <SongListEntry
-              song={song}
-              isLoggedIn={this.props.isLoggedIn}
-              setCurrentSong={this.props.setCurrentSong}
-              currentUser={this.props.currentUser}
+          {this.state.songs[1].map(song => (
+              <SongListEntry
+                song={song}
+                isLoggedIn={this.props.isLoggedIn}
+                setCurrentSong={this.props.setCurrentSong}
+                currentUser={this.props.currentUser}
 
-            />
+              />
+          ))}
           </Col>
-        ))}
         </Row>
       </div>  
     ) : <div className="loading"></div>
