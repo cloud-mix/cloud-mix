@@ -33,71 +33,72 @@ class SongListEntry extends Component {
         status = `Only ${this.props.song.contriblimit - this.props.song.contribcount} jam left`
       )
     return (
-      <Card
-        className="small buttonCard"
-        header={
-          this.props.song.contriblimit - this.props.song.contribcount !== 0 && this.props.isLoggedIn && !this.props.song.contributors.includes(this.props.currentUser) ? (
-            <Link to="jam">
-              <CardTitle image="../../images/ComeJam.png"
-                onClick={() => this.props.setCurrentSong(this.props.song)}
-              >
+      <div>
+        <Card
+          className="small buttonCard"
+          header={
+            this.props.song.contriblimit - this.props.song.contribcount !== 0 && this.props.isLoggedIn && !this.props.song.contributors.includes(this.props.currentUser) ? (
+              <Link to="jam">
+                <CardTitle image="../../images/ComeJam.png"
+                  onClick={() => this.props.setCurrentSong(this.props.song)}
+                >
+                  {this.props.song.title}
+                </CardTitle>
+              </Link>
+            ) : this.props.song.contriblimit - this.props.song.contribcount !== 0 && !this.props.isLoggedIn ? (
+              <CardTitle image="../../images/LoginToJam.png">
                 {this.props.song.title}
               </CardTitle>
-            </Link>
-          ) : this.props.song.contriblimit - this.props.song.contribcount !== 0 && !this.props.isLoggedIn ? (
-            <CardTitle image="../../images/LoginToJam.png">
-              {this.props.song.title}
-            </CardTitle>
+            ) : (
+              <CardTitle image="http://s.bellevuecollege.edu/kbcs/uploads/2013/03/Waveform-Transmission.jpg">
+                {this.props.song.title}
+              </CardTitle>
+            )
+          }
+        >
+          <b>Genre:</b> {this.props.song.genre} <br />
+          <b>{status}</b><br />
+          <b>Started by:</b> {this.props.song.contributors[0]}
+          {!this.state.playing ? (
+            <div className="buttonContainer">
+              <Button
+                className="cardButton"
+                floating large
+                waves='light'
+                icon='play_arrow'
+                onClick={() => {
+                  songCardPlay(
+                    this.props.song,
+                    this.setPlaying.bind(this),
+                    this.setTracks.bind(this)
+                  );
+                }}
+              ></Button>
+            </div>
           ) : (
-            <CardTitle image="http://s.bellevuecollege.edu/kbcs/uploads/2013/03/Waveform-Transmission.jpg">
-              {this.props.song.title}
-            </CardTitle>
-          )
-        }
-      >
-        <b>Genre:</b> {this.props.song.genre} <br />
-        <b>{status}</b><br />
-        <b>Started by:</b> {this.props.song.contributors[0]}
-        {!this.state.playing ? (
-          <div className="buttonContainer">
-            <Button
-              className="cardButton"
-              floating large
-              waves='light'
-              icon='play_arrow'
-              onClick={() => {
-                songCardPlay(
-                  this.props.song,
-                  this.setPlaying.bind(this),
-                  this.setTracks.bind(this)
-                );
-              }}
-            ></Button>
-          </div>
-        ) : (
-          <div className="buttonContainer">
-            <Button
-              className="cardButton"
-              floating large
-              waves='light'
-              icon='stop'
-              onClick={() => {
-                songCardStop(
-                  this.state.tracks,
-                  this.setPlaying.bind(this)
-                );
-              }}
-            ></Button>
-          </div>
-        )}
+            <div className="buttonContainer">
+              <Button
+                className="cardButton"
+                floating large
+                waves='light'
+                icon='stop'
+                onClick={() => {
+                  songCardStop(
+                    this.state.tracks,
+                    this.setPlaying.bind(this)
+                  );
+                }}
+              ></Button>
+            </div>
+          )}
 
-      </Card>
-      <Collapsible popout>
-        <CollapsibleItem header='Contributors' icon='filter_drama'>
-          <ul>
-            {this.state.contributors.map(contributor => <li>{contributor}</li>)}
-          </ul>
-        </CollapsibleItem>
+        </Card>
+        <Collapsible popout>
+          <CollapsibleItem header='Contributors' icon='filter_drama'>
+            <ul>
+              {this.state.contributors.map(contributor => <li>{contributor}</li>)}
+            </ul>
+          </CollapsibleItem>
         </Collapsible>
       </div>
     );

@@ -239,7 +239,7 @@ class App extends Component {
                   isLoggedIn={this.state.isLoggedIn}
                   setCurrentSong={this.setCurrentSong}
                   currentUser={this.state.currentUser}
-                  userSongs={this.state.allSongs}
+                  userSongs={this.state.userSongs}
                 />
               )}
             />

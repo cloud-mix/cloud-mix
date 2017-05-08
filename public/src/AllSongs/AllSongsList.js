@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Grid, Button } from "react-materialize";
+import { Row, Col, Grid } from "react-materialize";
 import SongListEntry from '../SongList/SongListEntry';
 import axios from 'axios';
 import blobUtil from "blob-util";
@@ -10,10 +10,8 @@ class AllSongsList extends Component {
     super();
     this.state = {
       songs: [],
-      goodToGo: 0,
-      term: '',
-      searchedSongsA: [],
-      searchedSongsB: []
+      goodToGo: 0
+
     }
 
     this.getAllSongs = this.getAllSongs.bind(this);
@@ -21,26 +19,6 @@ class AllSongsList extends Component {
 
   componentDidMount(){
     this.getAllSongs();
-  }
-
-  handleSongSearchInput(term){
-    this.setState({term: term});
-  }
-
-  handleSongSearchClick(){
-    if(this.state.term.length > 0){
-      console.log("In the handleSongSearchClick func: ", this.state.songs);
-      console.log("In the handleSongSearchClick func: ", this.state.term);
-      this.setState({
-        searchedSongsA: this.state.songs[0].map(song => song.title.split('').includes(this.state.term.split(''))),
-        searchedSongsB: this.state.songs[1].map(song => song.title.split('').includes(this.state.term.split('')))
-      })
-    } else {
-      this.setState({
-        searchedSongsA: [],
-        searchedSongsB: []
-      });
-    }
   }
 
   getAllSongs(){
@@ -74,96 +52,34 @@ class AllSongsList extends Component {
   }
 
   render(){
-    console.log("Checking the songs: ", this.state.songs);
-    console.log("Checkin the term: ", this.state.term);
-    return this.state.searchedSongsA.length > 0 && this.state.searchedSongsB.length > 0 ?
-    (
-      <div>
-        <div>
-          <input
-          type="text"
-          placeholder={this.state.term}
-          className="searchField"
-          onChange={(e) => this.handleSongSearchInput(e.target.value)}
-          />
-          <Button
-          waves="light"
-          onClick={() => this.handleSongSearchClick()}
-          >
-            Search
-          </Button>
-        </div>
-
-        <div className="allSongs">
-          <Row className="show-grid">
-          {this.state.searchedSongsA.map(song => (
-            <Col s={6}>
-              <SongListEntry
-                song={song}
-                isLoggedIn={this.props.isLoggedIn}
-                setCurrentSong={this.props.setCurrentSong}
-                currentUser={this.props.currentUser}
-              />
-            </Col>
-          ))}
-
-          {this.state.searchedSongsB.map(song => (
-            <Col s={6}>
-              <SongListEntry
-                song={song}
-                isLoggedIn={this.props.isLoggedIn}
-                setCurrentSong={this.props.setCurrentSong}
-                currentUser={this.props.currentUser}
-              />
-            </Col>
-          ))}
-          </Row>
-        </div>
-      </div>
-    ) :
-    this.state.goodToGo > 0 ?
+    return this.state.goodToGo > 0 ?
       (
         <div>
-          <div>
-            <input
-            type="text"
-            placeholder="Search Songs..."
-            className="searchField"
-            onChange={(e) => this.handleSongSearchInput(e.target.value)}
-            />
-            <Button
-          waves="light"
-          onClick={() => this.handleSongSearchClick()}
-          >
-            Search
-          </Button>
-          </div>
-
           <div className="allSongs">
-          <Row className="show-grid">
-          {this.state.songs[0].map(song => (
-            <Col s={6}>
-              <SongListEntry
-                song={song}
-                isLoggedIn={this.props.isLoggedIn}
-                setCurrentSong={this.props.setCurrentSong}
-                currentUser={this.props.currentUser}
-              />
-            </Col>
-          ))}
+            <Row className="show-grid">
+            {this.state.songs[0].map(song => (
+              <Col s={6}>
+                <SongListEntry
+                  song={song}
+                  isLoggedIn={this.props.isLoggedIn}
+                  setCurrentSong={this.props.setCurrentSong}
+                  currentUser={this.props.currentUser}
+                />
+              </Col>
+            ))}
 
-          {this.state.songs[1].map(song => (
-            <Col s={6}>
-              <SongListEntry
-                song={song}
-                isLoggedIn={this.props.isLoggedIn}
-                setCurrentSong={this.props.setCurrentSong}
-                currentUser={this.props.currentUser}
-              />
-            </Col>
-          ))}
-          </Row>
-        </div>
+            {this.state.songs[1].map(song => (
+              <Col s={6}>
+                <SongListEntry
+                  song={song}
+                  isLoggedIn={this.props.isLoggedIn}
+                  setCurrentSong={this.props.setCurrentSong}
+                  currentUser={this.props.currentUser}
+                />
+              </Col>
+            ))}
+            </Row>
+          </div>
         </div>
     ) : <div className="loading"></div>
   };
