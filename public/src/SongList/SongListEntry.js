@@ -1,15 +1,16 @@
 import React, {Component} from "react";
 import {Link} from 'react-router-dom';
-import { Card, CardTitle, Button, Col } from "react-materialize";
+import { Card, CardTitle, Button, Col, Collapsible, CollapsibleItem } from "react-materialize";
 import songCardPlay from '../../audioHelpers/songCardPlay.js';
 import songCardStop from '../../audioHelpers/songCardStop.js';
 
 class SongListEntry extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       playing: false,
-      tracks: []
+      tracks: [],
+      contributors: this.props.song.contributors.slice(1)
     }
   }
 
@@ -24,7 +25,7 @@ class SongListEntry extends Component {
   render() {
     let status = '';
     this.props.song.contriblimit - this.props.song.contribcount === 0 ? status = `Completed` : status = `Only ${this.props.song.contriblimit - this.props.song.contribcount} jam left`;
-    return (
+    return (<div className="songListEntry">
       <Card
         className="small buttonCard"
         header={
@@ -64,7 +65,7 @@ class SongListEntry extends Component {
               }}
             ></Button>
           </div>
-        ) : (
+        ) : ( 
           <div className="buttonContainer">
             <Button
               className="cardButton"
@@ -80,7 +81,16 @@ class SongListEntry extends Component {
             ></Button>
           </div>
         )}
+        
       </Card>
+      <Collapsible popout>
+        <CollapsibleItem header='Contributors' icon='filter_drama'>
+          <ul>
+            {this.state.contributors.map(contributor => <li>{contributor}</li>)}
+          </ul>
+        </CollapsibleItem>    
+        </Collapsible>
+      </div>
     );
   };
 }

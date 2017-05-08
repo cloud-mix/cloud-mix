@@ -40,6 +40,7 @@ class App extends Component {
     this.handleSuccessfulUpload = this.handleSuccessfulUpload.bind(this);
     this.setCurrentSong = this.setCurrentSong.bind(this);
     this.handleSongCreate = this.handleSongCreate.bind(this);
+    this.setUserSongs = this.setUserSongs.bind(this);
   }
 
   setLoaded() {
@@ -69,7 +70,9 @@ class App extends Component {
   setCurrentSong(song) {
     this.setState({currentSong: song});
   }
-
+  setUserSongs(bool) {
+    this.setState({userSongs: bool});
+  }
   signupUser() {
     axios
       .post("/signup", {
@@ -188,6 +191,7 @@ class App extends Component {
         <div>
 
           <NavBar
+            setUserSongs={this.setUserSongs}
             isLoggedIn={this.state.isLoggedIn}
             logInUrl={this.state.logInUrl}
             username={this.state.currentUser}
@@ -235,6 +239,7 @@ class App extends Component {
                   isLoggedIn={this.state.isLoggedIn}
                   setCurrentSong={this.setCurrentSong}
                   currentUser={this.state.currentUser}
+                  userSongs={this.state.userSongs}
                 />
               )}
             />
