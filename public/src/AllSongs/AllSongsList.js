@@ -10,7 +10,7 @@ class AllSongsList extends Component {
     super();
     this.state = {
       songs: [],
-      goodToGo: 0
+      goodToGo: 0,
     }
 
     this.getAllSongs = this.getAllSongs.bind(this);
@@ -18,6 +18,7 @@ class AllSongsList extends Component {
 
   componentDidMount(){
     this.getAllSongs();
+
   }
 
   getAllSongs(){
@@ -25,8 +26,19 @@ class AllSongsList extends Component {
       .then((songs) => {
         console.log("In the all songs list component getting the songs: ", songs);
         convertToUrls(songs.data);
+        var userSongs = [];
+        if (this.props.userSongs) {
+          songs.data.forEach(song => {
+            if(song.contributors.includes(this.props.currentUser)){
+              userSongs.push(song);
+            }
+          })
+          userSongs = [userSongs.splice(0, Math.floor(userSongs.length / 2)), userSongs.splice(Math.floor(userSongs.length / 2), userSongs.length - 1)];
+      } else {
+          userSongs = [songs.data.splice(0, Math.floor(songs.data.length / 2)), songs.data.splice(Math.floor(songs.data.length / 2), songs.data.length - 1)];
+        }
         this.setState({
-          songs: [songs.data.splice(0, Math.floor(songs.data.length / 2)), songs.data.splice(Math.floor(songs.data.length / 2), songs.data.length - 1)]
+          songs: userSongs
         });
         this.setLoaded();
       })
@@ -40,8 +52,8 @@ class AllSongsList extends Component {
   }
 
   render(){
-    return this.state.goodToGo > 0 ? (
-      <div className="allSongs">
+    return  this.state.goodToGo > 0 ? 
+      (<div className="allSongs">
         <Row className="show-grid">
         {this.state.songs[0].map(song => (
           <Col s={6}>
@@ -66,7 +78,7 @@ class AllSongsList extends Component {
           </Col>
         ))}
         </Row>
-      </div>
+      </div>  
     ) : <div className="loading"></div>
   };
 };

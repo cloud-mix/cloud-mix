@@ -132,7 +132,7 @@ class JamView extends Component {
         <div className="jam_header">
           <h3><b>Title: </b>{this.props.currentSong.title}</h3>
           <h3><b>Genre: </b>{this.props.currentSong.genre}</h3>
-          {this.props.currentSong.contributors ? (<h3><b>Started by: </b>{this.props.currentSong.contributors}</h3>) : null}
+          {this.props.currentSong.contributors ? (<h3><b>Started by: </b>{this.props.currentSong.contributors[0]}</h3>) : null}
         </div>
 
         <div id="input" />

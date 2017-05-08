@@ -30,7 +30,7 @@ const LoggedinView = props => (
 
       <Route exact path="/" render={() => (
         <Link to="/songs">
-          <NavItem className="logout">
+          <NavItem className="logout" onClick={() => props.setUserSongs(false)}>
              Find Songs
           </NavItem>
         </Link>
@@ -45,9 +45,11 @@ const LoggedinView = props => (
 
 
       <Route exact path="/" render={() => (
-        <NavItem>
+        <Link to="/songs">
+        <NavItem onClick={() => props.setUserSongs(true)}>
           {props.username}
         </NavItem>
+        </Link>
       )}/>
 
     </Navbar>

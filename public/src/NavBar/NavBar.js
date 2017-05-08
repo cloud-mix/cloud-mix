@@ -16,6 +16,7 @@ const NavBar = props => {
         logInUrl={props.logInUrl}
       />
     : <LoggedinView
+        setUserSongs={props.setUserSongs}
         handleLogout={props.handleLogout}
         username={props.username}
         handleSongCreate={props.handleSongCreate}
