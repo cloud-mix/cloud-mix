@@ -45,7 +45,9 @@ app.use(debugReq);
 // Defines all of our "dynamic" routes.
 app.use("/", routes);
 
-app.listen(PORT);
+app.listen(PORT, '0.0.0.0', function(err){
+  console.log("Started listening on %s", app.url);
+});
 
 // Catches all 404 routes.
 app.use(function(req, res, next) {
