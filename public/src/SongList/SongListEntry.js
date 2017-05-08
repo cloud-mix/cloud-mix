@@ -84,7 +84,7 @@ class SongListEntry extends Component {
         
       </Card>
       <Collapsible popout>
-        <CollapsibleItem header='Contributors' icon='filter_drama'>
+        <CollapsibleItem header='Contributors'>
           <ul>
             {this.state.contributors.map(contributor => <li>{contributor}</li>)}
           </ul>
