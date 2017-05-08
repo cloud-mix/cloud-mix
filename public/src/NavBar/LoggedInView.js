@@ -45,7 +45,7 @@ const LoggedinView = props => (
 
 
       <Route exact path="/" render={() => (
-        <Link to="/songs">
+        <Link to="/allSongs">
         <NavItem onClick={() => props.setUserSongs(true)} className="userTag">
           {props.username}
         </NavItem>
