@@ -23,7 +23,13 @@ class SongListEntry extends Component {
 
   render() {
     let status = '';
-    this.props.song.contriblimit - this.props.song.contribcount === 0 ? status = `Completed` : status = `Only ${this.props.song.contriblimit - this.props.song.contribcount} jam left`;
+    this.props.song.contriblimit - this.props.song.contribcount === 0 ? (
+        status = `Completed`
+      ) : this.props.song.contriblimit - this.props.song.contribcount > 1 ? (
+        status = `Only ${this.props.song.contriblimit - this.props.song.contribcount} jams left`
+      ) : (
+        status = `Only ${this.props.song.contriblimit - this.props.song.contribcount} jam left`
+      )
     return (
       <Card
         className="small buttonCard"
