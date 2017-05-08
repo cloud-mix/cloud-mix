@@ -173,3 +173,16 @@ a {
 .loginInput{
   font-family: sans-serif;
 }
+
+.bottom-sheet > .modal-content {
+  background-image: none !important;
+}
+
+.grey-text{
+  cursor: pointer;
+}
+
+.portrait{
+  margin: 0 auto;
+  width: 50%;
+}

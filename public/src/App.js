@@ -10,7 +10,7 @@ import { Footer } from "react-materialize";
 import Jumbotron from "./Jumbotron";
 import SweetAlert from "sweetalert-react";
 import convertToUrls from '../audioHelpers/convertToUrls.js';
-import footerModal from './footerModal.js';
+import FooterModal from './FooterModal.js';
 import getSongs from '../audioHelpers/getSongs.js';
 
 class App extends Component {
@@ -257,7 +257,9 @@ class App extends Component {
           <Footer
             copyrights="&copy; 2017 Cloudmix"
             moreLinks={
-              <footerModal />
+
+                <FooterModal />
+
             }
           />
           <SweetAlert
