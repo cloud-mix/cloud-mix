@@ -38,13 +38,13 @@ class SongListEntry extends Component {
           className="small buttonCard"
           header={
             this.props.song.contriblimit - this.props.song.contribcount !== 0 && this.props.isLoggedIn && !this.props.song.contributors.includes(this.props.currentUser) ? (
-              <Link to="jam">
+              
                 <CardTitle image="../../images/ComeJam.png"
                   onClick={() => this.props.setCurrentSong(this.props.song)}
                 >
-                  {this.props.song.title}
+                <Link to="jam" className="comeJamLink">  {this.props.song.title}</Link>
                 </CardTitle>
-              </Link>
+              
             ) : this.props.song.contriblimit - this.props.song.contribcount !== 0 && !this.props.isLoggedIn ? (
               <CardTitle image="../../images/LoginToJam.png">
                 {this.props.song.title}
