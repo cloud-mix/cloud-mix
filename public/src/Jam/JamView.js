@@ -124,6 +124,7 @@ class JamView extends Component {
 
 
   render() {
+    console.log("IN JAMVIEW CURRENT SONG IS", this.props.currentSong);
     this.state.firstRec ?
       waveformVisual(this.props.currentSong.url[this.props.currentSong.url.length - 1], this.state.wavesurfer) : null;
     return (
@@ -131,7 +132,7 @@ class JamView extends Component {
         <div className="jam_header">
           <h3><b>Title: </b>{this.props.currentSong.title}</h3>
           <h3><b>Genre: </b>{this.props.currentSong.genre}</h3>
-          <h3><b>Started by: </b>{this.props.currentSong.contributors[0]}</h3>
+          {this.props.currentSong.contributors ? (<h3><b>Started by: </b>{this.props.currentSong.contributors}</h3>) : null}
         </div>
 
         <div id="input" />
