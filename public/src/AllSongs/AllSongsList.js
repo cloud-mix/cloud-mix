@@ -53,34 +53,31 @@ class AllSongsList extends Component {
 
   render(){
     return this.state.goodToGo > 0 ?
-      (
-        <div>
-          <div className="allSongs">
-            <Row className="show-grid">
-            {this.state.songs[0].map(song => (
-              <Col s={6}>
-                <SongListEntry
-                  song={song}
-                  isLoggedIn={this.props.isLoggedIn}
-                  setCurrentSong={this.props.setCurrentSong}
-                  currentUser={this.props.currentUser}
-                />
-              </Col>
-            ))}
+      (<div className="allSongs">
+        <Row className="show-grid">
+          <Col s={6}>
+          {this.state.songs[0].map(song => (
+              <SongListEntry
+                song={song}
+                isLoggedIn={this.props.isLoggedIn}
+                setCurrentSong={this.props.setCurrentSong}
+                currentUser={this.props.currentUser}
+              />
+          ))}
+          </Col>
+          <Col s={6}>
+          {this.state.songs[1].map(song => (
+              <SongListEntry
+                song={song}
+                isLoggedIn={this.props.isLoggedIn}
+                setCurrentSong={this.props.setCurrentSong}
+                currentUser={this.props.currentUser}
 
-            {this.state.songs[1].map(song => (
-              <Col s={6}>
-                <SongListEntry
-                  song={song}
-                  isLoggedIn={this.props.isLoggedIn}
-                  setCurrentSong={this.props.setCurrentSong}
-                  currentUser={this.props.currentUser}
-                />
-              </Col>
-            ))}
-            </Row>
-          </div>
-        </div>
+              />
+          ))}
+          </Col>
+        </Row>
+      </div>
     ) : <div className="loading"></div>
   };
 };
