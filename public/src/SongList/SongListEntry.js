@@ -24,26 +24,35 @@ class SongListEntry extends Component {
 
   render() {
     let status = '';
-    this.props.song.contriblimit - this.props.song.contribcount === 0 ? status = `Completed` : status = `Only ${this.props.song.contriblimit - this.props.song.contribcount} jam left`;
-    return (<div className="songListEntry">
+
+    this.props.song.contriblimit - this.props.song.contribcount === 0 ? (
+        status = `Completed`
+      ) : this.props.song.contriblimit - this.props.song.contribcount > 1 ? (
+        status = `Only ${this.props.song.contriblimit - this.props.song.contribcount} jams left`
+      ) : (
+        status = `Only ${this.props.song.contriblimit - this.props.song.contribcount} jam left`
+      )
+    return (
       <Card
         className="small buttonCard"
         header={
-          <CardTitle image="http://s.bellevuecollege.edu/kbcs/uploads/2013/03/Waveform-Transmission.jpg">
-            {this.props.song.title}
-            {this.props.song.contriblimit - this.props.song.contribcount !== 0 && this.props.isLoggedIn && !this.props.song.contributors.includes(this.props.currentUser) ? (
-              <Link to="/jam">
-                <div className="jamRequest"
-                  onClick={() => {
-                    this.props.setCurrentSong(this.props.song);
-                  }}
-                >Come Jam !</div>
-                </Link>
-            ) : null}
-            {this.props.song.contriblimit - this.props.song.contribcount !== 0 && !this.props.isLoggedIn ? (
-              <div className="jamRequest">Log In to Jam !</div>
-            ) : null}
-          </CardTitle>
+          this.props.song.contriblimit - this.props.song.contribcount !== 0 && this.props.isLoggedIn && !this.props.song.contributors.includes(this.props.currentUser) ? (
+            <Link to="jam">
+              <CardTitle image="../../images/ComeJam.png"
+                onClick={() => this.props.setCurrentSong(this.props.song)}
+              >
+                {this.props.song.title}
+              </CardTitle>
+            </Link>
+          ) : this.props.song.contriblimit - this.props.song.contribcount !== 0 && !this.props.isLoggedIn ? (
+            <CardTitle image="../../images/LoginToJam.png">
+              {this.props.song.title}
+            </CardTitle>
+          ) : (
+            <CardTitle image="http://s.bellevuecollege.edu/kbcs/uploads/2013/03/Waveform-Transmission.jpg">
+              {this.props.song.title}
+            </CardTitle>
+          )
         }
       >
         <b>Genre:</b> {this.props.song.genre} <br />
@@ -65,7 +74,7 @@ class SongListEntry extends Component {
               }}
             ></Button>
           </div>
-        ) : ( 
+        ) : (
           <div className="buttonContainer">
             <Button
               className="cardButton"
@@ -81,14 +90,14 @@ class SongListEntry extends Component {
             ></Button>
           </div>
         )}
-        
+
       </Card>
       <Collapsible popout>
         <CollapsibleItem header='Contributors' icon='filter_drama'>
           <ul>
             {this.state.contributors.map(contributor => <li>{contributor}</li>)}
           </ul>
-        </CollapsibleItem>    
+        </CollapsibleItem>
         </Collapsible>
       </div>
     );

@@ -10,7 +10,7 @@ const FooterModal = () => (
       <a className="grey-text text-lighten-4 right">About</a>
     }>
     <div className="portrait">
-      <img src="../images/about_us.png" />
+      <img src="../images/about_us.png" className="portraitImg"/>
     </div>
   </Modal>
 )
