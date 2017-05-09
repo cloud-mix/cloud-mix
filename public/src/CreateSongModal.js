@@ -6,6 +6,8 @@ var title = "";
 var genre = "";
 var contriblimit = 2;
 
+//modal that appears when you create a new jam
+
 const CreateSongModal = props => {
   return (
     <Modal
