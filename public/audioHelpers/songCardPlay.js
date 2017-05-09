@@ -1,5 +1,10 @@
 import {Howl} from 'howler';
 
+// play all track on a song card in SongListEntry
+  //arguments:
+    // song: song object
+    // playCb: callback to set playing to a boolean to state (for play/stop toggle)
+    // tracksCb: callback to set tracks to state (use for stop)
 const songCardPlay = (song, playCb, tracksCb) => {
   let tracks = [];
   playCb();

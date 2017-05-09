@@ -1,6 +1,12 @@
 let constraints = {audio: true};
 let chunks = [];
 
+// use getUserMedia to get access to user's microphone
+// and create the recorder.
+  // arguments:
+    // urlsCb: callback to set newly recorded data as a url to the state
+    // recCb: callback to set the recorder objects to state
+    // blobCb: callback to set newly recorded blob to state
 const getUserMedia = (urlsCb, recCb, blobCb) => {
   if (navigator.getUserMedia) {
     console.log('getUserMedia supported');

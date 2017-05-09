@@ -1,7 +1,11 @@
 import WaveSurfer from 'wavesurfer';
 import '../../node_modules/wavesurfer/dist/plugin/wavesurfer.microphone.min.js';
 
-
+// creates a new audio context to render visual audio input
+// on JamView
+  // arguments:
+    // waveCb: callback to set wavesurfer object to state
+    // context: callback to set audio context to state to destroy it
 const inputVisual = (waveCb, contextCb) => {
   let inputWave = WaveSurfer.create({
     container: '#input',
