@@ -1,5 +1,13 @@
 import {Howl} from 'howler';
 
+// multitrack playback for JamView
+  // arguments:
+    // urls: array of urls to be played
+    // offset: latency offset set by user
+    // playCb: callback to set playing to a boolean for play/stop toggle
+    // trackCb: callback to set new howler on state (use to in all stop function)
+    // firstCb: callback to set firstRec to boolean on first track recording
+    // offsets: array of offsets value for tracks
 const play = (urls, offset, playCb, trackCb, firstRec, offsets) => {
   let last = urls.length - 1;
   let tracks = [];
