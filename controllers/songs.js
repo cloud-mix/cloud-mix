@@ -4,6 +4,8 @@ var User = require('../models/user').User;
 var Song = require('../models/song');
 var blobUtil = require('blob-util');
 
+
+//Post A Song to the DB
 var postSong = function(req, res){
   Song.findOne({where: {title: req.body.title, genre: req.body.genre}})
   .then((song) => {
@@ -30,6 +32,7 @@ var postSong = function(req, res){
   });
 }
 
+//Get 3 Most Recentlty Completed Songs from the DB
 var getMostRecentSongs = function(req, res){
   Song.findAll({ where: { completion: 1.0 }, limit: 3, order: '"updatedAt" DESC' })
     .then((songs) => {
@@ -41,6 +44,8 @@ var getMostRecentSongs = function(req, res){
     })
 };
 
+
+//Get 3 Soonest To Be Completed Songs from the DB
 var getSoonToBeCompleted = function(req, res){
   Song.findAll({ where: { completion: { $lt: 1.0 }}, limit: 3, order: '"completion" DESC' })
     .then((songs) => {
@@ -52,6 +57,8 @@ var getSoonToBeCompleted = function(req, res){
     })
 };
 
+
+//Get All Songs from the DB
 var getSongs = function(req, res){
   Song.findAll({})
     .then((songs) => {
@@ -64,6 +71,7 @@ var getSongs = function(req, res){
 };
 
 
+//Put Request To Update A Song in the DB
 var updateSong = function(req, res){
   Song.findOne({where: { title: req.body.title, genre: req.body.genre }})
   .then((song) => {
