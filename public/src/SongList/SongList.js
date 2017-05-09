@@ -4,8 +4,8 @@ import { Row, Col, Grid, Preloader } from "react-materialize";
 import axios from 'axios';
 import convertToUrls from '../../audioHelpers/convertToUrls.js';
 
+//created in App, has many song entries
 const SongList = (props) => {
-
     return props.loaded >= 2 ? (
       <div>
         <Row className="show-grid">

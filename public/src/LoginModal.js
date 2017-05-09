@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Modal, NavItem } from "react-materialize";
 
+//modal that appears when Login is clicked. Created in logged out view
 class LoginModal extends React.Component {
   constructor() {
     super();

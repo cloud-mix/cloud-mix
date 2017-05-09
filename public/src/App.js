@@ -43,10 +43,12 @@ class App extends Component {
     this.setUserSongs = this.setUserSongs.bind(this);
   }
 
+
   setLoaded() {
     this.setState({loaded: this.state.loaded + 1});
   }
 
+  // handles user login
   loginUser() {
     axios
       .get(
@@ -67,12 +69,17 @@ class App extends Component {
         }
       });
   }
+
   setCurrentSong(song) {
     this.setState({currentSong: song});
   }
+
+  //if true is passed in then only the users songs will appear in all songs list
   setUserSongs(bool) {
     this.setState({userSongs: bool});
   }
+
+
   signupUser() {
     axios
       .post("/signup", {
@@ -93,6 +100,7 @@ class App extends Component {
       });
   }
 
+  //shows success sweetAlert
   handleSuccessfulUpload() {
     this.setState({showUploadSuccess: true})
   }
@@ -174,13 +182,14 @@ class App extends Component {
       url: [],
       offsets: []
     }})
-    console.log("IN HANDLE SONG CREATE, state is", this.state);
   }
 
+  //sets the wavesurfer object to the state 
   setWavesurfer(wave) {
     this.setState({wavesurfer: wave});
   }
 
+  //same as above but for live input
   setWaveInput(wave) {
     this.setState({waveInput: wave});
   }

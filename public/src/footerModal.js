@@ -1,6 +1,8 @@
 import React from 'react';
 import {Modal} from 'react-materialize';
 
+// modal that appears when you click about in the footer
+
 const FooterModal = () => (
   <Modal
     header='About us'

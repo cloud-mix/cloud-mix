@@ -2,6 +2,7 @@ var React = require("react");
 var Carousel = require("nuka-carousel");
 import SongListEntry from './SongList/SongListEntry.js';
 
+
 const Jumbotron = props => {
   mixins: [Carousel.ControllerMixin];
     return (
