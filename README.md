@@ -1,6 +1,10 @@
 ## Cloud-Mix
+
+![screenshot](public/images/SplashPage.png)
   
 <b>This app is a platform for online musicians, songwriters, and producers to come together and mash up a quick jam session to create a song communaly.</b>
+
+![screenshot](public/images/JamView.png)
 
 
 <b>To get the app started, fork and clone the repo. Once done, run</b>
@@ -33,6 +37,7 @@ Scrum Master: <a href="http://alex1100.software">Alex Raffe Aleksanyan</a>
 - Axios
 - Express
 - WaveSurfer
+![screenshot](public/images/JamSubmitted.png)
 - Webpack
 - Bcrypt
 - Nuka-Carousel
