@@ -1,9 +1,9 @@
 ## Cloud-Mix
   
-<b>This app is a platform for online musicians, songwriters, and producers to come together and mash up a quick jam session to create a song communaly.</b>
+<b>This app is a platform for online musicians, songwriters, and producers to come together and mash up a quick jam session to create a song communally.</b>
 
 
-Lead Developer: <a href="https://www.github.com/dsousadev">David Desousa</a>
+Lead Developer: <a href="https://www.github.com/dsousadev">David de Sousa</a>
 
 Product Owner: <a href="https://www.github.com/Hugodol">Hugo Dolemieux</a>
 
