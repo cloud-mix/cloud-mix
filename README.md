@@ -2,7 +2,7 @@
 
 ![screenshot](public/images/SplashPage.png)
   
-<b>This app is a platform for online musicians, songwriters, and producers to come together and mash up a quick jam session to create a song communaly.</b>
+<b>This app is a platform for online musicians, songwriters, and producers to come together and mash up a quick jam session to create a song communally.</b>
 
 ![screenshot](public/images/JamView.png)
 
@@ -17,7 +17,7 @@ and run</b> <code>npm run compile</code> <b>in another terminal window</b>
 - Elephant SQL (Pretty Panda Tier Recommended)
 - Latest Version Of Node, Google Chrome and React
 
-Lead Developer: <a href="https://www.github.com/dsousadev">David Desousa</a>
+Lead Developer: <a href="https://www.github.com/dsousadev">David de Sousa</a>
 
 Product Owner: <a href="https://www.github.com/Hugodol">Hugo Dolemieux</a>
 
