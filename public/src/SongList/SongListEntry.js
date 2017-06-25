@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import { Card, CardTitle, Button, Col, Collapsible, CollapsibleItem } from "react-materialize";
 import songCardPlay from '../../audioHelpers/songCardPlay.js';
 import songCardStop from '../../audioHelpers/songCardStop.js';
-import '../console.image.js';
 import axios from 'axios';
 
 //created in song list
@@ -20,10 +19,7 @@ class SongListEntry extends Component {
     
   }
   componentDidMount() {
-    axios.get("https://api.imgflip.com/get_memes").then(memes => {
-      console.log("memes are", memes);
-      this.setState({memes: memes.data.data.memes})
-    })
+
   }
 
   setPlaying() {
@@ -35,9 +31,7 @@ class SongListEntry extends Component {
   }
 
   render() {
-    if (this.state.memes) {
-      console.image(this.state.memes[Math.floor(Math.random() * 99)].url);
-    }
+
     
     let status = '';
 
