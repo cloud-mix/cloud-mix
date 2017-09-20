@@ -36,9 +36,6 @@ app.use(logger("dev"));
 // Routes to static assets. Uncomment below if you have a favicon.
 app.use(express.static(path.join(__dirname, "public")));
 
-app.set("views", path.join(__dirname, "public"));
-app.set("view engine", "html");
-
 // Useful for debugging the state of requests.
 app.use(debugReq);
 
